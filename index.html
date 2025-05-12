@@ -12,11 +12,14 @@
       color: #111;
     }
     .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 40px 80px;
-      position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 40px 80px;
+  position: relative;
+  height: calc(100vh - 100px); /* Adjust height to fit screen minus navbar & pagination */
+  }
+
     }
     .text-section {
       max-width: 40%;
@@ -66,15 +69,17 @@
     .pagination .active {
       color: #ff007f;
     }
-    .pink-stripe {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 200px;
-      height: 300px;
-      background: #ff007f;
-      z-index: -1;
+.pink-stripe {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 300px;
+  background: #ff007f;
+  z-index: -1;
+}
+
     }
     .navbar {
       position: absolute;
