@@ -12,15 +12,14 @@
       color: #111;
     }
     
-    .navbar {
+    .navbar 
+    {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
-
-  }
-
     }
+
     .text-section {
       max-width: 40%;
     }
@@ -39,21 +38,24 @@
       color: #333;
       margin-top: 20px;
     }
+
 .image-section {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end; /* align image up or down */
-  width: 100%;
-  height: 100%; /* Control height for vertical alignment */
-  position: absolute;
-  z-index: -2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: auto;
+  z-index: -1;
 }
 
 .image-section img {
-  max-width: 1500%;
-  max-height: 1500%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
+
+
+
  
     .pagination {
       position: absolute;
@@ -81,7 +83,7 @@
   z-index: -1;
 }
 
-    }
+
     .navbar {
       position: absolute;
       top: 20px;
@@ -92,18 +94,22 @@
       font-size: 14px;
       font-family: sans-serif;
       align-items: center;
+      z-index: 1;
     }
     .navbar .logo {
-      font-family: 'Brush Script MT', cursive;
+      font-family: "Brush Script MT", cursive;
       font-size: 28px;
+      z-index: 1;
     }
     .navbar nav a {
       margin: 0 15px;
       text-decoration: none;
       color: #ffffff;
+      z-index: 1;
     }
     .navbar .lang {
       font-size: 12px;
+      z-index: 1;
     }
   </style>
 </head>
@@ -113,7 +119,7 @@
     <div class="logo">Zaz</div>
     <nav>
       <a href="#">Home</a>
-      <a href="#">About</a>
+      <a href="#">About</as>
       <a href="#">Contact</a>
     </nav>
     <div class="lang">EN</div>
