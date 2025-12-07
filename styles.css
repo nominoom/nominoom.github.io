@@ -31,6 +31,10 @@
 :root {
   /* Background gradient start */
   --bg: #272727;
+  --font-science: "Science Gothic", sans-serif;
+  --sc-slnt: 0;
+  --sc-wdth: 100;
+  --sc-ctrs: 0;
 
   /* Full-bleed hero background
      - Use `.hero-bleed` when you want the background image to reach
@@ -66,8 +70,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     z-index: -1;
     pointer-events: none;
@@ -83,7 +87,7 @@
     font-size: 5.75rem;
     color: rgb(255, 255, 255);
     margin: .25rem 0;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-science);
   }
 
   .hero-lead {
@@ -91,6 +95,7 @@
     max-width: 60ch;
     margin: 0.5rem auto;
     font-family:'Courier New', Courier, monospace;
+    font-size: 1rem;
   }
 
   /* Social media links container */
@@ -100,6 +105,8 @@
     align-items: center;
     gap: 1.5rem;
     margin-top: 1.5rem;
+    flex-wrap: wrap;
+    padding: 0 1rem;
   }
 
   /* Social media icon buttons */
@@ -471,12 +478,29 @@ main#main {
    Responsive adjustments
    - Tweak the layout on narrower viewports.
    ------------------------------------------------------------------ */
+
+/* Tablet and smaller desktop */
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  
+  .hero-title {
+    font-size: 3.5rem !important;
+  }
+  
+  .social-btn {
+    width: 44px !important;
+    height: 44px !important;
+  }
+  
+  .social-btn svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
 }
 
+/* Mobile devices */
 @media (max-width: 640px) {
   .nav-toggle {
     display: inline-block;
@@ -502,6 +526,68 @@ main#main {
 
   .grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Scale hero title for mobile */
+  .hero-title {
+    font-size: 2.5rem !important;
+    padding: 0 1rem;
+  }
+  
+  .hero-lead {
+    font-size: 0.9rem !important;
+    padding: 0 1rem;
+  }
+  
+  /* Adjust social buttons for mobile */
+  .social-links {
+    gap: 1rem !important;
+  }
+  
+  .social-btn {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .social-btn svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  
+  /* Make container padding smaller on mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Adjust header for mobile */
+  .site-header {
+    padding: 0.75rem 0;
+  }
+  
+  .site-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 2rem !important;
+  }
+  
+  .social-links {
+    gap: 0.75rem !important;
+  }
+  
+  .social-btn {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  
+  .social-btn svg {
+    width: 20px !important;
+    height: 20px !important;
   }
 }
 
