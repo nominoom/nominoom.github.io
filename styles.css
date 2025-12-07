@@ -80,9 +80,10 @@
   }
 
   .hero-title {
-    font-size: 1.75rem;
+    font-size: 5.75rem;
+    color: rgb(255, 255, 255);
     margin: .25rem 0;
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
   }
 
   .hero-lead {
@@ -300,23 +301,6 @@ main#main {
    Hero
    - A simple central intro block with a title and a lead paragraph.
    ------------------------------------------------------------------ */
-.hero {
-  text-align: center;
-  background-image: url('randomPerson.jpg');
-}
-
-.hero-title {
-  font-weight: 700;
-  font-size: 1.75rem;
-  margin: .25rem 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.hero-lead {
-  color: var(--muted);
-  max-width: 60ch;
-  margin: 0.5rem auto;
-}
 
 /* Timeline section - fills viewport with heading at top and scroller below */
 .timeline-section {
