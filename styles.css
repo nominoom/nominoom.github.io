@@ -306,6 +306,7 @@ main#main {
 }
 
 .hero-title {
+  font-weight: 700;
   font-size: 1.75rem;
   margin: .25rem 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

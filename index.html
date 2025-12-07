@@ -81,6 +81,35 @@
     <!-- ================================================================
          SCRIPTS
          ================================================================ -->
+        <div id="spotify-widget">
+  <img id="album-art" width="80" style="border-radius:8px">
+  <div>
+    <h3 id="song"></h3>
+    <p id="artist"></p>
+  </div>
+</div>
+
+<script>
+async function updateSpotify() {
+  const res = await fetch("https://YOUR-SERVER-URL/now-playing");
+  const data = await res.json();
+
+  if (!data.isPlaying) {
+    document.getElementById("song").innerText = "Not Playing";
+    document.getElementById("artist").innerText = "";
+    document.getElementById("album-art").src = "";
+    return;
+  }
+
+  document.getElementById("song").innerText = data.song;
+  document.getElementById("artist").innerText = data.artists;
+  document.getElementById("album-art").src = data.albumArt;
+}
+
+// Update every 10 seconds
+setInterval(updateSpotify, 10000);
+updateSpotify();
+</script>
 
     <!-- Main JavaScript: handles mobile nav toggle, skip-link, timeline scroll lock -->
     <script src="main.js" defer></script>
