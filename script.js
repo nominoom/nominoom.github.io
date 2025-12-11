@@ -6,7 +6,20 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particlesArray = [];
-const numberOfParticles = 200; // Denser web looks better with this effect
+
+// Particle density: number of particles per 10,000 square pixels
+// Adjust this value to control density (higher = more particles)
+// For example: 5 means 5 particles per 10,000 px² (100px × 100px)
+const PARTICLE_DENSITY = 2;
+
+// Calculate number of particles based on screen area
+function calculateParticleCount() {
+    const screenArea = canvas.width * canvas.height;
+    const areaUnit = 10000; // Base unit: 10,000 px² (100px × 100px)
+    return Math.floor((screenArea / areaUnit) * PARTICLE_DENSITY);
+}
+
+let numberOfParticles = calculateParticleCount();
 
 // 2. MOUSE & TOUCH TRACKING
 const mouse = {
@@ -42,6 +55,7 @@ window.addEventListener('mouseout', () => {
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    numberOfParticles = calculateParticleCount(); // Recalculate based on new size
     init();
 });
 
