@@ -24,6 +24,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -51,10 +54,8 @@
         <!-- Full-bleed hero section: background video spans both page edges -->
         <section class="hero-bleed" id="home" aria-label="Intro">
             <!-- Background video that loops and fills the screen -->
-            <video autoplay muted loop playsinline class="hero-video">
-                <source src="YTDown.com_YouTube_Abstract-purple-Lines-Light-Waves-Backgr_Media_Sa4Z91dn1eo_001_1080p.mp4" type="video/mp4">
-            </video>
-
+            <canvas id="particle-canvas"></canvas>
+                <div class="content">
             <div class="container hero-content">
 
                  <h2 class="hero-title">Dummy King:</h2>
@@ -89,41 +90,14 @@
         <!-- ========== TIMELINE SECTION ========== -->
         <!-- Horizontal scrollable timeline showcasing key events -->
         
-
+        
+   
     <!-- ================================================================
          SCRIPTS
          ================================================================ -->
-        <div id="spotify-widget">
-  <img id="album-art" width="80" style="border-radius:8px">
-  <div>
-    <h3 id="song"></h3>
-    <p id="artist"></p>
-  </div>
-</div>
-
-<script>
-async function updateSpotify() {
-  const res = await fetch("https://YOUR-SERVER-URL/now-playing");
-  const data = await res.json();
-
-  if (!data.isPlaying) {
-    document.getElementById("song").innerText = "Not Playing";
-    document.getElementById("artist").innerText = "";
-    document.getElementById("album-art").src = "";
-    return;
-  }
-
-  document.getElementById("song").innerText = data.song;
-  document.getElementById("artist").innerText = data.artists;
-  document.getElementById("album-art").src = data.albumArt;
-}
-
-// Update every 10 seconds
-setInterval(updateSpotify, 10000);
-updateSpotify();
-</script>
-
     <!-- Main JavaScript: handles mobile nav toggle, skip-link, timeline scroll lock -->
     <script src="main.js" defer></script>
+     <script src="quadtree.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
