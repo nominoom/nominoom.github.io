@@ -187,13 +187,13 @@ body {
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding: 0.5rem;
     z-index: 1001;
 }
 
 .menu-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     display: block;
     transition: transform 0.3s;
 }
@@ -208,6 +208,7 @@ body {
     gap: 45px;
     margin-left: auto;
     color: white;
+    transition: all 0.3s ease;
 }
 
 .nav-bar-links a {
@@ -223,6 +224,45 @@ body {
 .nav-bar-links a:hover {
     color: purple;
     font-size: 25px;
+}
+
+/* Mobile navbar */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-bar-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        padding: 5rem 2rem 2rem;
+        gap: 2rem;
+        margin: 0;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        border-left: 2px solid rgba(119, 0, 255, 0.5);
+    }
+    
+    .nav-bar-links.active {
+        right: 0;
+    }
+    
+    .nav-bar-links a {
+        font-size: 1.2rem;
+        text-align: left;
+        width: 100%;
+    }
+    
+    .nav-bar-links a:hover {
+        font-size: 1.3rem;
+        padding-left: 0.5rem;
+    }
 }
 
 
@@ -601,7 +641,7 @@ body {
 
 
 /* ------------------------------------------------------------------
-   FOCUS STYLES
+   FOCUS STYLES & TOUCH OPTIMIZATION
    ------------------------------------------------------------------ */
 button:focus,
 a:focus,
@@ -609,6 +649,28 @@ input:focus,
 textarea:focus {
   outline: 3px solid rgba(255, 255, 255, 0.219);
   outline-offset: 3px;
+}
+
+/* Improve touch targets for mobile */
+@media (max-width: 768px) {
+  button, a, .pad, .egg-box {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Prevent text selection on interactive elements */
+  .pad, .egg-box, .music-card, .graffiti-card, .skill-card {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Smooth scrolling on mobile */
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 
@@ -632,6 +694,19 @@ textarea:focus {
   font-weight: bold;
   padding: 1rem 2rem;
   border-radius: var(--radius);
+}
+
+@media (max-width: 640px) {
+  .toyTitle {
+    font-size: 2rem;
+    top: 10%;
+    width: 90%;
+  }
+  
+  .toyTitle-text {
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+  }
 }
 
 /* ------------------------------------------------------------------

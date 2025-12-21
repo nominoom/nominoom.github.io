@@ -1,23 +1,22 @@
 // Music Track Audio Hover Effect
 const musicCards = document.querySelectorAll('.music-card');
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
 musicCards.forEach(card => {
   const audio = card.querySelector('audio');
   let fadeInterval;
+  let isPlaying = false;
   
   if (audio) {
     // Start playing immediately but at volume 0
     audio.volume = 0;
     audio.play().catch(err => {
       // Auto-play might be blocked, will play on first interaction
-      console.log('Audio autoplay blocked, will play on hover');
+      console.log('Audio autoplay blocked, will play on interaction');
     });
     
-    card.addEventListener('mouseenter', function(e) {
-      // Prevent navigation on hover
-      e.preventDefault();
-      
-      // Clear any existing fade interval
+    // Function to fade in audio
+    function fadeIn() {
       if (fadeInterval) clearInterval(fadeInterval);
       
       // Ensure audio is playing
@@ -25,7 +24,6 @@ musicCards.forEach(card => {
         audio.play().catch(err => console.log('Play failed:', err));
       }
       
-      // Fade in audio
       fadeInterval = setInterval(() => {
         if (audio.volume < 0.7) {
           audio.volume = Math.min(0.7, audio.volume + 0.05);
@@ -33,13 +31,12 @@ musicCards.forEach(card => {
           clearInterval(fadeInterval);
         }
       }, 30);
-    });
+    }
     
-    card.addEventListener('mouseleave', function() {
-      // Clear any existing fade interval
+    // Function to fade out audio
+    function fadeOut() {
       if (fadeInterval) clearInterval(fadeInterval);
       
-      // Fade out audio
       fadeInterval = setInterval(() => {
         if (audio.volume > 0.05) {
           audio.volume = Math.max(0, audio.volume - 0.05);
@@ -48,19 +45,83 @@ musicCards.forEach(card => {
           clearInterval(fadeInterval);
         }
       }, 30);
-    });
+    }
     
-    // Prevent click from navigating immediately, allow audio to play
-    card.addEventListener('click', function(e) {
-      // Only navigate if audio has been playing for a bit (user wants to go to the link)
-      if (audio.volume > 0.5) {
-        return true; // Allow navigation
-      } else {
-        e.preventDefault(); // Prevent navigation on first click
-      }
-    });
+    if (isMobile) {
+      // Mobile: Tap to toggle audio, second tap to navigate
+      card.addEventListener('click', function(e) {
+        if (!isPlaying) {
+          e.preventDefault();
+          fadeIn();
+          isPlaying = true;
+          card.style.borderColor = 'rgba(119, 0, 255, 1)';
+        } else if (audio.volume < 0.5) {
+          e.preventDefault();
+          fadeIn();
+        }
+        // If already playing at high volume, allow navigation
+      });
+      
+      // Fade out when scrolling away from the card
+      let observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting && isPlaying) {
+            fadeOut();
+            isPlaying = false;
+            card.style.borderColor = '';
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      observer.observe(card);
+    } else {
+      // Desktop: Hover behavior
+      card.addEventListener('mouseenter', function(e) {
+        e.preventDefault();
+        fadeIn();
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        fadeOut();
+      });
+      
+      // Prevent click from navigating immediately
+      card.addEventListener('click', function(e) {
+        if (audio.volume < 0.5) {
+          e.preventDefault();
+        }
+      });
+    }
   }
 });
+
+// Mobile Navbar Toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-bar-links');
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+  });
+  
+  // Close menu when clicking a link
+  const navLinkItems = navLinks.querySelectorAll('a');
+  navLinkItems.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.classList.remove('active');
+      menuToggle.classList.remove('active');
+    });
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target) && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      menuToggle.classList.remove('active');
+    }
+  });
+}
 
 // Interactive Beat Pad
 let beatCount = 0;
