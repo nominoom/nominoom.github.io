@@ -1,0 +1,65 @@
+<!doctype html>
+<!--
+    index.html
+    ---------
+    A small, semantic HTML starter page for AirozUniverse.
+
+    This file demonstrates accessible patterns beginners should learn:
+    - Use semantic elements: <header>, <main>, <section>, <aside>, <footer>
+    - Provide a visible skip link for keyboard users
+    - Use ARIA attributes on interactive controls (e.g., the mobile nav button)
+    - Keep forms labeled so screen readers can announce them properly
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nominoom</title>
+    <meta name="description" content="Nominooms website"> 
+
+    <!-- Optional: web font used in the stylesheet -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+<body>
+    <!-- ================================================================
+         HEADER & NAVIGATION
+         ================================================================ -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <img src="lakeshorelockservicenavbutton.png" alt="Menu" class="menu-icon">
+            </button>
+            <ul class="nav-bar-links">
+                <li><a href="index.html#home">HOME</a></li>
+                <li><a href="index.html#about">ABOUT ME</a></li>
+                <li><a href="ToyPage.html">SANDBOX</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main id="main" role="main">
+
+        <!-- ========== HERO SECTION ========== -->
+        <!-- Full-bleed hero section: background video spans both page edges -->
+        <section class="hero-bleed" id="home" aria-label="Intro">
+            <!-- Background video that loops and fills the screen -->
+            <canvas id="particle-canvas"></canvas>
+            <div class="toyTitle">
+                <h1 class="toyTitle-text">Toy with the background &lt;3 </h1>
+            </div>
+        </section>
+    <script src="Javascript/main.js" defer></script>
+     <script src="Javascript/quadtree.js"></script>
+    <script src="Javascript/script.js"></script>
+</body>
+</html>

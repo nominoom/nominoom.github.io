@@ -1,0 +1,136 @@
+/* ------------------------------------------------------------------
+   MUSIC SHOWCASE SECTION
+   ------------------------------------------------------------------ */
+
+.music-section {
+  padding: 4rem 2rem;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.music-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  margin-top: -1.5rem;
+  margin-bottom: 2.5rem;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.music-card {
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(119, 0, 255, 0.5);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.music-card audio {
+  display: none;
+}
+
+.music-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(119, 0, 255, 1);
+  box-shadow: 0 15px 40px rgba(119, 0, 255, 0.4);
+}
+
+.vinyl-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.music-card:hover .vinyl-icon {
+  animation-duration: 2s;
+}
+
+.music-card h3 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.genre {
+  color: rgba(119, 0, 255, 0.9);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.waveform {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+  height: 50px;
+}
+
+.waveform span {
+  width: 4px;
+  background: linear-gradient(to top, rgba(119, 0, 255, 0.8), rgba(255, 0, 255, 0.8));
+  border-radius: 2px;
+  animation: wave 1s ease-in-out infinite;
+}
+
+.waveform span:nth-child(1) { height: 20%; animation-delay: 0s; }
+.waveform span:nth-child(2) { height: 40%; animation-delay: 0.1s; }
+.waveform span:nth-child(3) { height: 60%; animation-delay: 0.2s; }
+.waveform span:nth-child(4) { height: 80%; animation-delay: 0.3s; }
+.waveform span:nth-child(5) { height: 100%; animation-delay: 0.4s; }
+.waveform span:nth-child(6) { height: 70%; animation-delay: 0.5s; }
+.waveform span:nth-child(7) { height: 50%; animation-delay: 0.6s; }
+.waveform span:nth-child(8) { height: 30%; animation-delay: 0.7s; }
+.waveform span:nth-child(9) { height: 60%; animation-delay: 0.8s; }
+.waveform span:nth-child(10) { height: 40%; animation-delay: 0.9s; }
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.5); }
+}
+
+.music-card:hover .waveform span {
+  animation-duration: 0.5s;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .music-section {
+    padding: 2rem 1rem;
+  }
+  
+  .music-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .vinyl-icon {
+    font-size: 3rem;
+  }
+}

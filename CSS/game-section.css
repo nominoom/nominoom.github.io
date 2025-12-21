@@ -1,0 +1,195 @@
+/* ------------------------------------------------------------------
+   CATCH THE BEAT GAME
+   ------------------------------------------------------------------ */
+
+.game-section {
+  padding: 4rem 2rem;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.game-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.game-stats {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.stat {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  border: 2px solid rgba(119, 0, 255, 0.5);
+  text-align: center;
+}
+
+.stat-label {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  font-family: 'Share Tech Mono', monospace;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  display: block;
+  color: rgba(119, 0, 255, 1);
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.game-area {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(40, 20, 40, 0.9));
+  border: 3px solid rgba(119, 0, 255, 0.6);
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-button {
+  background: linear-gradient(135deg, #8000ff, #ff00ff);
+  color: #fff;
+  border: none;
+  padding: 1.5rem 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Share Tech Mono', monospace;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(119, 0, 255, 0.5);
+}
+
+.start-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(119, 0, 255, 0.8);
+}
+
+.start-button:active {
+  transform: scale(0.95);
+}
+
+.start-button.hidden {
+  display: none;
+}
+
+.music-note {
+  position: absolute;
+  font-size: 3rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.1s ease;
+  animation: float 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+.music-note:hover {
+  transform: scale(1.2);
+}
+
+.music-note:active {
+  transform: scale(0.8);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.music-note.pop {
+  animation: popOut 0.3s ease;
+}
+
+@keyframes popOut {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.7; }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+.game-message {
+  text-align: center;
+  font-size: 1.5rem;
+  color: rgba(255, 215, 0, 0.9);
+  font-family: 'Share Tech Mono', monospace;
+  min-height: 2rem;
+  margin-top: 2rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.reset-btn {
+  background: linear-gradient(135deg, rgba(255, 50, 50, 0.8), rgba(255, 100, 100, 0.6));
+  color: #fff;
+  border: 2px solid rgba(255, 50, 50, 0.5);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  font-family: 'Share Tech Mono', monospace;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reset-btn:hover {
+  background: linear-gradient(135deg, rgba(255, 50, 50, 1), rgba(255, 100, 100, 0.8));
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(255, 50, 50, 0.6);
+}
+
+.reset-btn:active {
+  transform: scale(0.95);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .game-section {
+    padding: 2rem 1rem;
+  }
+  
+  .game-stats {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .stat {
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
+  
+  .game-area {
+    height: 300px;
+  }
+  
+  .start-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
+  
+  .music-note {
+    font-size: 2.5rem;
+  }
+  
+  .game-message {
+    font-size: 1.2rem;
+  }
+}
