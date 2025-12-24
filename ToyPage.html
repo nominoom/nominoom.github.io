@@ -57,9 +57,42 @@
             <div class="toyTitle">
                 <h1 class="toyTitle-text">Toy with the background &lt;3 </h1>
             </div>
+            
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <h3>Particle Controls</h3>
+                
+                <div class="control-group">
+                    <label for="speed-slider">Movement Speed: <span id="speed-value">1</span></label>
+                    <input type="range" id="speed-slider" min="1" max="100" step="1" value="1">
+                </div>
+                
+                <div class="control-group">
+                    <label for="density-slider">Density: <span id="density-value">2</span></label>
+                    <input type="range" id="density-slider" min="0.5" max="10" step="0.5" value="2">
+                </div>
+                
+                <div class="control-group">
+                    <label for="node-color">Node Color:</label>
+                    <input type="color" id="node-color" value="#ffffff">
+                </div>
+                
+                <div class="control-group">
+                    <label for="connection-color">Connection Color:</label>
+                    <input type="color" id="connection-color" value="#9333ea">
+                </div>
+                
+                <div class="control-group">
+                    <label for="radius-slider">Connection Radius: <span id="radius-value">120</span></label>
+                    <input type="range" id="radius-slider" min="50" max="300" step="10" value="120">
+                </div>
+                
+                <button id="reset-btn">Reset to Default</button>
+            </div>
         </section>
     <script src="Javascript/main.js" defer></script>
      <script src="Javascript/quadtree.js"></script>
     <script src="Javascript/script.js"></script>
+    <script src="Javascript/controls.js"></script>
 </body>
 </html>

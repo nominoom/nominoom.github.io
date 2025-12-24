@@ -10,7 +10,23 @@ let particlesArray = [];
 // Particle density: number of particles per 10,000 square pixels
 // Adjust this value to control density (higher = more particles)
 // For example: 5 means 5 particles per 10,000 px² (100px × 100px)
-const PARTICLE_DENSITY = 2;
+let PARTICLE_DENSITY = 1.3;
+
+// Toggle for activating/deactivating particles
+let isParticlesActive = true;
+
+// Animation frame ID for controlling the animation loop
+let animationFrameId = null;
+
+// Movement speed multiplier
+let MOVEMENT_SPEED = 1;
+
+// Connection radius for particles
+let CONNECTION_RADIUS = 120;
+
+// Colors
+let NODE_COLOR = { r: 255, g: 255, b: 255 };
+let CONNECTION_COLOR = { r: 147, g: 51, b: 234 };
 
 // Calculate number of particles based on screen area
 function calculateParticleCount() {
@@ -75,10 +91,9 @@ class Particle {
     }
 
     draw() {
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.fillStyle = `rgba(${NODE_COLOR.r}, ${NODE_COLOR.g}, ${NODE_COLOR.b}, 0.8)`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.closePath();
         ctx.fill();
     }
 
@@ -91,9 +106,9 @@ class Particle {
             this.driftChangeTimer = 0;
         }
 
-        // Move the drift center
-        this.baseX += Math.cos(this.driftAngle) * this.driftSpeed;
-        this.baseY += Math.sin(this.driftAngle) * this.driftSpeed;
+        // Move the drift center with speed multiplier
+        this.baseX += Math.cos(this.driftAngle) * this.driftSpeed * MOVEMENT_SPEED;
+        this.baseY += Math.sin(this.driftAngle) * this.driftSpeed * MOVEMENT_SPEED;
 
         // Wrap the drift center around the screen edges
         if (this.baseX < 0) this.baseX = canvas.width;
@@ -109,6 +124,23 @@ class Particle {
     }
 }
 
+function toggleParticleSystem() {
+    if (isParticlesActive) {
+        isParticlesActive = false;
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+        }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        canvas.style.display = 'none';
+        document.body.classList.add('particles-disabled');
+    } else {
+        isParticlesActive = true;
+        canvas.style.display = 'block';
+        document.body.classList.remove('particles-disabled');
+        animate();
+    }
+}
+
 // 4. INITIALIZE PARTICLES (randomly)
 function init() {
     particlesArray = [];
@@ -121,7 +153,6 @@ function init() {
 
 // 5. ANIMATION LOOP & CONNECTION LOGIC
 function animate() {
-    requestAnimationFrame(animate);
     ctx.fillStyle = 'rgba(9, 10, 15, 0.05)'; // Creates a trailing effect
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -139,13 +170,15 @@ function animate() {
 
     // --- NEW: Connect mouse to nearby particles ---
     if (mouse.x != null) {
+        const radiusSquared = mouse.radius * mouse.radius;
         for (let i = 0; i < particlesArray.length; i++) {
             const p = particlesArray[i];
             const dx = p.x - mouse.x;
             const dy = p.y - mouse.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
+            const distanceSquared = dx * dx + dy * dy;
 
-            if (distance < mouse.radius) {
+            if (distanceSquared < radiusSquared) {
+                const distance = Math.sqrt(distanceSquared);
                 const opacityValue = 1 - (distance / mouse.radius);
                 // Make mouse lines brighter and slightly thicker
                 ctx.strokeStyle = `rgba(186, 85, 211, ${opacityValue * 0.9})`; // Brighter purple
@@ -159,9 +192,10 @@ function animate() {
     }
     
     // --- Connect particles to other particles ---
+    const connectionRadiusSquared = CONNECTION_RADIUS * CONNECTION_RADIUS;
     for (let i = 0; i < particlesArray.length; i++) {
         const p = particlesArray[i];
-        const range = new Rectangle(p.x, p.y, 220, 220); // Connection radius for particles
+        const range = new Rectangle(p.x, p.y, CONNECTION_RADIUS * 2, CONNECTION_RADIUS * 2);
         const points = quadtree.query(range);
 
         for (let j = 0; j < points.length; j++) {
@@ -170,11 +204,12 @@ function animate() {
 
             const dx = p.x - p2.x;
             const dy = p.y - p2.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
+            const distanceSquared = dx * dx + dy * dy;
 
-            if (distance < 120) {
-                const opacityValue = 1 - (distance / 120);
-                ctx.strokeStyle = `rgba(147, 51, 234, ${opacityValue * 0.4})`; // Standard purple
+            if (distanceSquared < connectionRadiusSquared) {
+                const distance = Math.sqrt(distanceSquared);
+                const opacityValue = 1 - (distance / CONNECTION_RADIUS);
+                ctx.strokeStyle = `rgba(${CONNECTION_COLOR.r}, ${CONNECTION_COLOR.g}, ${CONNECTION_COLOR.b}, ${opacityValue * 0.4})`;
                 ctx.lineWidth = 1;
                 ctx.beginPath();
                 ctx.moveTo(p.x, p.y);
@@ -188,8 +223,23 @@ function animate() {
     for (let i = 0; i < particlesArray.length; i++) {
         particlesArray[i].draw();
     }
+
+    if (isParticlesActive) {
+        animationFrameId = requestAnimationFrame(animate);
+    }
 }
 
 // Start the animation
 init();
 animate();
+
+// Wire up toggle button after DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('toggle-particles-btn');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', toggleParticleSystem);
+        console.log('Toggle particles button event listener attached');
+    } else {
+        console.error('Toggle button not found!');
+    }
+});
