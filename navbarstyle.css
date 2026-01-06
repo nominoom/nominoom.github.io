@@ -1,0 +1,85 @@
+/* Page styling */
+body {
+    margin: 0;
+    padding: 0;
+    background: #0a0a0a;
+    min-height: 100vh;
+}
+
+/* Navbar container styling */
+.navbar {
+    background: #1a1a1a;
+    padding: 2rem;
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Individual nav item container */
+.nav-container {
+    position: relative;
+    display: inline-block;
+    height: 2.2rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Position nav-top and nav-bottom */
+.nav-top,
+.nav-bottom {
+    position: relative;
+    width: 100%;
+}
+
+.nav-top {
+    transform: translateY(0);
+}
+
+.nav-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(100%);
+}
+
+/* Link styling */
+.nav-top a,
+.nav-bottom a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    text-transform: lowercase;
+}
+
+/* Individual letter styling */
+.letter {
+    display: inline-block;
+    transition: transform 0.4s ease;
+}
+
+/* HOVER ANIMATIONS */
+.nav-container:hover .nav-top .letter {
+    transform: translateY(-200%);
+}
+
+.nav-container:hover .nav-bottom .letter {
+    transform: translateY(-100%);
+}
+
+.nav-bottom .letter {
+    transform: translateY(0);
+}
+
+.nav-top .letter {
+    transform: translateY(0);
+}
+
+/* Optional: Add a subtle color change on hover */
+.nav-container:hover .nav-bottom a {
+    color: #9747bd;
+}
