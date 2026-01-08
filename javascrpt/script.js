@@ -95,17 +95,15 @@ class Particle {
         this.baseX += Math.cos(this.driftAngle) * this.driftSpeed;
         this.baseY += Math.sin(this.driftAngle) * this.driftSpeed;
 
-        // Wrap the drift center around the screen edges
-        if (this.baseX < 0) this.baseX = canvas.width;
-        if (this.baseX > canvas.width) this.baseX = 0;
-        if (this.baseY < 0) this.baseY = canvas.height;
-        if (this.baseY > canvas.height) this.baseY = 0;
+        // Constrain drift center within bounds (prevents flying particles)
+        this.baseX = Math.max(0, Math.min(canvas.width, this.baseX));
+        this.baseY = Math.max(0, Math.min(canvas.height, this.baseY));
 
         // Gently pull the particle towards its moving drift center
         let homeX = this.baseX - this.x;
         let homeY = this.baseY - this.y;
-        this.x += homeX / 50;
-        this.y += homeY / 50;
+        this.x += homeX / 60;
+        this.y += homeY / 60;
     }
 }
 
