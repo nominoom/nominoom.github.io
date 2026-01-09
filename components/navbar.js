@@ -13,40 +13,31 @@ function splitTextToLetters(element) {
     });
 }
 
-// STEP 2: Initialize all nav items on page load
-document.addEventListener('DOMContentLoaded', () => {
-    // Get ALL nav containers and apply animation to each
-    const navContainers = document.querySelectorAll('.nav-container');
-    
-    navContainers.forEach(container => {
-        const navTop = container.querySelector('.nav-top a');
-        const navBottom = container.querySelector('.nav-bottom a');
-        
-        splitTextToLetters(navTop);
-        splitTextToLetters(navBottom);
-    });
+// STEP 2: Initialize navbar - call this after navbar HTML is loaded
+function initNavbar() {
+    // Get ALL nav items and apply letter splitting
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => splitTextToLetters(item));
 
     // MOBILE MENU FUNCTIONALITY
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
 
     if (mobileMenuBtn && mobileMenu) {
         // Toggle menu on button click
         mobileMenuBtn.addEventListener('click', () => {
-            const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-            
-            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+            mobileMenuBtn.classList.toggle('active');
             mobileMenu.classList.toggle('active');
             
             // Prevent body scroll when menu is open
-            document.body.style.overflow = !isExpanded ? 'hidden' : 'auto';
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
         });
 
         // Close menu when clicking a link
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileNavItems.forEach(item => {
+            item.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
                 mobileMenu.classList.remove('active');
                 document.body.style.overflow = 'auto';
             });
@@ -55,10 +46,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Close menu on escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.classList.remove('active');
                 mobileMenu.classList.remove('active');
                 document.body.style.overflow = 'auto';
             }
         });
     }
-});
+}
+
+// If DOM is already loaded, initialize immediately, otherwise wait
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavbar);
+} else {
+    initNavbar();
+}

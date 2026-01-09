@@ -560,7 +560,7 @@ body.particles-disabled {
 
   .terminal {
     position: relative;
-    background: #111;
+    background: #2c2c2cb3;
     border-radius: var(--radius);
     box-shadow: 0 8px 22px rgba(2,6,23,0.6);
     overflow: hidden;
@@ -618,10 +618,13 @@ body.particles-disabled {
     line-height: 1.4;
     min-height: 600px;
     min-width: 800px;
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x:hidden;
   }
 
   .terminal-line {
-    color: rgb(119, 0, 255);
+    color: rgb(200, 151, 255);
     margin-bottom: 0.5rem;
   }
 
@@ -629,7 +632,7 @@ body.particles-disabled {
     width: 100%;
     background: transparent;
     border: none;
-    color: rgb(153, 0, 255);
+    color: rgb(200, 151, 255);
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.9rem;
     padding: 1rem;
@@ -637,9 +640,22 @@ body.particles-disabled {
   }
 
   .terminal-input::placeholder {
-    color: rgb(153, 0, 255);
+    color: rgb(200, 151, 255);
     opacity: 0.5;
   }
+
+  .terminal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background:  rgb(200, 151, 255);
+    border-radius: 4px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
 /* ------------------------------------------------------------------ */
 
 /* Tablet and smaller desktop */
