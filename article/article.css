@@ -445,4 +445,9 @@ body {
     .main-content {
         opacity: 1 !important;
     }
+
+.article-image {
+        max-width: 100%;
+        height: auto;
+    }
 }
