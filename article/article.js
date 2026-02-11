@@ -45,40 +45,12 @@ function initializeInteractiveElements() {
             heading.style.color = '#e8e8ea';
         });
     });
-
-    // Add reading progress indicator
-    addReadingProgressBar();
 }
 
 /**
  * Add a reading progress bar at the top
  */
-function addReadingProgressBar() {
-    const progressBar = document.createElement('div');
-    progressBar.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #ffffff, #b0b0b0);
-        z-index: 1000;
-        transition: width 0.1s ease;
-        width: 0%;
-    `;
-    
-    document.body.appendChild(progressBar);
-    
-    window.addEventListener('scroll', () => {
-        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPosition = window.pageYOffset;
-        const scrollPercentage = (scrollPosition / totalHeight) * 100;
-        progressBar.style.width = scrollPercentage + '%';
-    }, { passive: true });
-}
 
-/**
- * Optional: Add reading time estimate and update on load
- */
 function updateReadingTime() {
     const content = document.querySelector('.main-content');
     const wordCount = content.innerText.split(/\s+/).length;

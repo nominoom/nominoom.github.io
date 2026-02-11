@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Nominoom</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../components/navbar.css">
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+    
+    <!-- Load Navbar Component -->
+    <script src="../components/navbar.js"></script>
+    <script>
+        fetch('../components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                // Initialize navbar animations after it's loaded
+                if (typeof initNavbar === 'function') {
+                    initNavbar();
+                }
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
+    <!-- Background Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Main Content -->
+    <main class="portfolio-main">
+        <div class="portfolio-header">
+            <h1>Portfolio</h1>
+            <p class="portfolio-subtitle">A collection of my projects and work</p>
+        </div>
+
+        <div class="portfolio-container">
+            <!-- Portfolio Cards -->
+            <div class="portfolio-grid">
+                <!-- Article Card -->
+                <div class="portfolio-card" onclick="window.location.href='../article/'">
+                    <div class="card-image" style="background: linear-gradient(135deg, #9747bd 0%, #6a3d88 100%);"></div>
+                    <div class="card-content">
+                        <h3>The Villain: Architecture of Opposition</h3>
+                        <p>An exploration of Anakin Skywalker's transformation and redemption through the lens of villainy. A narrative essay analyzing character design and storytelling.</p>
+                        <div class="card-tag">Article</div>
+                    </div>
+                    <div class="card-hover">Click to Read</div>
+                </div>
+
+                <!-- Add more portfolio items here -->
+                <div class="portfolio-card" onclick="alert('Coming Soon!')">
+                    <div class="card-image" style="background: linear-gradient(135deg, #1B7BA8 0%, #0f4a62 100%);"></div>
+                    <div class="card-content">
+                        <h3>Project Title</h3>
+                        <p>Description of your project goes here. Share what you built, the technologies you used, and what you learned from it.</p>
+                        <div class="card-tag">Coming Soon</div>
+                    </div>
+                    <div class="card-hover">Coming Soon</div>
+                </div>
+
+                <div class="portfolio-card" onclick="alert('Coming Soon!')">
+                    <div class="card-image" style="background: linear-gradient(135deg, #E85D04 0%, #a63d02 100%);"></div>
+                    <div class="card-content">
+                        <h3>Project Title</h3>
+                        <p>Description of your project goes here. Share what you built, the technologies you used, and what you learned from it.</p>
+                        <div class="card-tag">Coming Soon</div>
+                    </div>
+                    <div class="card-hover">Coming Soon</div>
+                </div>
+
+                <div class="portfolio-card" onclick="alert('Coming Soon!')">
+                    <div class="card-image" style="background: linear-gradient(135deg, #06A77D 0%, #044d39 100%);"></div>
+                    <div class="card-content">
+                        <h3>Project Title</h3>
+                        <p>Description of your project goes here. Share what you built, the technologies you used, and what you learned from it.</p>
+                        <div class="card-tag">Coming Soon</div>
+                    </div>
+                    <div class="card-hover">Coming Soon</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Particle Canvas Script -->
+    <script src="../javascrpt/quadtree.js"></script>
+    <script src="../javascrpt/script.js"></script>
+    <script src="portfolio.js"></script>
+</body>
+</html>
