@@ -5,23 +5,21 @@
 
 /* Navbar Container */
 .navbar {
-    background: rgba(16, 16, 20, 0.95);
     padding: 1.5rem 2rem;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    z-index: 9999;
     position: fixed;
     top: 0;
     width: 100%;
-    backdrop-filter: blur(10px);
+
 }
 
 /* Desktop Navigation */
 .nav-desktop {
     display: flex;
-    gap: 3rem;
+    gap: 1rem;
     align-items: center;
 }
 
@@ -32,6 +30,7 @@
     height: 2.2rem;
     overflow: hidden;
     cursor: pointer;
+    overflow: hidden;
 }
 
 /* Position nav-top and nav-bottom */
@@ -92,6 +91,8 @@
 .nav-item:hover {
     color: #9747bd;
 }
+
+
 
 /* ==================================================================
    MOBILE MENU STYLES

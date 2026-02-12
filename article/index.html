@@ -5,8 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Villain: Architecture of Opposition</title>
     <link rel="stylesheet" href="article.css">
+        <link rel="stylesheet" href="../components/navbar.css">
 </head>
 <body>
+    <div id="navbar-placeholder"></div>
+    
+    <!-- Load Navbar Component -->
+    <script src="../components/navbar.js"></script>
+    <script>
+        fetch('../components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                // Initialize navbar animations after it's loaded
+                if (typeof initNavbar === 'function') {
+                    initNavbar();
+                }
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
+
     <div class="hero-section">
         <div class="hero-image"></div>
         <div class="hero-overlay"></div>

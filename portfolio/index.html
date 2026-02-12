@@ -34,56 +34,90 @@
 
     <!-- Main Content -->
     <main class="portfolio-main">
-        <div class="portfolio-header">
-            <h1>Portfolio</h1>
-            <p class="portfolio-subtitle">A collection of my projects and work</p>
-        </div>
+        <div class="portfolio-wrapper">
+            <!-- Left Side: Featured Project -->
+            <section class="portfolio-featured">
+                <div class="featured-bg" id="featuredBg">
+                    <img src="../images/vader-bg.jpg" alt="Featured Project Background" class="featured-image">
+                </div>
+                <div class="featured-overlay"></div>
+                <div class="featured-content">
+                    <div class="featured-location" id="featuredLocation">Portfolio</div>
+                    <h1 class="featured-title" id="featuredTitle">The Villain: Architecture of Opposition</h1>
+                    <p class="featured-description" id="featuredDescription">An exploration of Anakin Skywalker's transformation and redemption through the lens of villainy. A narrative essay analyzing character design and storytelling.</p>
+                    <a href="" class="featured-cta" id="featuredCTA">Read More</a>
+                </div>
+            </section>
 
-        <div class="portfolio-container">
-            <!-- Portfolio Cards -->
-            <div class="portfolio-grid">
-                <!-- Article Card -->
-                <div class="portfolio-card" onclick="window.location.href='../article/'">
-                    <div class="card-image" style="background: linear-gradient(135deg, #9747bd 0%, #6a3d88 100%);"></div>
-                    <div class="card-content">
-                        <h3>The Villain: Architecture of Opposition</h3>
-                        <p>An exploration of Anakin Skywalker's transformation and redemption through the lens of villainy. A narrative essay analyzing character design and storytelling.</p>
-                        <div class="card-tag">Article</div>
+            <!-- Right Side: Carousel -->
+            <section class="portfolio-carousel-section">
+                <div class="carousel-wrapper">
+                    <button class="carousel-nav prev" id="prevBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="carouselTrack">
+                            <!-- Project 1 -->
+                            <div class="carousel-item" data-project="0">
+                                <div class="carousel-card active" style="background: linear-gradient(135deg, #9747bd 0%, #6a3d88 100%);">
+                                    <div class="card-overlay"></div>
+                                    <div class="card-label">
+                                        <h3>The Villain</h3>
+                                        <p>Article</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 2 -->
+                            <div class="carousel-item" data-project="1">
+                                <div class="carousel-card" style="background: linear-gradient(135deg, #1B7BA8 0%, #0f4a62 100%);">
+                                    <div class="card-overlay"></div>
+                                    <div class="card-label">
+                                        <h3>Project Two</h3>
+                                        <p>Coming Soon</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 3 -->
+                            <div class="carousel-item" data-project="2">
+                                <div class="carousel-card" style="background: linear-gradient(135deg, #E85D04 0%, #a63d02 100%);">
+                                    <div class="card-overlay"></div>
+                                    <div class="card-label">
+                                        <h3>Project Three</h3>
+                                        <p>Coming Soon</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 4 -->
+                            <div class="carousel-item" data-project="3">
+                                <div class="carousel-card" style="background: linear-gradient(135deg, #06A77D 0%, #044d39 100%);">
+                                    <div class="card-overlay"></div>
+                                    <div class="card-label">
+                                        <h3>Project Four</h3>
+                                        <p>Coming Soon</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-hover">Click to Read</div>
+
+                    <button class="carousel-nav next" id="nextBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
                 </div>
 
-                <!-- Add more portfolio items here -->
-                <div class="portfolio-card" onclick="alert('Coming Soon!')">
-                    <div class="card-image" style="background: linear-gradient(135deg, #1B7BA8 0%, #0f4a62 100%);"></div>
-                    <div class="card-content">
-                        <h3>Project Title</h3>
-                        <p>Description of your project goes here. Share what you built, the technologies you used, and what you learned from it.</p>
-                        <div class="card-tag">Coming Soon</div>
-                    </div>
-                    <div class="card-hover">Coming Soon</div>
+                <!-- Counter -->
+                <div class="carousel-counter">
+                    <span id="currentSlide">01</span>
                 </div>
-
-                <div class="portfolio-card" onclick="alert('Coming Soon!')">
-                    <div class="card-image" style="background: linear-gradient(135deg, #E85D04 0%, #a63d02 100%);"></div>
-                    <div class="card-content">
-                        <h3>Project Title</h3>
-                        <p>Description of your project goes here. Share what you built, the technologies you used, and what you learned from it.</p>
-                        <div class="card-tag">Coming Soon</div>
-                    </div>
-                    <div class="card-hover">Coming Soon</div>
-                </div>
-
-                <div class="portfolio-card" onclick="alert('Coming Soon!')">
-                    <div class="card-image" style="background: linear-gradient(135deg, #06A77D 0%, #044d39 100%);"></div>
-                    <div class="card-content">
-                        <h3>Project Title</h3>
-                        <p>Description of your project goes here. Share what you built, the technologies you used, and what you learned from it.</p>
-                        <div class="card-tag">Coming Soon</div>
-                    </div>
-                    <div class="card-hover">Coming Soon</div>
-                </div>
-            </div>
+            </section>
         </div>
     </main>
 
