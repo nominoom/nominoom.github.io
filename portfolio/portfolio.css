@@ -20,6 +20,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-y: hidden;
 }
 
 body {
@@ -115,16 +116,19 @@ body {
 .featured-title {
     text-transform: uppercase;
     letter-spacing: 3px;
-    margin-bottom: 20px;
+    margin: 0em 0em 1em;
     line-height: 1.2;
     font-weight: 700;
     animation: fadeInUp 0.8s ease-out 0.1s both;
+    position: relative;
+    flex-direction: column;
+    
 }
 
 .featured-description {
     font-size: 1.1rem;
     color: var(--accent-muted);
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     line-height: 1.6;
     max-width: 90%;
     animation: fadeInUp 0.8s ease-out 0.2s both;
@@ -132,8 +136,7 @@ body {
 
 .featured-cta {
     display: inline-block;
-    padding: 15px 40px;
-    background: var(--accent-purple);
+    padding: 5px 10px;
     color: var(--accent-light);
     text-decoration: none;
     text-transform: uppercase;
@@ -144,6 +147,7 @@ body {
     font-size: 0.95rem;
     font-weight: 600;
     animation: fadeInUp 0.8s ease-out 0.3s both;
+    margin-bottom: 40px;
 }
 
 .featured-cta:hover {
