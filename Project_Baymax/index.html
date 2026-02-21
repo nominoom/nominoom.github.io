@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Nominoom</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../components/navbar.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+    
+    <!-- Load Navbar Component -->
+    <script src="../components/navbar.js"></script>
+    <script>
+        fetch('../components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                // Initialize navbar animations after it's loaded
+                if (typeof initNavbar === 'function') {
+                    initNavbar();
+                }
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+<body>
+  <div class="container">
+    <!-- Project title -->
+    <header>
+      <h1>PROJECT: BAYMAX</h1>
+    </header>
+
+    <main class="main-content">
+      <!-- Sticky Left Stages List -->
+      <aside class="stages">
+        <h2>Stages</h2>
+        <ul id="stage-list">
+          <!-- Stages populated dynamically -->
+        </ul>
+      </aside>
+
+      <!-- Vertical divider -->
+      <div class="divider"></div>
+
+      <!-- Article / narrative sections -->
+      <section class="article-section" id="article-section">
+        <!-- Sections populated dynamically -->
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

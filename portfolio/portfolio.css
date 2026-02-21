@@ -73,19 +73,18 @@ body {
     min-height: 100vh;
 }
 
-.featured-image {
-    position: fixed;
+.featured-bg {
+    position: fixed;   /* key change */
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 0;
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
+
+    z-index: 0;       /* behind everything */
 }
 
 .featured-overlay {

@@ -13,12 +13,12 @@ const projects = [
     },
     {
         id: 1,
-        location: 'Design',
-        title: 'Interactive Web Experience',
-        description: 'A creative exploration into modern web design principles, animations, and user interaction patterns. Built with cutting-edge technologies and responsive design practices.',
-        link: '#',
+        location: 'Robotics',
+        title: 'Project: Baymax',
+        description: 'Creating a real life Baymax. A personal project focused on building a healthcare companion robot inspired by the beloved character from Big Hero 6. Combining robotics, AI, and compassionate design.',
+        link: '../Project_Baymax/index.html',
         linkText: 'View Project',
-        bgImage: 'url(https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80)'
+        bgImage: 'url(images/baymax-structure.jpg)'
     },
     {
         id: 2,
