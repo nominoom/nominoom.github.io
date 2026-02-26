@@ -10,7 +10,7 @@ let particlesArray = [];
 // Particle density: number of particles per 10,000 square pixels
 // Adjust this value to control density (higher = more particles)
 // For example: 5 means 5 particles per 10,000 px² (100px × 100px)
-const PARTICLE_DENSITY = 2;
+const PARTICLE_DENSITY = .8;
 
 // Calculate number of particles based on screen area
 function calculateParticleCount() {
@@ -120,7 +120,7 @@ function init() {
 // 5. ANIMATION LOOP & CONNECTION LOGIC
 function animate() {
     requestAnimationFrame(animate);
-    ctx.fillStyle = 'rgba(9, 10, 15, 0.05)'; // Creates a trailing effect
+    ctx.fillStyle = 'rgb(0, 0, 0)'; // Creates a trailing effect
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Build the Quadtree for this frame
@@ -172,7 +172,7 @@ function animate() {
 
             if (distance < 120) {
                 const opacityValue = 1 - (distance / 120);
-                ctx.strokeStyle = `rgba(147, 51, 234, ${opacityValue * 0.4})`; // Standard purple
+                ctx.strokeStyle = `rgba(147, 51, 234, ${opacityValue * 1.0})`; // Standard purple
                 ctx.lineWidth = 1;
                 ctx.beginPath();
                 ctx.moveTo(p.x, p.y);
