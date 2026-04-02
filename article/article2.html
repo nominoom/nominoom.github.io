@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 Angry Men - Court Room Drama Blog</title>
+    <link rel="stylesheet" href="article2.css">
+    <link rel="stylesheet" href="../components/navbar.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <!-- Load Navbar Component -->
+    <script src="../components/navbar.js"></script>
+    <script>
+        fetch('../components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                if (typeof initNavbar === 'function') {
+                    initNavbar();
+                }
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
+    <section class="hero">
+        <div class="hero-img"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-copy">
+            <h1>12 ANGRY MEN</h1>
+            <p>ONE VERDICT. ONE ROOM. THE COURTROOM SHOWDOWN IN BLACK AND WHITE.</p>
+            <a class="hero-btn" href="../portfolio/index.html">Back to Portfolio</a>
+        </div>
+    </section>
+
+    <main class="article">
+        <header class="article-header">
+            <span class="tag">FEATURED ANALYSIS</span>
+            <h2>“You can’t handle the truth!”</h2>
+            <p class="meta">by Seth Noom • 9 min read • April 2026</p>
+        </header>
+
+        <article class="content">
+            <section>
+                <p>Seth trudell-Noom</p>
+                <p>Film & Literature</p>
+                <p>Prof. Koegel</p>
+                <p>1 Apr. 2026</p>
+                <p>Court Room Drama Blog</p>
+
+                <p>Court. Boring, monotonous, draining, or life-ending. It is one of the most dull places to be, yet even so, the suspense and tension alone could drag your soul to an end in which you cannot create. Someone could start in there on one of 3 sides: the judged, the judgment, or the watcher. And yet no matter what plate you’re given, there is always a creeping cold on your spine. One of anxiety and fear, with every pew lined up straight and neat, silent where you sit as a watcher. Or you rest on the highest point as it's a judge, both physically and metaphorically. And finally, in the center, as the source of amusement and judgment, as you stand before trial.</p>
+
+                <p>Although a courtroom is in part designed for efficiency, there's an aspect about it that sets fear into every guest. The physical placement of everyone signifies their role and creates a pre-made assumption about each person in that room. And you decide their benefit to you.</p>
+
+                <p>A boy stands before trial, accused of murdering his father after an argument, and 12 men sit on that side to be the judges of this boy's fate. After the court hearing is held, the jury is put into a room to vote on the decided punishment, if any. However, there is one clause: the vote must be unanimous. And the environment they are put in is a much greater factor in their decision and how they act than it seems. Creating power dynamics, influential standings, and movements that, although minuscule, put every juror in their own position.</p>
+
+                <p>The room is small, with a long table sitting in the center. It seats just enough for all 12 men, 5 on each side and one on each end. Two bay windows on one side, a wall on the other, one end has a coat rack, and the other has 2 restrooms. The room is described as hot and dense by some of the jurors, with a fan that seemingly doesn't work yet. This lack of space and cool air makes the room even hotter than it initially was, and due to that, the men grow impatient and more heated in a debate that would have been much calmer. This makes the arguments feel more intense and as if, unless stopped, one of the men will snap.</p>
+
+                <p>Nobody wants to be there--granted, who would be? One of the jurors is most eager to leave for their baseball game, which most likely influences their decision subconsciously to go with the majority. Or whatever gets him out quickest. All the other men also would like to leave, stating their own personal complaints as well. But none of them can, not until they can come to a unanimous decision.</p>
+
+                <p>At first, everyone votes guilty as the evidence is clear that the boy killed his father, but juror #8 disagrees. This disagreement alone is enough to make a couple of the jurors snap, calling him an idiot for not seeing that he's a murderer. But juror 8 feels that there is too little evidence for a decision that ends a boy's life. This pressure of not being able to leave in an already cramped space quickly boils the tension that was already high in that room, forcing each member to either have to give in or reevaluate each and every piece of evidence they have.</p>
+
+                <p>Yet where each member is positioned already shows their thoughts. All the other members sit as one, and none leave the table except Juror #8, standing alone. This signifies confidence in his decision and that, although he is alone in his choice, he controls the room now since everyone is dependent on his review.</p>
+
+                <p>As each member slowly changes their decision They slowly shuffle around the table, each sitting in a different position, except juror #8, who never moves from his spot; he always keeps it. But as each juror moves around, those who haven't begun to grow tense, pace, stand, or turn away. And especially when two of them argue, they move closer to get into each other's faces and voice their opinions. This stillness, compared to movement, is a visualization of control against chaos. When each character sits, there is control, but when characters stand, an argument follows. This physical closeness builds more tension with each conflict, and when the characters separate, that tension dissipates. As if a pot of boiling water sits between two flames.</p>
+
+                <p>Yet as we begin to see the height of the argument reach its peak, it begins to rain, which shifts the room to a place the jurors want to be in, rather than outside. And although it doesn’t drop the tension, it's clear it dwindles it. With fewer arguments and more compromise amongst the jurors. They shift from these quick, guilty votes to rational decisions made with care.</p>
+
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;The movie progresses in a tone that eventually reaches a resolution, with the scenery playing heavily into that. (final paragraph will be finished)</p>
+            </section>
+
+            <footer class="article-footer">
+                <a class="next" href="../article/index.html">Next: The Villain | Deep Dive</a>
+            </footer>
+        </article>
+    </main>
+
+</body>
+</html>

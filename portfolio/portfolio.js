@@ -31,12 +31,12 @@ const projects = [
     },
     {
         id: 3,
-        location: 'Creative',
-        title: 'Digital Art & Animation',
-        description: 'Exploring the boundaries of digital creativity through innovative animation techniques and visual storytelling. A journey into immersive digital experiences.',
-        link: '#',
-        linkText: 'Explore',
-        bgImage: 'url(https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80)'
+        location: 'Film Analysis',
+        title: 'A Few Good Men: Truth Under Fire',
+        description: 'A cinematic breakdown of duty, authority, and the logic of the courtroom through the atmosphere of the film.',
+        link: '../article/article2.html',
+        linkText: 'Read Article',
+        bgImage: 'url(https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=1200&q=80)'
     }
 ];
 

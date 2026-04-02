@@ -1,0 +1,174 @@
+:root {
+    --bg: #010101;
+    --panel: #111111;
+    --text: #f8f8f8;
+    --muted: #d3d3d3;
+    --accent: #ffffff;
+    --accent2: #b0b0b0;
+    --border: rgba(255, 255, 255, 0.35);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: radial-gradient(circle at 20% 20%, #1c1f22 0%, #070808 55%);
+    color: var(--text);
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 32px;
+}
+
+.hero-img {
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/twelve-angry-men.png');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) contrast(1.15) brightness(0.62);
+    z-index: 0;
+}
+
+.hero-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.6), rgba(10, 10, 10, 0.8) 60%, rgba(5, 5, 5, 0.7));
+    z-index: 1;
+}
+
+.hero-copy {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    text-align: center;
+    padding: 32px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+.hero-copy h1 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: clamp(2.2rem, 4vw, 4.5rem);
+    font-weight: 200;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    text-shadow: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    padding-bottom: 10px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-copy p {
+    color: var(--muted);
+    font-size: clamp(0.95rem, 1.9vw, 1.15rem);
+    margin-bottom: 22px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 0.75rem 1.6rem;
+    color: #fbfbfb;
+    background: linear-gradient(135deg, rgba(230, 55, 39, 0.95), rgba(167, 35, 27, 0.95));
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 25px rgba(229, 55, 39, 0.55); }
+
+.article {
+    max-width: 1080px;
+    margin: auto;
+    padding: 48px 20px 70px;
+}
+
+.article-header .tag {
+    display: inline-flex;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.article-header h2 {
+    font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+    margin-bottom: 10px;
+    letter-spacing: 0.08em;
+}
+
+.article-header .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+}
+
+.content section { margin-top: 42px; opacity: 0; animation: reveal 0.8s ease forwards; }
+.content section:nth-child(1) { animation-delay: 0.2s; }
+.content section:nth-child(2) { animation-delay: 0.35s; }
+.content section:nth-child(3) { animation-delay: 0.5s; }
+
+.content h3 { font-size: 1.4rem; color: #fafafa; margin-bottom: 12px; text-transform: uppercase; }
+
+.content p { color: #d9d7ce; line-height: 1.64; margin-bottom: 16px; font-size: 1rem; }
+
+.content img {
+    width: 100%;
+    filter: saturate(0.8) contrast(1.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    margin: 14px 0 18px;
+}
+
+blockquote {
+    color: #f2ece3;
+    border-left: 4px solid var(--accent);
+    margin: 20px 0;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    font-style: italic;
+}
+
+.article-footer { margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.16); }
+.article-footer p { margin-bottom: 14px; color: #d2ccc0; }
+
+.article-footer .next {
+    color: var(--accent);
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 700;
+    display: inline-block;
+}
+
+@keyframes reveal { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 900px) {
+    .hero { height: 70vh; }
+    .article { padding: 34px 16px 64px; }
+}
+
+@media (max-width: 640px) {
+    .hero-copy { padding: 24px; }
+    .content h3 { font-size: 1.15rem; }
+    .content p { font-size: 0.95rem; }
+}
