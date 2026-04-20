@@ -30,37 +30,65 @@
 }
 
 .skill-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
   padding: 2rem;
   text-align: center;
-  box-shadow: 0 8px 22px rgba(2, 6, 23, 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   position: relative;
   z-index: 10;
 }
 
 .skill-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.8);
+  border-color: rgba(147, 51, 234, 0.5);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 1);
 }
 
 .skill-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: #fff;
+  /* Add subtle glow to icons */
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
 }
 
 .skill-card h3 {
   font-size: 1.25rem;
-  color: #000;
+  color: #fff;
   margin-bottom: 0.75rem;
   font-family: 'Share Tech Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .skill-card p {
-  color: #333;
+  color: #ccc;
   font-size: 0.9rem;
   line-height: 1.6;
+}
+
+/* 90s Anime Cyberpunk Link Style */
+.skill-card p a {
+  color: #fcee0a; /* Cyberpunk Yellow */
+  text-decoration: none;
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: bold;
+  padding: 2px 4px;
+  position: relative;
+  transition: all 0.2s ease;
+  text-shadow: 0 0 5px rgba(252, 238, 10, 0.5);
+}
+
+.skill-card p a:hover {
+  color: #fff;
+  background: #fcee0a;
+  color: #000;
+  box-shadow: 0 0 15px #fcee0a;
+  text-shadow: none;
 }
 
 /* Mobile */

@@ -59,17 +59,17 @@ function handleWhoAmI() {
     addLine("║     USER PROFILE INFORMATION         ║", "success");
     addLine("╚══════════════════════════════════════╝", "success");
     addLine("");
-    addLine(`👤 Name: ${userInfo.name}`);
-    addLine(`🎭 Alias: ${userInfo.alias}`);
-    addLine(`💼 Role: ${userInfo.role}`);
-    addLine(`📍 Location: ${userInfo.location}`);
+    addLine(`USR:> Name: ${userInfo.name}`);
+    addLine(`AKA:> Alias: ${userInfo.alias}`);
+    addLine(`POS:> Role: ${userInfo.role}`);
+    addLine(`LOC:> Location: ${userInfo.location}`);
     addLine("");
-    addLine("🛠️  Skills:");
+    addLine("SKL:> Skills:");
     userInfo.skills.forEach(skill => {
         addLine(`   • ${skill}`);
     });
     addLine("");
-    addLine("🎨 Interests:");
+    addLine("INT:> Interests:");
     userInfo.interests.forEach(interest => {
         addLine(`   • ${interest}`);
     });
@@ -113,7 +113,7 @@ function handleCommand(input) {
             addLine("");
             addLine("Technical Skills:", "success");
             userInfo.skills.forEach(skill => {
-                addLine(`  ⚡ ${skill}`);
+                addLine(`  >> ${skill}`);
             });
             addLine("");
             break;
@@ -121,7 +121,7 @@ function handleCommand(input) {
         case 'contact':
             addLine("contact", "command");
             addLine("");
-            addLine("📧 Contact Information:", "success");
+            addLine("CON:> Contact Information:", "success");
             addLine(`  GitHub: ${userInfo.github}`);
             addLine(`  CashApp: ${userInfo.cashapp}`);
             addLine("");

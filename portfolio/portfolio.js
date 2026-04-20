@@ -37,6 +37,24 @@ const projects = [
         link: '../article/article2.html',
         linkText: 'Read Article',
         bgImage: 'url(https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=1200&q=80)'
+    },
+    {
+        id: 4,
+        location: 'Cybersecurity',
+        title: 'Hacker Zine Index',
+        description: 'A retro-styled, terminal-themed index for an underground zine. Built with a focus on keyboard navigation and 80-character ASCII aesthetics.',
+        link: '#',
+        linkText: 'Coming Soon',
+        bgImage: 'url(https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80)'
+    },
+    {
+        id: 5,
+        location: 'Machine Learning',
+        title: 'Neural Network Visualizer',
+        description: 'An interactive exploration of weights and biases in a deep neural network, visualized through dynamic SVG paths and real-time data flow.',
+        link: '#',
+        linkText: 'Under Development',
+        bgImage: 'url(https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=80)'
     }
 ];
 
@@ -136,19 +154,20 @@ function updateCounter() {
 }
 
 /**
- * Scroll carousel to show active item
+ * Scroll carousel to show active item in the center
  */
 function scrollCarousel() {
     const activeItem = carouselItems[currentSlide];
-    const containerWidth = carouselTrack.offsetWidth;
+    const container = document.querySelector('.carousel-container');
+    const containerWidth = container.offsetWidth;
     const itemWidth = activeItem.offsetWidth;
-    const itemLeft = activeItem.offsetLeft;
-
-    // Calculate scroll position to center the active item
-    const scrollPosition = itemLeft - (containerWidth - itemWidth) / 2;
+    const itemCenter = activeItem.offsetLeft + (itemWidth / 2);
     
-    carouselTrack.style.scrollBehavior = 'smooth';
-    carouselTrack.scrollLeft = scrollPosition;
+    // Centering math: Center of container - Center of active item
+    const translateX = (containerWidth / 2) - itemCenter;
+    
+    carouselTrack.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+    carouselTrack.style.transform = `translateX(${translateX}px)`;
 }
 
 /**
