@@ -55,6 +55,24 @@ const projects = [
         link: '#',
         linkText: 'Under Development',
         bgImage: 'url(https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=80)'
+    },
+    {
+        id: 6,
+        location: 'Director Spotlight',
+        title: 'The Architect of Time',
+        description: 'How Christopher Nolan masterfully manipulates temporality in cinema. An analysis of his approach to non-linear storytelling.',
+        link: '../article/article3.html',
+        linkText: 'Read Article',
+        bgImage: 'url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80)'
+    },
+    {
+        id: 7,
+        location: 'Director Spotlight',
+        title: 'Laughter in the Crossfire',
+        description: 'How Shawn Levy injects humor into high-intensity scenes. A look at balancing action and comedy on screen.',
+        link: '../article/article4.html',
+        linkText: 'Read Article',
+        bgImage: 'url(https://images.unsplash.com/photo-1627856013091-fed6e4e048c5?w=1200&q=80)'
     }
 ];
 
