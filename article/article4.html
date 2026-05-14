@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shawn Levy - The Chaos of Comedy</title>
+    <link rel="stylesheet" href="article4.css">
+    <link rel="stylesheet" href="../components/navbar.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <!-- Load Navbar Component -->
+    <script src="../components/navbar.js"></script>
+    <script>
+        fetch('../components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                if (typeof initNavbar === 'function') {
+                    initNavbar();
+                }
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-copy">
+            <h1>LAUGHTER IN THE CROSSFIRE</h1>
+            <p>HOW SHAWN LEVY INJECTS HUMOR INTO HIGH-INTENSITY SCENES.</p>
+            <a class="hero-btn" href="../portfolio/index.html">Back to Portfolio</a>
+        </div>
+    </section>
+
+    <main class="article">
+        <header class="article-header">
+            <span class="tag">DIRECTOR SPOTLIGHT</span>
+            <h2>Finding the Funny in the Fight</h2>
+            <p class="meta">by Seth Noom • 8 min read • May 2026</p>
+        </header>
+
+        <article class="content">
+            <section>
+                <!-- Paste Levy essay here -->
+                <p><em>[Insert your essay on Shawn Levy and his use of humor here. Replace these paragraph placeholders with your actual text.]</em></p>
+                <p>Action sequences in modern cinema often fall into a trap of monotonous explosions and grim determination. However, Shawn Levy has mastered the art of breaking this tension, not by diminishing the stakes, but by amplifying the humanity within the chaos through expertly timed humor.</p>
+                
+                <h3>The Anatomy of a Joke Under Fire</h3>
+                <p>Whether it's an absurd comment made while dodging bullets or a physical gag amidst a car chase, Levy understands that humor is a pressure valve. It allows the audience to breathe, making the subsequent moments of intense action hit even harder. The contrast between life-or-death situations and mundane, comedic observations creates a unique rhythm that defines his films.</p>
+
+                <blockquote>"In the middle of absolute mayhem, a genuine laugh is the most disarming special effect you can deploy."</blockquote>
+
+                <p>Levy's approach reminds us that even when the world is ending, humans will still find a way to be ridiculous. This grounds the spectacle, making the characters more relatable and the action far more engaging.</p>
+            </section>
+
+            <footer class="article-footer">
+                <a class="next" href="article3.html">Next: Christopher Nolan | Time & Space</a>
+            </footer>
+        </article>
+    </main>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christopher Nolan - The Architect of Time</title>
+    <link rel="stylesheet" href="article3.css">
+    <link rel="stylesheet" href="../components/navbar.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <!-- Load Navbar Component -->
+    <script src="../components/navbar.js"></script>
+    <script>
+        fetch('../components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                if (typeof initNavbar === 'function') {
+                    initNavbar();
+                }
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-copy">
+            <h1>THE ARCHITECT OF TIME</h1>
+            <p>HOW CHRISTOPHER NOLAN MASTERFULLY MANIPULATES TEMPORALITY IN CINEMA.</p>
+            <a class="hero-btn" href="../portfolio/index.html">Back to Portfolio</a>
+        </div>
+    </section>
+
+    <main class="article">
+        <header class="article-header">
+            <span class="tag">DIRECTOR SPOTLIGHT</span>
+            <h2>Mastering the Clock</h2>
+            <p class="meta">by Seth Noom • 10 min read • May 2026</p>
+        </header>
+
+        <article class="content">
+            <section>
+                <!-- Paste Nolan essay here -->
+                <p><em>[Insert your essay on Christopher Nolan and his use of time here. Replace these paragraph placeholders with your actual text.]</em></p>
+                <p>Christopher Nolan's films are not merely watched; they are experienced as intricate puzzles of time. From the reversed chronology of <i>Memento</i> to the relativistic time dilation in <i>Interstellar</i>, and the temporal pincer movements of <i>Tenet</i>, Nolan utilizes time not just as a setting, but as a tangible dimension that characters and audiences must navigate together.</p>
+                
+                <h3>The Relativity of Emotion</h3>
+                <p>Time, in a Nolan film, is intimately tied to human emotion. It is the ticking clock of a dying earth, the layered dreaming states where years pass in moments, or the intersecting timelines of a historical rescue. By distorting time, Nolan amplifies the stakes and deepens the emotional resonance of his characters' journeys.</p>
+
+                <blockquote>"Time is the most relative thing we have, and Nolan bends it until it breaks, only to put it back together in a masterpiece."</blockquote>
+
+                <p>As you watch his films, you begin to understand that time is not a linear path, but a canvas that can be folded, stretched, and layered.</p>
+            </section>
+
+            <footer class="article-footer">
+                <a class="next" href="article4.html">Next: Shawn Levy | Action & Humor</a>
+            </footer>
+        </article>
+    </main>
+</body>
+</html>
