@@ -5,32 +5,41 @@
 
 /* Navbar Container */
 .navbar {
-    padding: 1.5rem 2rem;
+    padding: 0.6rem 2.5rem;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     z-index: 9999;
     position: fixed;
-    top: 0;
-    width: 100%;
-
+    top: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: 90%;
+    background: rgba(10, 10, 14, 0.88);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
 }
 
 /* Desktop Navigation */
 .nav-desktop {
     display: flex;
-    gap: 1rem;
+    gap: 2.5rem;
     align-items: center;
+    justify-content: center;
 }
 
 /* Individual nav item container */
 .nav-container {
     position: relative;
     display: inline-block;
-    height: 2.2rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
     overflow: hidden;
     cursor: pointer;
-    overflow: hidden;
+    white-space: nowrap;
 }
 
 /* Position nav-top and nav-bottom */
@@ -38,6 +47,11 @@
 .nav-bottom {
     position: relative;
     width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-wrap: nowrap;
 }
 
 .nav-top {
@@ -55,23 +69,29 @@
 .nav-top a,
 .nav-bottom a,
 .nav-item {
-    color: white;
+    color: #e0e0e0;
     text-decoration: none;
-    font-size: 1.6rem;
-    font-family: 'Share Tech Mono', monospace;
-    display: inline-block;
-    text-transform: lowercase;
+    font-size: 0.85rem;
+    line-height: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 /* Individual letter styling */
 .letter {
     display: inline-block;
-    transition: transform 0.4s ease;
+    white-space: nowrap;
+    transition: transform 0.3s ease;
 }
 
 /* HOVER ANIMATIONS */
 .nav-container:hover .nav-top .letter {
-    transform: translateY(-200%);
+    transform: translateY(-100%);
 }
 
 .nav-container:hover .nav-bottom .letter {
@@ -89,7 +109,8 @@
 /* Color change on hover */
 .nav-container:hover .nav-bottom a,
 .nav-item:hover {
-    color: #9747bd;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
 }
 
 
@@ -106,8 +127,8 @@
     right: 1.5rem;
     width: 50px;
     height: 50px;
-    background: rgba(151, 71, 189, 0.9);
-    border: none;
+    background: rgba(20, 20, 25, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     cursor: pointer;
     z-index: 1002;
@@ -120,7 +141,8 @@
 }
 
 .mobile-menu-btn:hover {
-    background: rgba(151, 71, 189, 1);
+    background: rgba(40, 40, 48, 1);
+    border-color: #fff;
     transform: scale(1.05);
 }
 
@@ -153,8 +175,8 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(135deg, rgba(151, 71, 189, 0.98) 0%, rgba(33, 9, 47, 0.98) 100%);
-    backdrop-filter: blur(10px);
+    background: rgba(10, 10, 12, 0.98);
+    backdrop-filter: blur(15px);
     z-index: 1001;
     display: flex;
     flex-direction: column;
@@ -173,7 +195,7 @@
 
 /* Mobile nav links */
 .mobile-nav-item {
-    color: white;
+    color: #888890;
     text-decoration: none;
     font-size: 3rem;
     font-family: 'Share Tech Mono', monospace;
@@ -210,7 +232,8 @@
 }
 
 .mobile-nav-item:hover {
-    color: #ffd700;
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
     transform: scale(1.1) translateY(0);
 }
 

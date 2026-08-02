@@ -39,7 +39,7 @@
      header is fixed. Adjust if you change header padding or font sizes. */
   --header-h: 72px;
 
-  --radius : 15px;
+  --radius: 4px;
 }
 
 /* ==================================================================
@@ -101,11 +101,11 @@ body::before {
   height: 100%;
   z-index: 1;
   /* Place it behind the content */
-  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  background: radial-gradient(circle at center, #141416 0%, #050505 100%);
 }
 
 body.particles-disabled {
-  background: linear-gradient(135deg, #202020 0%, #1a0a2e 100%);
+  background: #0a0a0c;
   background-attachment: fixed;
 }
 
@@ -130,7 +130,7 @@ body.particles-disabled {
   display: inline-block;
   text-align: left;
   margin: 1rem auto;
-  filter: drop-shadow(0 0 10px rgba(147, 51, 234, 0.5));
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
   position: relative;
   z-index: 1;
   animation: main-flicker 10s infinite; /* Faster 10s loop */
@@ -154,7 +154,7 @@ body.particles-disabled {
 .hero-title-ascii::before {
   left: 3px;
   color: transparent;
-  text-shadow: -3px 0 #ff00c1, 1px 1px #fff;
+  text-shadow: -2px 0 #ffffff, 1px 1px #888888;
   clip-path: inset(45% 0 45% 0);
   animation: glitch-burst 10s infinite;
   z-index: -1;
@@ -163,7 +163,7 @@ body.particles-disabled {
 .hero-title-ascii::after {
   left: -3px;
   color: transparent;
-  text-shadow: 3px 0 #00fff9, -1px -1px #fff;
+  text-shadow: 2px 0 #aaaaaa, -1px -1px #111111;
   animation: glitch-burst-2 10s infinite;
   clip-path: inset(80% 0 5% 0);
   z-index: 2;
@@ -206,9 +206,9 @@ body.particles-disabled {
 }
 
 @keyframes main-flicker {
-  0%, 1.5%, 25%, 28%, 48%, 49%, 72%, 75%, 100% { opacity: 1; transform: translate(0); filter: hue-rotate(0deg); }
+  0%, 1.5%, 25%, 28%, 48%, 49%, 72%, 75%, 100% { opacity: 1; transform: translate(0); }
   0.2%, 0.6%, 1.0%, 25.4%, 26.2%, 72.6%, 73.4% { opacity: 0.7; transform: translate(-3px, 2px); }
-  0.4%, 0.8%, 1.2%, 25.8%, 26.6%, 73.0%, 73.8% { opacity: 0.6; transform: translate(3px, -2px); filter: hue-rotate(180deg); }
+  0.4%, 0.8%, 1.2%, 25.8%, 26.6%, 73.0%, 73.8% { opacity: 0.6; transform: translate(3px, -2px); }
 }
 
 .hero-lead {
@@ -216,7 +216,9 @@ body.particles-disabled {
   max-width: 60ch;
   margin: 0.5rem auto;
   font-family: 'Share Tech Mono', monospace;
-  font-size: 2rem;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .social-links {
@@ -236,22 +238,25 @@ body.particles-disabled {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: #fff;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
-  opacity: 75%;
+  opacity: 85%;
 }
 
 .social-btn:hover {
-  background: rgba(195, 0, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #fff;
   transform: translateY(-3px);
-  opacity: 95%;
+  opacity: 100%;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
 }
 
 .social-btn svg {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
 }
 
 
@@ -664,14 +669,14 @@ body.particles-disabled {
 
 .info-label {
   font-weight: bold;
-  color: #9333ea;
+  color: #aaaaaa;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .info-value {
-  color: #e0e0e0;
+  color: #ffffff;
   font-size: 1rem;
   margin-top: 0.25rem;
   word-break: break-all;
@@ -679,9 +684,10 @@ body.particles-disabled {
 
 .terminal {
   position: relative;
-  background: #2c2c2cb3;
+  background: rgba(10, 10, 12, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius);
-  box-shadow: 0 8px 22px rgba(2, 6, 23, 0.6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
   overflow: hidden;
   font-family: 'Share Tech Mono', monospace;
   color: #fff;
@@ -694,7 +700,8 @@ body.particles-disabled {
 }
 
 .terminal-header {
-  background: #222;
+  background: #16161a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0.5rem 1rem;
   border-top-left-radius: var(--radius);
   border-top-right-radius: var(--radius);
@@ -730,7 +737,7 @@ body.particles-disabled {
 
 .terminal-title {
   font-size: 0.9rem;
-  color: #fff;
+  color: #aaa;
 }
 
 .terminal-body {
@@ -745,7 +752,7 @@ body.particles-disabled {
 }
 
 .terminal-line {
-  color: rgb(200, 151, 255);
+  color: #00ff66; /* Clean terminal code green or crisp white */
   margin-bottom: 0.5rem;
 }
 
@@ -753,16 +760,17 @@ body.particles-disabled {
   width: 100%;
   background: transparent;
   border: none;
-  color: rgb(200, 151, 255);
+  color: #ffffff;
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.9rem;
   padding: 1rem;
   outline: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .terminal-input::placeholder {
-  color: rgb(200, 151, 255);
-  opacity: 0.5;
+  color: #888888;
+  opacity: 0.7;
 }
 
 .terminal-body::-webkit-scrollbar {
@@ -770,7 +778,7 @@ body.particles-disabled {
 }
 
 .terminal-body::-webkit-scrollbar-thumb {
-  background: rgb(200, 151, 255);
+  background: #444;
   border-radius: 4px;
 }
 

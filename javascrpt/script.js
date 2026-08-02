@@ -145,9 +145,9 @@ function animate() {
 
             if (distance < mouse.radius) {
                 const opacityValue = 1 - (distance / mouse.radius);
-                // Make mouse lines brighter and slightly thicker
-                ctx.strokeStyle = `rgba(186, 85, 211, ${opacityValue * 0.9})`; // Brighter purple
-                ctx.lineWidth = 2;
+                // Make mouse lines brighter white
+                ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue * 0.9})`; // White
+                ctx.lineWidth = 1.5;
                 ctx.beginPath();
                 ctx.moveTo(mouse.x, mouse.y);
                 ctx.lineTo(p.x, p.y);
@@ -172,7 +172,7 @@ function animate() {
 
             if (distance < 120) {
                 const opacityValue = 1 - (distance / 120);
-                ctx.strokeStyle = `rgba(147, 51, 234, ${opacityValue * 1.0})`; // Standard purple
+                ctx.strokeStyle = `rgba(200, 200, 200, ${opacityValue * 0.4})`; // Subtle silver
                 ctx.lineWidth = 1;
                 ctx.beginPath();
                 ctx.moveTo(p.x, p.y);
