@@ -6,7 +6,7 @@
     <title>Portfolio - Nominoom</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../components/navbar.css">
     <link rel="stylesheet" href="portfolio.css">
 </head>
@@ -34,18 +34,46 @@
 
     <!-- Main Content -->
     <main class="portfolio-main">
-        <div class="portfolio-empty-container">
-            <div class="empty-projects-panel">
-                <div class="empty-icon">&lt;//&gt;</div>
-                <h3>PORTFOLIO // NO PUBLIC PROJECTS LOADED</h3>
-                <p>Projects are currently classified or under active development.</p>
-            </div>
+        <div class="portfolio-wrapper">
+            <!-- Left Side: Featured Project Details -->
+            <section class="portfolio-featured">
+                <div id="featuredBg" class="featured-bg"></div>
+                <div class="featured-content">
+                    <span id="featuredLocation" class="featured-location">Manga Vault</span>
+                    <h1 id="featuredTitle" class="featured-title">Gachiakuta</h1>
+                    <p id="featuredDescription" class="featured-description">A custom, full-featured digital manga reader application for Kei Urana's Gachiakuta. Features 175 chapters (3,300+ pages), dual reading modes (Vertical Webtoon & Horizontal Page Flip), chapter search/filters, keyboard navigation, and local storage progress tracking.</p>
+                    <a id="featuredCTA" href="../gachiakuta/" class="featured-cta">Open Reader</a>
+                </div>
+            </section>
+
+            <!-- Right Side: Carousel Section -->
+            <section class="portfolio-carousel-section">
+                <button id="prevBtn" class="carousel-nav prev" aria-label="Previous Project">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                </button>
+
+                <div class="carousel-wrapper">
+                    <div class="carousel-container">
+                        <div id="carouselTrack" class="carousel-track">
+                            <!-- Populated dynamically by portfolio.js -->
+                        </div>
+                    </div>
+                </div>
+
+                <button id="nextBtn" class="carousel-nav next" aria-label="Next Project">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </button>
+
+                <div class="carousel-counter">
+                    <span id="currentSlide">01</span> / <span id="totalSlides">09</span>
+                </div>
+            </section>
         </div>
     </main>
 
     <!-- Particle Canvas Script -->
     <script src="../javascrpt/quadtree.js"></script>
     <script src="../javascrpt/script.js"></script>
-    <script src="portfolio.js?v=2"></script>
+    <script src="portfolio.js?v=3"></script>
 </body>
 </html>
