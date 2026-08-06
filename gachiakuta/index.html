@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GACHIAKUTA - Nominoom Manga Vault</title>
+    <meta name="description" content="Read Gachiakuta manga online on Nominoom's digital library. Full chapter reader with webtoon and page flip modes.">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <!-- Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Science+Gothic:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="../CSS/styles.css">
+    <link rel="stylesheet" href="../components/navbar.css">
+    <link rel="stylesheet" href="reader.css">
+</head>
+
+<body>
+    <!-- Navbar Component Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Load Navbar Component -->
+    <script src="../components/navbar.js"></script>
+    <script>
+        fetch('../components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                if (typeof initNavbar === 'function') {
+                    initNavbar();
+                }
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
+    <!-- Interactive Particle Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Main Container -->
+    <main class="gachi-container">
+        
+        <!-- Hero Section -->
+        <section class="hero-card">
+            <div class="cover-wrapper">
+                <img id="hero-cover" src="chapters/c001/001.jpg" alt="Gachiakuta Cover" class="cover-img">
+            </div>
+            <div class="hero-info">
+                <div>
+                    <span class="badge-tag">ACTION // DARK FANTASY // VITALITY</span>
+                    <h1 class="manga-title">GACHIAKUTA</h1>
+                    <p class="manga-author">STORY & ART BY KEI URANA (裏那圭)</p>
+                    <p class="synopsis">
+                        A young boy named Rudo lives in the slums of a floating sphere city where society casts its trash down into the Abyss. Falsely accused of murder, Rudo is thrown into the dreaded Abyss—a desolate wasteland filled with terrifying trash beasts. Seeking vengeance and the truth behind his frame-up, Rudo awakens a power within himself to fight back.
+                    </p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="total-chapters">175</div>
+                        <div class="stat-label">CHAPTERS</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="total-pages">3,301</div>
+                        <div class="stat-label">TOTAL PAGES</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" style="color: var(--accent-red);">ACTIVE</div>
+                        <div class="stat-label">STATUS</div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-primary" id="btn-start-reading">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        READ CHAPTER 1
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter Directory Section -->
+        <section class="directory-section">
+            <div class="directory-toolbar">
+                <h2 class="directory-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color: var(--accent-cyan);"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+                    CHAPTER DIRECTORY
+                </h2>
+
+                <div class="search-box">
+                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    <input type="text" id="search-input" class="search-input" placeholder="Search chapter number...">
+                </div>
+
+                <div class="filter-range">
+                    <button class="range-btn active" data-min="0" data-max="999">ALL</button>
+                    <button class="range-btn" data-min="1" data-max="50">1 - 50</button>
+                    <button class="range-btn" data-min="51" data-max="100">51 - 100</button>
+                    <button class="range-btn" data-min="101" data-max="150">101 - 150</button>
+                    <button class="range-btn" data-min="151" data-max="999">151+</button>
+                </div>
+            </div>
+
+            <!-- Chapter Cards Grid -->
+            <div class="chapter-grid" id="chapter-grid">
+                <!-- Dynamically populated by reader.js -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FULLSCREEN READER VIEWPORT -->
+    <div class="reader-view" id="reader-view">
+        <!-- Floating Top Toolbar -->
+        <header class="reader-toolbar" id="reader-toolbar">
+            <div class="toolbar-left">
+                <button class="toolbar-btn" id="btn-close-reader" title="Close Reader (Esc)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                    <span>EXIT</span>
+                </button>
+                <select id="select-chapter" class="select-chapter" title="Select Chapter">
+                    <!-- Populated by JS -->
+                </select>
+            </div>
+
+            <div class="toolbar-center">
+                <button class="toolbar-btn" id="btn-prev-chapter" title="Previous Chapter">← PREV</button>
+                <span id="page-indicator" class="page-indicator">Page 1 / 1</span>
+                <button class="toolbar-btn" id="btn-next-chapter" title="Next Chapter">NEXT →</button>
+            </div>
+
+            <div class="toolbar-right">
+                <button class="toolbar-btn" id="btn-toggle-mode" title="Toggle Reading Mode">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+                    <span>STRIP</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Viewport Container -->
+        <div class="reader-viewport">
+            <!-- Vertical Webtoon Mode -->
+            <div class="vertical-strip" id="vertical-strip">
+                <!-- Image tags injected by JS -->
+            </div>
+
+            <!-- Single Flip Page Mode -->
+            <div class="flip-view" id="flip-view">
+                <div class="flip-nav-area left" id="flip-nav-left" title="Previous Page">
+                    <div class="nav-arrow">←</div>
+                </div>
+                <div class="flip-page-wrapper">
+                    <img id="flip-img" class="flip-page-img" src="" alt="Manga Page">
+                </div>
+                <div class="flip-nav-area right" id="flip-nav-right" title="Next Page">
+                    <div class="nav-arrow">→</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Bottom Toolbar -->
+        <footer class="reader-bottom-bar" id="reader-bottom-bar">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">JUMP PAGE</span>
+            <input type="range" id="page-slider" class="bottom-slider" min="0" max="0" value="0">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">WIDTH</span>
+            <input type="range" id="width-slider" class="bottom-slider" min="500" max="1200" step="50" value="800">
+        </footer>
+    </div>
+
+    <!-- Particle Background Canvas Scripts -->
+    <script src="../javascrpt/quadtree.js"></script>
+    <script src="../javascrpt/script.js"></script>
+    
+    <!-- Manga Manifest & Engine -->
+    <script src="manifest.js"></script>
+    <script src="reader.js"></script>
+</body>
+
+</html>
