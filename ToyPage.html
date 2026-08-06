@@ -27,26 +27,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <!-- Main stylesheet -->
+    <!-- Main stylesheet & Navbar stylesheet -->
     <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="components/navbar.css">
 </head>
 
 <body>
-    <!-- ================================================================
-         HEADER & NAVIGATION
-         ================================================================ -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <img src="lakeshorelockservicenavbutton.png" alt="Menu" class="menu-icon">
-            </button>
-            <ul class="nav-bar-links">
-                <li><a href="index.html#home">HOME</a></li>
-                <li><a href="index.html#about">ABOUT ME</a></li>
-                <li><a href="ToyPage.html">SANDBOX</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- HEADER & NAVIGATION -->
+    <div id="navbar-placeholder"></div>
+    <script src="components/navbar.js?v=2"></script>
+    <script>
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                if (typeof initNavbar === 'function') {
+                    initNavbar();
+                }
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
     <main id="main" role="main">
 
         <!-- ========== HERO SECTION ========== -->
@@ -90,9 +91,9 @@
                 <button id="reset-btn">Reset to Default</button>
             </div>
         </section>
-    <script src="Javascript/main.js" defer></script>
-     <script src="Javascript/quadtree.js"></script>
-    <script src="Javascript/script.js"></script>
-    <script src="Javascript/controls.js"></script>
+    <script src="javascrpt/main.js" defer></script>
+    <script src="javascrpt/quadtree.js"></script>
+    <script src="javascrpt/script.js"></script>
+    <script src="javascrpt/controls.js"></script>
 </body>
 </html>
