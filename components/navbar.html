@@ -1,70 +1,40 @@
-<nav class="navbar">
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="nav-desktop">
+        <!-- BRAND LOGO -->
+        <a href="#home" class="nav-brand" aria-label="Nominoom Home">
+            <span class="brand-name">NOMINOOM</span>
+        </a>
 
-        <div class="mobile-menu-btn">
+        <!-- DESKTOP NAV LINKS -->
+        <div class="nav-links-wrapper">
+            <a href="#home" class="nav-item">HOME</a>
+            <a href="#about" class="nav-item">ABOUT</a>
+            <a href="#certs" class="nav-item">CERTIFICATES</a>
+            <a href="#skills" class="nav-item">SKILLS</a>
+            <a href="#projects" class="nav-item">PROJECTS</a>
+            <a href="#contact" class="nav-item">CONTACT</a>
+        </div>
+
+        <!-- RIGHT CTA BUTTON -->
+        <div class="nav-action">
+            <a href="mailto:nominoom@unredacted.org" class="nav-action-btn">Hire Me</a>
+        </div>
+
+        <!-- MOBILE MENU TRIGGER -->
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Mobile Menu" aria-expanded="false">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
-        </div>
-
-        <!-- HOME -->
-        <div class="nav-container">
-            <div class="nav-top">
-                <a href="#home" class="nav-item">home</a>
-            </div>
-            <div class="nav-bottom">
-                <a href="#home" class="nav-item">home</a>
-            </div>
-        </div>
-
-        <!-- ABOUT -->
-        <div class="nav-container">
-            <div class="nav-top">
-                <a href="#about" class="nav-item">about</a>
-            </div>
-            <div class="nav-bottom">
-                <a href="#about" class="nav-item">about</a>
-            </div>
-        </div>
-
-        <!-- PROJECTS -->
-        <div class="nav-container">
-            <div class="nav-top">
-                <a href="#projects" class="nav-item">projects</a>
-            </div>
-            <div class="nav-bottom">
-                <a href="#projects" class="nav-item">projects</a>
-            </div>
-        </div>
-
-        <!-- PORTFOLIO -->
-        <div class="nav-container">
-            <div class="nav-top">
-                <a href="/portfolio/" class="nav-item">portfolio</a>
-            </div>
-            <div class="nav-bottom">
-                <a href="/portfolio/" class="nav-item">portfolio</a>
-            </div>
-        </div>
-
-        <!-- GACHIAKUTA -->
-        <div class="nav-container">
-            <div class="nav-top">
-                <a href="/gachiakuta/" class="nav-item">gachiakuta</a>
-            </div>
-            <div class="nav-bottom">
-                <a href="/gachiakuta/" class="nav-item">gachiakuta</a>
-            </div>
-        </div>
-
+        </button>
     </div>
 
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu">
-        <a href="#home" class="mobile-nav-item">home</a>
-        <a href="#about" class="mobile-nav-item">about</a>
-        <a href="#projects" class="mobile-nav-item">projects</a>
-        <a href="/portfolio/" class="mobile-nav-item">portfolio</a>
-        <a href="/gachiakuta/" class="mobile-nav-item">gachiakuta</a>
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <a href="#home" class="mobile-nav-item" onclick="closeMobileMenu()">HOME</a>
+        <a href="#about" class="mobile-nav-item" onclick="closeMobileMenu()">ABOUT</a>
+        <a href="#certs" class="mobile-nav-item" onclick="closeMobileMenu()">CERTIFICATES</a>
+        <a href="#skills" class="mobile-nav-item" onclick="closeMobileMenu()">SKILLS</a>
+        <a href="#projects" class="mobile-nav-item" onclick="closeMobileMenu()">PROJECTS</a>
+        <a href="#contact" class="mobile-nav-item" onclick="closeMobileMenu()">CONTACT</a>
     </div>
 </nav>

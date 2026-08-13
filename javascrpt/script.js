@@ -1,4 +1,7 @@
-// 1. SETUP
+/* ==================================================================
+   SCRIPT.JS — STRICT MONOCHROME B&W STARFIELD CANVAS
+   ================================================================== */
+
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
 
@@ -6,45 +9,24 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particlesArray = [];
+const PARTICLE_DENSITY = 0.3;
 
-// Particle density: number of particles per 10,000 square pixels
-// Adjust this value to control density (higher = more particles)
-// For example: 5 means 5 particles per 10,000 px² (100px × 100px)
-const PARTICLE_DENSITY = .8;
-
-// Calculate number of particles based on screen area
 function calculateParticleCount() {
     const screenArea = canvas.width * canvas.height;
-    const areaUnit = 10000; // Base unit: 10,000 px² (100px × 100px)
-    return Math.floor((screenArea / areaUnit) * PARTICLE_DENSITY);
+    return Math.floor((screenArea / 10000) * PARTICLE_DENSITY);
 }
 
 let numberOfParticles = calculateParticleCount();
 
-// 2. MOUSE & TOUCH TRACKING
 const mouse = {
     x: null,
     y: null,
-    radius: 150 // This is now purely the connection radius for the mouse
+    radius: 140
 };
 
-window.addEventListener('mousemove', (event) => {
-    mouse.x = event.x;
-    mouse.y = event.y;
-});
-
-window.addEventListener('touchstart', (event) => {
-    mouse.x = event.touches[0].clientX;
-    mouse.y = event.touches[0].clientY;
-});
-window.addEventListener('touchmove', (event) => {
-    event.preventDefault();
-    mouse.x = event.touches[0].clientX;
-    mouse.y = event.touches[0].clientY;
-});
-window.addEventListener('touchend', () => {
-    mouse.x = null;
-    mouse.y = null;
+window.addEventListener('mousemove', (e) => {
+    mouse.x = e.x;
+    mouse.y = e.y;
 });
 
 window.addEventListener('mouseout', () => {
@@ -55,27 +37,25 @@ window.addEventListener('mouseout', () => {
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    numberOfParticles = calculateParticleCount(); // Recalculate based on new size
+    numberOfParticles = calculateParticleCount();
     init();
 });
 
-// 3. PARTICLE CLASS (Simplified for Drift Only)
 class Particle {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.baseX = this.x; // This is now the "drift center"
+        this.baseX = this.x;
         this.baseY = this.y;
-        this.size = Math.random() * 2 + 1;
-
-        // Properties for fluidic random motion
+        this.size = Math.random() * 1.5 + 1;
         this.driftAngle = Math.random() * Math.PI * 2;
-        this.driftSpeed = Math.random() * 0.2 + 0.1;
+        this.driftSpeed = Math.random() * 0.12 + 0.04;
         this.driftChangeTimer = Math.random() * 100;
+        this.opacity = Math.random() * 0.35 + 0.15;
     }
 
     draw() {
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.closePath();
@@ -83,31 +63,24 @@ class Particle {
     }
 
     update() {
-        // --- FLUIDIC DRIFT MOTION (the only motion now) ---
-        
-        // Update the drift center occasionally
         if (this.driftChangeTimer++ > 120) {
             this.driftAngle += (Math.random() - 0.5) * Math.PI / 2;
             this.driftChangeTimer = 0;
         }
 
-        // Move the drift center
         this.baseX += Math.cos(this.driftAngle) * this.driftSpeed;
         this.baseY += Math.sin(this.driftAngle) * this.driftSpeed;
 
-        // Constrain drift center within bounds (prevents flying particles)
         this.baseX = Math.max(0, Math.min(canvas.width, this.baseX));
         this.baseY = Math.max(0, Math.min(canvas.height, this.baseY));
 
-        // Gently pull the particle towards its moving drift center
         let homeX = this.baseX - this.x;
         let homeY = this.baseY - this.y;
-        this.x += homeX / 60;
-        this.y += homeY / 60;
+        this.x += homeX / 50;
+        this.y += homeY / 50;
     }
 }
 
-// 4. INITIALIZE PARTICLES (randomly)
 function init() {
     particlesArray = [];
     for (let i = 0; i < numberOfParticles; i++) {
@@ -117,25 +90,21 @@ function init() {
     }
 }
 
-// 5. ANIMATION LOOP & CONNECTION LOGIC
 function animate() {
     requestAnimationFrame(animate);
-    ctx.fillStyle = 'rgb(0, 0, 0)'; // Creates a trailing effect
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Build the Quadtree for this frame
     const boundary = new Rectangle(canvas.width / 2, canvas.height / 2, canvas.width / 2, canvas.height / 2);
     const quadtree = new QuadTree(boundary, 4);
     for (let p of particlesArray) {
         quadtree.insert(p);
     }
 
-    // Update particles
     for (let i = 0; i < particlesArray.length; i++) {
         particlesArray[i].update();
     }
 
-    // --- NEW: Connect mouse to nearby particles ---
+    // Connect mouse to nearby particles
     if (mouse.x != null) {
         for (let i = 0; i < particlesArray.length; i++) {
             const p = particlesArray[i];
@@ -144,10 +113,9 @@ function animate() {
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < mouse.radius) {
-                const opacityValue = 1 - (distance / mouse.radius);
-                // Make mouse lines brighter white
-                ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue * 0.9})`; // White
-                ctx.lineWidth = 1.5;
+                const opacityValue = (1 - (distance / mouse.radius)) * 0.3;
+                ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
+                ctx.lineWidth = 1;
                 ctx.beginPath();
                 ctx.moveTo(mouse.x, mouse.y);
                 ctx.lineTo(p.x, p.y);
@@ -156,10 +124,10 @@ function animate() {
         }
     }
     
-    // --- Connect particles to other particles ---
+    // Connect particles to nearby particles
     for (let i = 0; i < particlesArray.length; i++) {
         const p = particlesArray[i];
-        const range = new Rectangle(p.x, p.y, 220, 220); // Connection radius for particles
+        const range = new Rectangle(p.x, p.y, 160, 160);
         const points = quadtree.query(range);
 
         for (let j = 0; j < points.length; j++) {
@@ -170,9 +138,9 @@ function animate() {
             const dy = p.y - p2.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < 120) {
-                const opacityValue = 1 - (distance / 120);
-                ctx.strokeStyle = `rgba(200, 200, 200, ${opacityValue * 0.4})`; // Subtle silver
+            if (distance < 90) {
+                const opacityValue = (1 - (distance / 90)) * 0.1;
+                ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
                 ctx.lineWidth = 1;
                 ctx.beginPath();
                 ctx.moveTo(p.x, p.y);
@@ -182,12 +150,10 @@ function animate() {
         }
     }
 
-    // Draw particles on top of all lines
     for (let i = 0; i < particlesArray.length; i++) {
         particlesArray[i].draw();
     }
 }
 
-// Start the animation
 init();
 animate();

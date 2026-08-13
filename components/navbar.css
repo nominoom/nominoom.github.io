@@ -1,11 +1,9 @@
 /* ==================================================================
-   NAVBAR COMPONENT STYLES
-   Standalone CSS for the reusable navbar component
+   NAVBAR STYLES — FLOATING PILL BAR (STRICT B&W)
    ================================================================== */
 
-/* Navbar Container */
 .navbar {
-    padding: 0.6rem 2.5rem;
+    padding: 0.5rem 1.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,193 +12,130 @@
     top: 1.25rem;
     left: 50%;
     transform: translateX(-50%);
-    width: auto;
-    max-width: 90%;
-    background: rgba(10, 10, 14, 0.88);
+    width: 92%;
+    max-width: 1060px;
+    background: rgba(18, 18, 18, 0.85);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-pill, 9999px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    transition: var(--transition-smooth, all 0.3s ease);
 }
 
-/* Desktop Navigation */
+.navbar:hover {
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
 .nav-desktop {
     display: flex;
-    gap: 2.5rem;
     align-items: center;
-    justify-content: center;
-}
-
-/* Individual nav item container */
-.nav-container {
-    position: relative;
-    display: inline-block;
-    height: 1.5rem;
-    line-height: 1.5rem;
-    overflow: hidden;
-    cursor: pointer;
-    white-space: nowrap;
-}
-
-/* Position nav-top and nav-bottom */
-.nav-top,
-.nav-bottom {
-    position: relative;
+    justify-content: space-between;
     width: 100%;
-    height: 100%;
+}
+
+/* BRAND LOGO */
+.nav-brand {
     display: flex;
     align-items: center;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-}
-
-.nav-top {
-    transform: translateY(0);
-}
-
-.nav-bottom {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateY(100%);
-}
-
-/* Link styling */
-.nav-top a,
-.nav-bottom a,
-.nav-item {
-    color: #e0e0e0;
     text-decoration: none;
-    font-size: 0.85rem;
-    line-height: 1.5rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 600;
+    font-family: var(--font-display, 'Outfit', sans-serif);
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+}
+
+/* NAV LINKS WRAPPER */
+.nav-links-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.nav-item {
+    color: var(--text-silver, #a1a1aa);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: #ffffff;
+}
+
+/* ACTION PILL BUTTON */
+.nav-action-btn {
     display: inline-flex;
     align-items: center;
-    white-space: nowrap;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* Individual letter styling */
-.letter {
-    display: inline-block;
-    white-space: nowrap;
-    transition: transform 0.3s ease;
-}
-
-/* HOVER ANIMATIONS */
-.nav-container:hover .nav-top .letter {
-    transform: translateY(-100%);
-}
-
-.nav-container:hover .nav-bottom .letter {
-    transform: translateY(-100%);
-}
-
-.nav-bottom .letter {
-    transform: translateY(0);
-}
-
-.nav-top .letter {
-    transform: translateY(0);
-}
-
-/* Color change on hover and active */
-.nav-container:hover .nav-bottom a,
-.nav-item:hover,
-.nav-item.active,
-.nav-container.active .nav-item,
-.mobile-nav-item.active {
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
-}
-
-.nav-container.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
+    justify-content: center;
+    padding: 0.45rem 1.25rem;
     background: #ffffff;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    color: #000000;
+    border-radius: var(--radius-pill, 9999px);
+    font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition-smooth, all 0.3s ease);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
+.nav-action-btn:hover {
+    background: #e6e6e6;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.35);
+}
 
-
-
-/* ==================================================================
-   MOBILE MENU STYLES
-   ================================================================== */
-
-/* Mobile Menu Button */
+/* MOBILE MENU BUTTON */
 .mobile-menu-btn {
     display: none;
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 50px;
-    height: 50px;
-    background: rgba(20, 20, 25, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 38px;
+    height: 38px;
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 8px;
     cursor: pointer;
-    z-index: 1002;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     padding: 0;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
-.mobile-menu-btn:hover {
-    background: rgba(40, 40, 48, 1);
-    border-color: #fff;
-    transform: scale(1.05);
-}
-
-/* Hamburger bars */
 .bar {
-    width: 28px;
-    height: 3px;
-    background: white;
-    border-radius: 2px;
-    transition: all 0.3s ease;
+    width: 18px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 1px;
+    transition: all 0.25s ease;
 }
 
-/* Hamburger animation when menu is open */
-.mobile-menu-btn.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(9px, 9px);
-}
-
-.mobile-menu-btn.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-menu-btn.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(9px, -9px);
-}
-
-/* Mobile Full-Screen Menu */
+/* MOBILE MENU OVERLAY */
 .mobile-menu {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(10, 10, 12, 0.98);
-    backdrop-filter: blur(15px);
+    background: rgba(7, 7, 7, 0.97);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     z-index: 1001;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.3s ease;
 }
 
 .mobile-menu.active {
@@ -208,74 +143,30 @@
     pointer-events: all;
 }
 
-/* Mobile nav links */
 .mobile-nav-item {
-    color: #888890;
+    color: var(--text-silver, #a1a1aa);
     text-decoration: none;
-    font-size: 3rem;
-    font-family: 'Share Tech Mono', monospace;
-    font-weight: bold;
-    text-transform: lowercase;
-    position: relative;
-    display: block;
-    padding: 1rem 2rem;
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(30px);
+    font-size: 1.75rem;
+    font-family: var(--font-display, 'Outfit', sans-serif);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.25s ease;
 }
 
-.mobile-menu.active .mobile-nav-item {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Stagger animation for mobile links */
-.mobile-menu.active .mobile-nav-item:nth-child(1) {
-    transition-delay: 0.1s;
-}
-
-.mobile-menu.active .mobile-nav-item:nth-child(2) {
-    transition-delay: 0.2s;
-}
-
-.mobile-menu.active .mobile-nav-item:nth-child(3) {
-    transition-delay: 0.3s;
-}
-
-.mobile-menu.active .mobile-nav-item:nth-child(4) {
-    transition-delay: 0.4s;
-}
-
-.mobile-nav-item:hover {
+.mobile-nav-item:hover,
+.mobile-nav-item.active {
     color: #ffffff;
-    text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
-    transform: scale(1.1) translateY(0);
 }
 
-/* ==================================================================
-   MOBILE RESPONSIVE
-   ================================================================== */
-@media (max-width: 768px) {
-    /* Hide desktop nav container */
-    .nav-desktop .nav-container {
+/* MOBILE BREAKPOINT */
+@media (max-width: 860px) {
+    .nav-links-wrapper,
+    .nav-action {
         display: none;
     }
-    
-    /* Show mobile menu button */
     .mobile-menu-btn {
         display: flex;
-    }
-    
-    /* Make navbar background transparent on mobile */
-    .navbar {
-        background: transparent;
-        box-shadow: none;
-        padding: 0;
-    }
-    
-    /* Keep mobile menu button visible */
-    .nav-desktop {
-        width: 100%;
-        justify-content: flex-end;
     }
 }
