@@ -4,9 +4,10 @@
 
 'use strict';
 
-// 1. CLIPBOARD COPY HELPER FOR DISCORD & CONTACTS
-function copyDiscordTag(element, tag) {
+// 1. CLIPBOARD COPY HELPER FOR DISCORD, PHONE & CONTACTS
+function copyDiscordTag(element, tag, label) {
     const textToCopy = tag || 'nomi.nomi';
+    const itemLabel = label || (textToCopy.includes('(') ? 'Phone number' : 'Discord tag');
     navigator.clipboard.writeText(textToCopy).then(() => {
         // Look for copy text indicator inside or nearby
         const badge = element.querySelector('.copy-badge, .btn-text, .copy-indicator');
@@ -17,8 +18,8 @@ function copyDiscordTag(element, tag) {
             badge.style.color = '#ffffff';
         }
         
-        // Show floating toast notification if available or create one
-        showToast(`Discord ID "${textToCopy}" copied to clipboard!`);
+        // Show floating toast notification
+        showToast(`${itemLabel} "${textToCopy}" copied to clipboard!`);
         
         setTimeout(() => {
             if (badge && originalText) {
@@ -28,7 +29,7 @@ function copyDiscordTag(element, tag) {
         }, 2200);
     }).catch(err => {
         console.error('Failed to copy text: ', err);
-        showToast(`Discord: ${textToCopy}`);
+        showToast(`${itemLabel}: ${textToCopy}`);
     });
 }
 
