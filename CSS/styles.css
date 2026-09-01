@@ -573,10 +573,116 @@ body {
 }
 
 /* ==================================================================
+   SUPPORT / TIP JAR (PAYPAL, BUYMEACOFFEE, CASHAPP) SECTION
+   ================================================================== */
+.support-section {
+  padding: 6rem 1.5rem 2rem 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.support-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 1.85rem;
+  backdrop-filter: var(--glass-blur);
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.support-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  background: var(--bg-card-hover);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.85);
+}
+
+.support-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.support-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.support-icon-box svg {
+  width: 24px;
+  height: 24px;
+  fill: #ffffff;
+}
+
+.support-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-silver);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.support-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.support-handle {
+  font-size: 0.88rem;
+  color: var(--text-silver);
+  margin-bottom: 1.5rem;
+}
+
+.support-action-btn {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
+  width: 100%;
+  transition: color 0.2s ease;
+}
+
+.support-card:hover .support-action-btn {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* ==================================================================
    DEDICATED CONTACT & DIRECT MESSAGE SECTION
    ================================================================== */
 .contact-section {
-  padding: 6rem 1.5rem 4rem 1.5rem;
+  padding: 4rem 1.5rem 4rem 1.5rem;
   position: relative;
   z-index: 10;
 }
