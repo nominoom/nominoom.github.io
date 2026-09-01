@@ -49,7 +49,7 @@ const projects = [
     },
     {
         id: 5,
-        location: 'Cybersecurity',
+        location: 'Systems Architecture',
         title: 'Hacker Zine Index',
         description: 'A retro-styled, terminal-themed index for an underground zine. Built with a focus on keyboard navigation and 80-character ASCII aesthetics.',
         link: '#',

@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nominoom — Computer Science &amp; Systems Engineer</title>
+    <title>Nominoom — Software &amp; Robotics Engineer</title>
     <meta name="description"
-        content="Personal portfolio of Nominoom — Computer Science student, cybersecurity practitioner, and robotics software engineer. Founder of NULLSEC.">
+        content="Personal portfolio of Nominoom — Computer Science student, software engineer, and robotics developer.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,7 +42,7 @@
             </div>
 
             <div class="nav-action">
-                <a href="mailto:nominoom@unredacted.org" class="nav-action-btn">Hire Me</a>
+                <a href="#contact" class="nav-action-btn">Get In Touch</a>
             </div>
 
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Mobile Menu"
@@ -66,34 +66,38 @@
     <!-- MAIN CONTENT -->
     <main id="main" role="main">
 
-        <!-- ========== HERO SECTION (2-COLUMN SPLIT) ========== -->
+        <!-- ========== HERO SECTION (2-COLUMN SPLIT WITH QUICK CONNECT) ========== -->
         <section class="hero-bleed" id="home" aria-label="Intro">
             <canvas id="particle-canvas"></canvas>
             <div class="container">
                 <div class="hero-grid">
                     <!-- HERO LEFT COLUMN -->
                     <div class="hero-left-content">
-                        <span class="hero-sublabel">SOFTWARE &amp; SYSTEMS ENGINEER</span>
+                        <span class="hero-sublabel">SOFTWARE &amp; ROBOTICS ENGINEER</span>
                         <h1 class="hero-title-main">Hi, I'm NOMINOOM</h1>
-                        <div class="hero-subtitle-typewriter">
-                            <span id="typewriter-text">I'm a Creator</span><span class="typewriter-cursor">|</span>
-                        </div>
+                        <p class="hero-role-tagline">Building robotics kinematics, embedded systems, and modern web applications.</p>
 
                         <p class="hero-desc">
-                            Computer Science practitioner focused on building high-performance web applications, 5-DOF robotics kinematics, and secure open infrastructure. Founder of NULLSEC.
+                            Computer Science practitioner focused on building high-performance web applications, 5-DOF robotics inverse kinematics, and embedded systems firmware. Open for direct collaboration.
                         </p>
 
                         <div class="hero-cta-row">
-                            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-pill-white">
+                            <a href="#contact" class="btn-pill-white">
+                                <span>✉</span> Get In Touch
+                            </a>
+                            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-pill-outline">
                                 <span>↓</span> Download CV
                             </a>
 
                             <div class="social-links">
+                                <button type="button" onclick="copyDiscordTag(this, 'nomi.nomi')" class="social-btn" aria-label="Copy Discord Tag: nomi.nomi" title="Discord: nomi.nomi (Click to Copy)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                                </button>
+                                <a href="https://instagram.com/nominoom0207" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram: @nominoom0207">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                </a>
                                 <a href="https://github.com/nominoom" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                                </a>
-                                <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Discord">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
                                 </a>
                                 <a href="mailto:nominoom@unredacted.org" class="social-btn" aria-label="Email">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -102,13 +106,51 @@
                         </div>
                     </div>
 
-                    <!-- HERO RIGHT COLUMN (AVATAR FRAME WITH SILVER BACKGLOW RING) -->
+                    <!-- HERO RIGHT COLUMN (DIRECT QUICK CONNECT CARD) -->
                     <div class="hero-visual-wrapper">
                         <div class="hero-backglow-ring"></div>
-                        <div class="hero-avatar-frame">
-                            <div class="avatar-icon">⚙️</div>
-                            <div class="avatar-title">NOMINOOM</div>
-                            <div class="avatar-sub">Computer Science &amp; Systems Engineer</div>
+                        <div class="hero-connect-card">
+                            <div class="connect-card-header">
+                                <span class="status-indicator-dot"></span>
+                                <span class="connect-status-text">Available For Inquiries</span>
+                            </div>
+
+                            <div class="connect-channels-list">
+                                <div class="connect-channel-item" onclick="copyDiscordTag(this, 'nomi.nomi')" title="Click to copy Discord tag">
+                                    <div class="channel-icon-wrap">
+                                        <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                                    </div>
+                                    <div class="channel-info">
+                                        <span class="channel-label">Discord</span>
+                                        <span class="channel-handle">nomi.nomi</span>
+                                    </div>
+                                    <span class="copy-badge">Copy</span>
+                                </div>
+
+                                <a href="https://instagram.com/nominoom0207" target="_blank" rel="noopener noreferrer" class="connect-channel-item">
+                                    <div class="channel-icon-wrap">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                    </div>
+                                    <div class="channel-info">
+                                        <span class="channel-label">Instagram</span>
+                                        <span class="channel-handle">@nominoom0207</span>
+                                    </div>
+                                    <span class="link-arrow">&rarr;</span>
+                                </a>
+
+                                <a href="mailto:nominoom@unredacted.org" class="connect-channel-item">
+                                    <div class="channel-icon-wrap">
+                                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                                    </div>
+                                    <div class="channel-info">
+                                        <span class="channel-label">Email</span>
+                                        <span class="channel-handle">nominoom@unredacted.org</span>
+                                    </div>
+                                    <span class="link-arrow">&rarr;</span>
+                                </a>
+                            </div>
+
+                            <a href="#contact" class="connect-card-action-btn">Message Center &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -124,8 +166,8 @@
                 <div class="ticker-item"><span>PYTHON3</span> <span class="ticker-dot">•</span></div>
                 <div class="ticker-item"><span>OPENCV VISION</span> <span class="ticker-dot">•</span></div>
                 <div class="ticker-item"><span>FULL STACK WEB</span> <span class="ticker-dot">•</span></div>
-                <div class="ticker-item"><span>LINUX SYSADMIN</span> <span class="ticker-dot">•</span></div>
-                <div class="ticker-item"><span>CYBERSECURITY</span> <span class="ticker-dot">•</span></div>
+                <div class="ticker-item"><span>LINUX SYSTEMS</span> <span class="ticker-dot">•</span></div>
+                <div class="ticker-item"><span>EMBEDDED RTOS</span> <span class="ticker-dot">•</span></div>
                 <!-- Duplicate for seamless infinite loop -->
                 <div class="ticker-item"><span>C++</span> <span class="ticker-dot">•</span></div>
                 <div class="ticker-item"><span>ROS2 KINEMATICS</span> <span class="ticker-dot">•</span></div>
@@ -133,12 +175,12 @@
                 <div class="ticker-item"><span>PYTHON3</span> <span class="ticker-dot">•</span></div>
                 <div class="ticker-item"><span>OPENCV VISION</span> <span class="ticker-dot">•</span></div>
                 <div class="ticker-item"><span>FULL STACK WEB</span> <span class="ticker-dot">•</span></div>
-                <div class="ticker-item"><span>LINUX SYSADMIN</span> <span class="ticker-dot">•</span></div>
-                <div class="ticker-item"><span>CYBERSECURITY</span> <span class="ticker-dot">•</span></div>
+                <div class="ticker-item"><span>LINUX SYSTEMS</span> <span class="ticker-dot">•</span></div>
+                <div class="ticker-item"><span>EMBEDDED RTOS</span> <span class="ticker-dot">•</span></div>
             </div>
         </section>
 
-        <!-- ========== ABOUT ME SECTION (MATCHING REFERENCE LAYOUT) ========== -->
+        <!-- ========== ABOUT ME SECTION (2-COLUMN FOCUSED) ========== -->
         <section class="about-section" id="about">
             <div class="container">
                 <div class="section-header-center">
@@ -146,13 +188,15 @@
                     <h2 class="section-title-main">About Me</h2>
                 </div>
 
-                <div class="about-3col-grid">
+                <div class="about-2col-grid">
                     <!-- LEFT COL: BIO + STATS GRID -->
                     <div class="about-card">
-                        <h3>Background &amp; Focus</h3>
-                        <p>
-                            I am a passionate software engineer with focus in robotics automation, cybersecurity, and modern web application design. I turn complex kinematic equations and security ideas into reality through clean code.
-                        </p>
+                        <div>
+                            <h3>Background &amp; Focus</h3>
+                            <p>
+                                I am a passionate software engineer with focus in robotics automation, embedded systems, and modern web application design. I turn complex kinematic equations into reliable, responsive experiences through clean and maintainable code.
+                            </p>
+                        </div>
 
                         <div class="stats-2x2-grid">
                             <div class="stat-block">
@@ -164,39 +208,32 @@
                                 <div class="stat-label">B.S. CS Graduation</div>
                             </div>
                             <div class="stat-block">
-                                <div class="stat-num">NULLSEC</div>
-                                <div class="stat-label">Security Founder</div>
+                                <div class="stat-num">100%</div>
+                                <div class="stat-label">Open Source Code</div>
                             </div>
                             <div class="stat-block">
                                 <div class="stat-num">24/7</div>
-                                <div class="stat-label">Dedicated Support</div>
+                                <div class="stat-label">Active Inquiries</div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- CENTER COL: VISUAL EMBLEM -->
-                    <div class="about-center-visual">
-                        <div class="visual-graphic">🪭</div>
-                        <h4 style="font-family: var(--font-display); font-size: 1.1rem; color: #fff;">SYSTEMS ARCHITECT</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-silver); margin-top: 0.25rem;">Robotics &amp; Security</p>
                     </div>
 
                     <!-- RIGHT COL: PHILOSOPHY & MISSION CARDS -->
                     <div style="display: flex; flex-direction: column; gap: 1.5rem;">
                         <div class="about-card">
                             <h3>My Philosophy</h3>
-                            <p>Blending rigorous hardware kinematics with modern web frontend technologies to create responsive, high-performance interactive experiences.</p>
+                            <p>Blending rigorous hardware kinematics with modern frontend engineering to create responsive, high-performance interactive tools and intuitive systems.</p>
                         </div>
                         <div class="about-card">
                             <h3>The Mission</h3>
-                            <p>Transforming complex technical ideas into clean, reliable, pixel-perfect interfaces and hardware systems that solve real problems.</p>
+                            <p>Transforming complex engineering concepts into clean, reliable, pixel-perfect software and hardware that solve real-world problems.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ========== CERTIFICATES SECTION (MATCHING REFERENCE LAYOUT) ========== -->
+        <!-- ========== CERTIFICATES SECTION ========== -->
         <section class="skills-section" id="certs">
             <div class="skills-container">
                 <div class="section-header-center">
@@ -207,7 +244,6 @@
 
                 <div class="cert-reference-grid">
                     <!-- CERT 1 -->
-                    <!-- TODO: Add verification URL for HTML/CSS -->
                     <div class="cert-card-item">
                         <div>
                             <div class="cert-top-row">
@@ -225,7 +261,6 @@
                     </div>
 
                     <!-- CERT 2 -->
-                    <!-- TODO: Add verification URL for Full Stack -->
                     <div class="cert-card-item">
                         <div>
                             <div class="cert-top-row">
@@ -243,7 +278,6 @@
                     </div>
 
                     <!-- CERT 3 -->
-                    <!-- TODO: Add verification URL for CPR -->
                     <div class="cert-card-item">
                         <div>
                             <div class="cert-top-row">
@@ -263,41 +297,33 @@
             </div>
         </section>
 
-        <!-- ========== EDUCATION SECTION (MATCHING REFERENCE LAYOUT) ========== -->
+        <!-- ========== EDUCATION SECTION ========== -->
         <section class="about-section" id="education">
             <div class="container">
                 <div class="section-header-center">
                     <span class="section-tag-sub">ACADEMIC JOURNEY</span>
                     <h2 class="section-title-main">Education</h2>
-                    <p style="color: var(--text-silver); font-size: 0.95rem; margin-top: 0.5rem;">Academic background &amp; technical training</p>
+                    <p style="color: var(--text-silver); font-size: 0.95rem; margin-top: 0.5rem;">Academic background &amp; engineering training</p>
                 </div>
 
-                <div class="education-grid">
-                    <!-- LEFT VISUAL -->
-                    <div class="about-center-visual">
-                        <div class="visual-graphic">🌸</div>
-                        <h4 style="font-family: var(--font-display); font-size: 1.15rem; color: #fff;">ACADEMIC EXCELLENCE</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-silver); margin-top: 0.25rem;">Computer Science &amp; Engineering</p>
-                    </div>
-
-                    <!-- RIGHT STACKED CARDS -->
+                <div class="education-container-box">
                     <div class="edu-stack">
                         <div class="edu-card">
                             <div class="edu-header-row">
                                 <h4>B.S. in Computer Science</h4>
                                 <span class="edu-year">2023 - 2027</span>
                             </div>
-                            <div class="edu-inst">University Name</div>
+                            <div class="edu-inst">University Program</div>
                             <div class="edu-desc">Focusing on Data Structures, Algorithms, Computer Systems, Operating Systems, Web Engineering, and Kinematics.</div>
                         </div>
 
                         <div class="edu-card">
                             <div class="edu-header-row">
-                                <h4>Cybersecurity Systems Practitioner</h4>
-                                <span class="edu-year">2024 - Present</span>
+                                <h4>Systems Software &amp; Web Engineering</h4>
+                                <span class="edu-year">2023 - Present</span>
                             </div>
-                            <div class="edu-inst">NULLSEC Collective</div>
-                            <div class="edu-desc">Network vulnerability research, privacy tooling infrastructure, system administration, and security analytics.</div>
+                            <div class="edu-inst">Advanced Systems Lab</div>
+                            <div class="edu-desc">Full-stack web architecture design, real-time data streaming, state management, and Linux systems engineering.</div>
                         </div>
 
                         <div class="edu-card">
@@ -305,7 +331,7 @@
                                 <h4>Robotics &amp; Kinematics Engineering</h4>
                                 <span class="edu-year">2023 - Present</span>
                             </div>
-                            <div class="edu-inst">Self-Directed Systems Lab</div>
+                            <div class="edu-inst">Self-Directed Hardware Lab</div>
                             <div class="edu-desc">Analytical 3D inverse kinematics solver, STM32 microcontroller firmware, and ROS2 autonomous companion prototyping.</div>
                         </div>
                     </div>
@@ -338,19 +364,11 @@
                         <div class="card-action">View Specifications &rarr;</div>
                     </div>
 
-                    <!-- Project 3: NULLSEC -->
-                    <a href="https://null-sec.org" target="_blank" rel="noopener noreferrer" class="skill-card project-card external-link-card">
-                        <div class="skill-icon">Ø</div>
-                        <h3>NULLSEC Collective</h3>
-                        <p>Open cybersecurity collective and academy building accessible tools, privacy research, and information sharing infrastructure.</p>
-                        <div class="card-action">Visit null-sec.org &rarr;</div>
-                    </a>
-
-                    <!-- Project 4: Manga Reader -->
+                    <!-- Project 3: Manga Reader -->
                     <a href="/gachiakuta/" class="skill-card project-card external-link-card">
                         <div class="skill-icon">📖</div>
                         <h3>Interactive Manga Reader</h3>
-                        <p>Fast, client-side digital manga reading web app optimized for smooth page rendering and touch gestures.</p>
+                        <p>Fast, client-side digital manga reading web app optimized for smooth page rendering, progressive loading, and touch gestures.</p>
                         <div class="card-action">Open Application &rarr;</div>
                     </a>
                 </div>
@@ -373,15 +391,15 @@
                     </div>
 
                     <div class="skill-card">
-                        <div class="skill-icon">🛡️</div>
-                        <h3>Cybersecurity</h3>
-                        <p>Investigating network security, vulnerability research, Linux system administration, and privacy-centric tooling.</p>
+                        <div class="skill-icon">⚡</div>
+                        <h3>Embedded &amp; Firmware</h3>
+                        <p>Developing real-time firmware for STM32 and ESP32 microcontrollers, serial sensor protocols, and motor motion control.</p>
                     </div>
 
                     <div class="skill-card">
-                        <div class="skill-icon">🎮</div>
-                        <h3>Gaming &amp; Game Dev</h3>
-                        <p>Experimenting with interactive game engines, real-time graphics rendering, and physics simulation mechanics.</p>
+                        <div class="skill-icon">🌐</div>
+                        <h3>Web &amp; UI Engineering</h3>
+                        <p>Crafting sleek, high-performance web applications with modern responsive architectures, state management, and smooth interactions.</p>
                     </div>
                 </div>
             </div>
@@ -415,16 +433,93 @@
             </div>
         </div>
 
-        <!-- ========== FOOTER & CONTACT ========== -->
-        <footer class="site-footer" id="contact">
+        <!-- ========== DEDICATED CONTACT SECTION ========== -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-tag-sub">DIRECT INQUIRIES</span>
+                    <h2 class="section-title-main">Let's Connect</h2>
+                    <p style="color: var(--text-silver); font-size: 0.95rem; margin-top: 0.5rem; max-width: 620px; margin-left: auto; margin-right: auto;">
+                        Have an engineering opportunity, robotics project, or want to collaborate? Connect with me directly across any of the platforms below.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Discord Card -->
+                    <div class="contact-card" onclick="copyDiscordTag(this, 'nomi.nomi')">
+                        <div class="contact-card-top">
+                            <div class="contact-icon-box">
+                                <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                            </div>
+                            <span class="contact-badge">Direct Chat</span>
+                        </div>
+                        <h3>Discord</h3>
+                        <p class="contact-handle">nomi.nomi</p>
+                        <div class="contact-action-btn">
+                            <span class="btn-text">📋 Copy Discord ID</span>
+                        </div>
+                    </div>
+
+                    <!-- Instagram Card -->
+                    <a href="https://instagram.com/nominoom0207" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <div class="contact-card-top">
+                            <div class="contact-icon-box">
+                                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </div>
+                            <span class="contact-badge">Social Updates</span>
+                        </div>
+                        <h3>Instagram</h3>
+                        <p class="contact-handle">@nominoom0207</p>
+                        <div class="contact-action-btn">
+                            <span>Open Profile &rarr;</span>
+                        </div>
+                    </a>
+
+                    <!-- Email Card -->
+                    <a href="mailto:nominoom@unredacted.org" class="contact-card">
+                        <div class="contact-card-top">
+                            <div class="contact-icon-box">
+                                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            </div>
+                            <span class="contact-badge">Direct Inquiries</span>
+                        </div>
+                        <h3>Email</h3>
+                        <p class="contact-handle">nominoom@unredacted.org</p>
+                        <div class="contact-action-btn">
+                            <span>Send Email &rarr;</span>
+                        </div>
+                    </a>
+
+                    <!-- GitHub Card -->
+                    <a href="https://github.com/nominoom" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <div class="contact-card-top">
+                            <div class="contact-icon-box">
+                                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </div>
+                            <span class="contact-badge">Source Code</span>
+                        </div>
+                        <h3>GitHub</h3>
+                        <p class="contact-handle">github.com/nominoom</p>
+                        <div class="contact-action-btn">
+                            <span>View Repositories &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FOOTER ========== -->
+        <footer class="site-footer">
             <div class="footer-content">
-                <p>&copy; 2026 Nominoom. Open Source / NullSec Operations.</p>
+                <p>&copy; 2026 Nominoom. All rights reserved.</p>
                 <div class="footer-secondary-links">
-                    <a href="/gachiakuta/">Side project: manga reader</a>
+                    <a href="https://instagram.com/nominoom0207" target="_blank" rel="noopener noreferrer">Instagram: @nominoom0207</a>
                     <span class="footer-separator">•</span>
-                    <a href="mailto:nominoom@unredacted.org">Contact Email</a>
+                    <a href="javascript:void(0)" onclick="copyDiscordTag(this, 'nomi.nomi')">Discord: nomi.nomi</a>
                     <span class="footer-separator">•</span>
-                    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
+                    <a href="mailto:nominoom@unredacted.org">nominoom@unredacted.org</a>
+                    <span class="footer-separator">•</span>
+                    <a href="/gachiakuta/">Manga Reader</a>
                 </div>
             </div>
         </footer>

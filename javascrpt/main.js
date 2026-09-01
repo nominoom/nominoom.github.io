@@ -4,50 +4,48 @@
 
 'use strict';
 
-// 1. TYPEWRITER SUBTITLE EFFECT FOR HERO SECTION
-const typewriterPhrases = [
-    "I'm a Creator",
-    "Software Engineer",
-    "Robotics Developer",
-    "Security Practitioner"
-];
-
-let phraseIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typewriterSpeed = 100;
-
-function handleTypewriter() {
-    const targetElement = document.getElementById('typewriter-text');
-    if (!targetElement) return;
-
-    const currentPhrase = typewriterPhrases[phraseIndex];
-
-    if (isDeleting) {
-        targetElement.textContent = currentPhrase.substring(0, charIndex - 1);
-        charIndex--;
-        typewriterSpeed = 50;
-    } else {
-        targetElement.textContent = currentPhrase.substring(0, charIndex + 1);
-        charIndex++;
-        typewriterSpeed = 100;
-    }
-
-    if (!isDeleting && charIndex === currentPhrase.length) {
-        isDeleting = true;
-        typewriterSpeed = 1800; // Pause at end of phrase
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % typewriterPhrases.length;
-        typewriterSpeed = 300; // Pause before starting next phrase
-    }
-
-    setTimeout(handleTypewriter, typewriterSpeed);
+// 1. CLIPBOARD COPY HELPER FOR DISCORD & CONTACTS
+function copyDiscordTag(element, tag) {
+    const textToCopy = tag || 'nomi.nomi';
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        // Look for copy text indicator inside or nearby
+        const badge = element.querySelector('.copy-badge, .btn-text, .copy-indicator');
+        const originalText = badge ? badge.textContent : null;
+        
+        if (badge) {
+            badge.textContent = '✓ Copied!';
+            badge.style.color = '#ffffff';
+        }
+        
+        // Show floating toast notification if available or create one
+        showToast(`Discord ID "${textToCopy}" copied to clipboard!`);
+        
+        setTimeout(() => {
+            if (badge && originalText) {
+                badge.textContent = originalText;
+                badge.style.color = '';
+            }
+        }, 2200);
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+        showToast(`Discord: ${textToCopy}`);
+    });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    handleTypewriter();
-});
+function showToast(message) {
+    let toast = document.getElementById('contact-toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'contact-toast';
+        toast.className = 'contact-toast';
+        document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2500);
+}
 
 // 2. PROJECT DATA FOR MODAL
 const projectData = {

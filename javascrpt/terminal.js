@@ -13,7 +13,7 @@ const userInfo = {
     role: "Full-Stack Developer",
     location: "The Upside Down",
     skills: ["JavaScript", "HTML/CSS", "Web Design", "Architecture"],
-    interests: ["Music", "Graffiti Art", "Gaming", "Cybersecurity & Development"],
+    interests: ["Music", "Graffiti Art", "Gaming", "Robotics & Systems Engineering"],
     portfolio: "nominoom.github.io",
     github: "github.com/nominoom",
     cashapp: "$K1ngDummy"
