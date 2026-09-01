@@ -9,7 +9,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particlesArray = [];
-const PARTICLE_DENSITY = 0.3;
+const PARTICLE_DENSITY = 0.35;
 
 function calculateParticleCount() {
     const screenArea = canvas.width * canvas.height;
@@ -21,7 +21,7 @@ let numberOfParticles = calculateParticleCount();
 const mouse = {
     x: null,
     y: null,
-    radius: 140
+    radius: 150
 };
 
 window.addEventListener('mousemove', (e) => {
@@ -47,11 +47,11 @@ class Particle {
         this.y = y;
         this.baseX = this.x;
         this.baseY = this.y;
-        this.size = Math.random() * 1.5 + 1;
+        this.size = Math.random() * 1.6 + 1;
         this.driftAngle = Math.random() * Math.PI * 2;
         this.driftSpeed = Math.random() * 0.12 + 0.04;
         this.driftChangeTimer = Math.random() * 100;
-        this.opacity = Math.random() * 0.35 + 0.15;
+        this.opacity = Math.random() * 0.38 + 0.18;
     }
 
     draw() {
@@ -113,7 +113,7 @@ function animate() {
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < mouse.radius) {
-                const opacityValue = (1 - (distance / mouse.radius)) * 0.3;
+                const opacityValue = (1 - (distance / mouse.radius)) * 0.35;
                 ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
                 ctx.lineWidth = 1;
                 ctx.beginPath();
@@ -127,7 +127,7 @@ function animate() {
     // Connect particles to nearby particles
     for (let i = 0; i < particlesArray.length; i++) {
         const p = particlesArray[i];
-        const range = new Rectangle(p.x, p.y, 160, 160);
+        const range = new Rectangle(p.x, p.y, 180, 180);
         const points = quadtree.query(range);
 
         for (let j = 0; j < points.length; j++) {
@@ -138,8 +138,8 @@ function animate() {
             const dy = p.y - p2.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < 90) {
-                const opacityValue = (1 - (distance / 90)) * 0.1;
+            if (distance < 100) {
+                const opacityValue = (1 - (distance / 100)) * 0.12;
                 ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
                 ctx.lineWidth = 1;
                 ctx.beginPath();
