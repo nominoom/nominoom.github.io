@@ -12,7 +12,8 @@
 body {
     background: radial-gradient(circle at 20% 20%, #1c1f22 0%, #070808 55%);
     color: var(--text);
-    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -60,7 +61,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 .hero-copy h1 {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     font-size: clamp(2.2rem, 4vw, 4.5rem);
     font-weight: 200;
     letter-spacing: 0.16em;

@@ -136,7 +136,7 @@ function renderCarouselTrack() {
             <div class="carousel-card ${idx === 0 ? 'active' : ''}" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.85)), ${proj.bgImage}; background-size: cover; background-position: center;">
                 <div class="card-label">
                     <span class="featured-location" style="font-size: 0.65rem; display: block; margin-bottom: 4px; color: rgba(255,255,255,0.7);">${proj.location}</span>
-                    <h4 style="font-size: 0.85rem; text-transform: uppercase; color: #fff; line-height: 1.2; font-family: 'Share Tech Mono', monospace;">${proj.title}</h4>
+                    <h4 style="font-size: 0.85rem; text-transform: uppercase; color: #fff; line-height: 1.2; font-family: 'Source Code Pro', monospace;">${proj.title}</h4>
                 </div>
             </div>
         `;

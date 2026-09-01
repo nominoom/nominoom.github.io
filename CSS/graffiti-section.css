@@ -21,7 +21,8 @@
   font-size: 3rem;
   color: #fff;
   margin-bottom: 3rem;
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Source Code Pro', monospace;
+  font-optical-sizing: auto;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 8px;
@@ -83,7 +84,8 @@
 .graffiti-text {
   font-size: 2.5rem;
   font-weight: 900;
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Source Code Pro', monospace;
+  font-optical-sizing: auto;
   background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

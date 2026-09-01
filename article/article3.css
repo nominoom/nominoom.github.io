@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 :root {
     --bg: #050508;
@@ -14,7 +14,8 @@
 body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -69,7 +70,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 .hero-copy h1 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     font-size: clamp(2.5rem, 5vw, 5rem);
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -80,7 +82,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 .hero-copy p {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     color: var(--accent);
     font-size: clamp(1rem, 2vw, 1.25rem);
     letter-spacing: 0.1em;
@@ -135,7 +138,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 .article-header h2 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 16px;
     color: #ffffff;
@@ -152,7 +156,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 .content h3 { 
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     font-size: 1.6rem; 
     color: #ffffff; 
     margin: 40px 0 20px; 
@@ -186,7 +191,8 @@ blockquote {
 
 .article-footer .next {
     color: var(--accent);
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 0.05em;

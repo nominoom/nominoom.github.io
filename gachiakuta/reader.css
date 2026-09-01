@@ -4,10 +4,10 @@
    ================================================================== */
 
 :root {
-  --bg-dark: #08090d;
-  --bg-panel: rgba(18, 20, 29, 0.85);
-  --bg-card: #121520;
-  --bg-hover: #1c2030;
+  --bg-dark: #000000;
+  --bg-panel: rgba(8, 8, 8, 0.85);
+  --bg-card: #080808;
+  --bg-hover: #121212;
   --border-color: rgba(255, 255, 255, 0.1);
   --accent-red: #ff2a5f;
   --accent-cyan: #00f5d4;
@@ -15,8 +15,8 @@
   --text-main: #f1f5f9;
   --text-muted: #94a3b8;
   --reader-width: 800px;
-  --font-mono: 'Share Tech Mono', 'JetBrains Mono', monospace;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Source Code Pro', monospace;
+  --font-sans: 'Source Code Pro', monospace;
   --header-h: 70px;
 }
 
@@ -123,7 +123,8 @@ body {
 }
 
 .manga-title {
-  font-family: 'Science Gothic', var(--font-mono);
+  font-family: var(--font-mono);
+  font-optical-sizing: auto;
   font-size: 2.8rem;
   font-weight: 800;
   text-transform: uppercase;

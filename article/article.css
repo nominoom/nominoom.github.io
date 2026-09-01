@@ -19,7 +19,8 @@ html {
 }
 
 body {
-    font-family: 'Courier New', Consolas, monospace;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     background-color: var(--primary-dark);
     color: var(--accent-light);
     line-height: 1.6;

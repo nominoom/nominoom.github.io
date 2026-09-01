@@ -25,7 +25,8 @@
   aspect-ratio: 1;
   border: none;
   border-radius: 15px;
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Source Code Pro', monospace;
+  font-optical-sizing: auto;
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
@@ -76,7 +77,8 @@
 .click-counter {
   text-align: center;
   margin-top: 2rem;
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Source Code Pro', monospace;
+  font-optical-sizing: auto;
 }
 
 .click-counter p {
@@ -105,7 +107,8 @@
   padding: 0.75rem 1.5rem;
   font-size: 0.9rem;
   font-weight: bold;
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Source Code Pro', monospace;
+  font-optical-sizing: auto;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;

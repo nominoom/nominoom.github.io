@@ -50,7 +50,8 @@ body {
     color: white;
     text-decoration: none;
     font-size: 1.8rem;
-    font-family: Arial, sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     font-weight: bold;
     display: inline-block;
     text-transform: lowercase;

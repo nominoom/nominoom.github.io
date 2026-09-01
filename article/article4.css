@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Roboto:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 :root {
     --bg: #0d0d0d;
@@ -13,7 +13,8 @@
 body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -65,7 +66,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 .hero-copy h1 {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     font-size: clamp(3rem, 6vw, 6rem);
     font-weight: 900;
     line-height: 1;
@@ -77,7 +79,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 .hero-copy p {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     font-weight: 700;
     color: var(--secondary);
     font-size: clamp(1rem, 2vw, 1.4rem);
@@ -93,7 +96,8 @@ a { text-decoration: none; color: inherit; }
     color: #0d0d0d;
     background: #ffffff;
     border-radius: 4px;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     font-size: 1.1rem;
     font-weight: 900;
     text-transform: uppercase;
@@ -123,7 +127,8 @@ a { text-decoration: none; color: inherit; }
 
 .article-header .tag {
     display: inline-block;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     text-transform: uppercase;
     font-size: 0.85rem;
     font-weight: 900;
@@ -136,7 +141,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 .article-header h2 {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     font-size: clamp(2.2rem, 4vw, 3.5rem);
     font-weight: 900;
     margin-bottom: 16px;
@@ -155,7 +161,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 .content h3 { 
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     font-size: 1.8rem; 
     font-weight: 700;
     color: var(--secondary); 
@@ -171,7 +178,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 blockquote {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     font-weight: 700;
     color: #ffffff;
     margin: 48px 0;
@@ -204,7 +212,8 @@ blockquote::before {
 
 .article-footer .next {
     color: var(--primary);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Source Code Pro', monospace;
+    font-optical-sizing: auto;
     font-size: 1.2rem;
     font-weight: 900;
     text-transform: uppercase;
