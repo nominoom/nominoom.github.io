@@ -8,14 +8,19 @@
 function copyDiscordTag(element, tag, label) {
     const textToCopy = tag || 'nomi.nomi';
     const itemLabel = label || (textToCopy.includes('(') ? 'Phone number' : 'Discord tag');
-    navigator.clipboard.writeText(textToCopy).then(() => {
+
+    const handleSuccess = () => {
         // Look for copy text indicator inside or nearby
-        const badge = element.querySelector('.copy-badge, .btn-text, .copy-indicator');
+        const badge = element ? element.querySelector('.copy-badge, .btn-text, .copy-indicator') : null;
         const originalText = badge ? badge.textContent : null;
         
         if (badge) {
-            badge.textContent = '✓ Copied!';
+            badge.textContent = 'Copied!';
             badge.style.color = '#ffffff';
+        }
+
+        if (element && element.classList.contains('social-btn')) {
+            element.classList.add('copied');
         }
         
         // Show floating toast notification
@@ -26,11 +31,43 @@ function copyDiscordTag(element, tag, label) {
                 badge.textContent = originalText;
                 badge.style.color = '';
             }
+            if (element && element.classList.contains('social-btn')) {
+                element.classList.remove('copied');
+            }
         }, 2200);
-    }).catch(err => {
-        console.error('Failed to copy text: ', err);
-        showToast(`${itemLabel}: ${textToCopy}`);
-    });
+    };
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(textToCopy)
+            .then(handleSuccess)
+            .catch(() => {
+                fallbackCopy(textToCopy, handleSuccess, itemLabel);
+            });
+    } else {
+        fallbackCopy(textToCopy, handleSuccess, itemLabel);
+    }
+}
+
+function fallbackCopy(text, callback, itemLabel) {
+    try {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        const successful = document.execCommand('copy');
+        document.body.removeChild(textArea);
+        if (successful && callback) {
+            callback();
+        } else {
+            showToast(`${itemLabel}: ${text}`);
+        }
+    } catch (err) {
+        showToast(`${itemLabel}: ${text}`);
+    }
 }
 
 function showToast(message) {
@@ -43,7 +80,8 @@ function showToast(message) {
     }
     toast.textContent = message;
     toast.classList.add('show');
-    setTimeout(() => {
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => {
         toast.classList.remove('show');
     }, 2500);
 }

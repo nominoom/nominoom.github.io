@@ -46,6 +46,15 @@ html {
   color: var(--text-white);
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
 body {
   font-family: var(--font-body);
   font-optical-sizing: auto;
@@ -72,13 +81,15 @@ body {
   height: 100%;
   z-index: 1;
   background: transparent;
-  pointer-events: auto;
+  pointer-events: none;
 }
 
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 1.5rem;
+  position: relative;
+  z-index: 3;
 }
 
 /* BUTTONS & PILLS */
@@ -147,6 +158,8 @@ body {
   color: var(--text-silver);
   transition: var(--transition-smooth);
   text-decoration: none;
+  cursor: pointer;
+  outline: none;
 }
 
 .social-btn:hover {
@@ -155,6 +168,14 @@ body {
   border-color: #ffffff;
   transform: translateY(-3px);
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.social-btn.copied {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  transform: scale(1.15);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
 }
 
 .social-btn svg {
@@ -254,11 +275,11 @@ body {
 
 .hero-connect-card {
   position: relative;
-  z-index: 2;
+  z-index: 5;
   width: 100%;
-  max-width: 380px;
-  border-radius: 20px;
-  background: rgba(8, 8, 8, 0.88);
+  max-width: 390px;
+  border-radius: 24px;
+  background: rgba(10, 10, 12, 0.88);
   border: 1px solid var(--border-subtle);
   backdrop-filter: var(--glass-blur);
   padding: 1.75rem;
@@ -268,7 +289,93 @@ body {
 
 .hero-connect-card:hover {
   border-color: var(--border-strong);
-  background: rgba(12, 12, 12, 0.95);
+  background: rgba(14, 14, 16, 0.95);
+}
+
+/* HERO PROFILE AVATAR HEADER */
+.hero-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hero-avatar-frame {
+  position: relative;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-avatar-frame:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.3);
+}
+
+.hero-avatar-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  background: #000000;
+}
+
+.avatar-status-pip {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 13px;
+  height: 13px;
+  background: #ffffff;
+  border: 2px solid #0a0a0c;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ffffff;
+}
+
+.hero-profile-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow: hidden;
+}
+
+.connect-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  padding: 0.2rem 0.6rem;
+  width: fit-content;
+  margin-bottom: 0.25rem;
+}
+
+.hero-profile-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.hero-profile-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-silver);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.3;
 }
 
 .connect-card-header {
@@ -281,18 +388,18 @@ body {
 }
 
 .status-indicator-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: #ffffff;
-  box-shadow: 0 0 10px #ffffff;
+  box-shadow: 0 0 8px #ffffff;
   display: inline-block;
 }
 
 .connect-status-text {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-silver);
 }
@@ -574,6 +681,186 @@ body {
   font-size: 0.875rem;
   color: var(--text-muted);
   line-height: 1.6;
+}
+
+/* ==================================================================
+   WMTU RADIO / THE NOMI MOO SHOW SECTION
+   ================================================================== */
+.radio-section {
+  padding: 6rem 1.5rem 3rem 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.radio-showcase-card {
+  background: rgba(10, 10, 12, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  padding: 3rem;
+  backdrop-filter: var(--glass-blur);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.radio-showcase-card:hover {
+  border-color: var(--border-strong);
+  background: rgba(14, 14, 16, 0.95);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+}
+
+.radio-grid-content {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.radio-branding-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.radio-logo-frame {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.radio-logo-frame:hover {
+  transform: scale(1.02);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.wmtu-logo-img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.15));
+}
+
+.radio-live-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+}
+
+.radio-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 10px #ffffff;
+  display: inline-block;
+  animation: pulse-ring 2s infinite ease-in-out;
+}
+
+@keyframes pulse-ring {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+.radio-status-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-silver);
+}
+
+.radio-info-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-show-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-silver);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.radio-show-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 0.35rem;
+}
+
+.radio-show-host {
+  font-size: 1rem;
+  color: var(--text-silver);
+  margin-bottom: 1.25rem;
+}
+
+.radio-show-desc {
+  font-size: 0.95rem;
+  color: var(--text-silver);
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+}
+
+.radio-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 0;
+}
+
+.radio-feature-block {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+}
+
+.feature-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.feature-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.radio-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 2.25rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+  width: 100%;
 }
 
 /* ==================================================================
@@ -862,6 +1149,39 @@ body {
     margin-top: 1.5rem;
   }
   .about-2col-grid {
+    grid-template-columns: 1fr;
+  }
+  .radio-grid-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+  .radio-showcase-card {
+    padding: 2rem 1.5rem;
+  }
+  .radio-features-grid {
+    text-align: left;
+  }
+  .radio-cta-row {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-profile-header {
+    gap: 0.85rem;
+  }
+  .hero-avatar-frame {
+    width: 64px;
+    height: 64px;
+  }
+  .hero-profile-name {
+    font-size: 1.1rem;
+  }
+  .radio-show-title {
+    font-size: 1.85rem;
+  }
+  .radio-features-grid {
     grid-template-columns: 1fr;
   }
 }

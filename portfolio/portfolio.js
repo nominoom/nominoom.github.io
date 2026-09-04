@@ -5,7 +5,7 @@ const projects = [
     {
         id: 0,
         location: 'Manga Vault',
-        title: 'Gachiakuta Manga Reader',
+        title: 'Gachiakuta',
         description: 'A custom, full-featured digital manga reader application for Kei Urana\'s Gachiakuta. Features 175 chapters (3,300+ pages), dual reading modes (Vertical Webtoon & Horizontal Page Flip), chapter search/filters, keyboard navigation, and local storage progress tracking.',
         link: '../gachiakuta/',
         linkText: 'Open Reader',
