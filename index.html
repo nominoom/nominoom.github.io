@@ -11,7 +11,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
     <!-- Component & Core CSS -->
     <link rel="stylesheet" href="components/navbar.css">
@@ -35,9 +35,9 @@
             <div class="nav-links-wrapper">
                 <a href="#home" class="nav-item">HOME</a>
                 <a href="#about" class="nav-item">ABOUT</a>
-                <a href="#certs" class="nav-item">CERTIFICATES</a>
-                <a href="#skills" class="nav-item">SKILLS</a>
+                <a href="#research" class="nav-item">RESEARCH</a>
                 <a href="#projects" class="nav-item">PROJECTS</a>
+                <a href="#skills" class="nav-item">SKILLS</a>
                 <a href="#radio" class="nav-item">RADIO</a>
                 <a href="#support" class="nav-item">SUPPORT</a>
                 <a href="#contact" class="nav-item">CONTACT</a>
@@ -58,9 +58,9 @@
         <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
             <a href="#home" class="mobile-nav-item" onclick="closeMobileMenu()">HOME</a>
             <a href="#about" class="mobile-nav-item" onclick="closeMobileMenu()">ABOUT</a>
-            <a href="#certs" class="mobile-nav-item" onclick="closeMobileMenu()">CERTIFICATES</a>
-            <a href="#skills" class="mobile-nav-item" onclick="closeMobileMenu()">SKILLS</a>
+            <a href="#research" class="mobile-nav-item" onclick="closeMobileMenu()">RESEARCH</a>
             <a href="#projects" class="mobile-nav-item" onclick="closeMobileMenu()">PROJECTS</a>
+            <a href="#skills" class="mobile-nav-item" onclick="closeMobileMenu()">SKILLS</a>
             <a href="#radio" class="mobile-nav-item" onclick="closeMobileMenu()">RADIO</a>
             <a href="#support" class="mobile-nav-item" onclick="closeMobileMenu()">SUPPORT</a>
             <a href="#contact" class="mobile-nav-item" onclick="closeMobileMenu()">CONTACT</a>
@@ -193,16 +193,18 @@
                     <h2 class="section-title-main">About Me</h2>
                 </div>
 
-                <div class="about-2col-grid">
-                    <!-- LEFT COL: BIO + STATS GRID -->
+                <div class="about-3col-grid">
+                    <!-- COL 1: BIO & BACKGROUND -->
                     <div class="about-card">
-                        <div>
-                            <h3>Background &amp; Research Focus</h3>
-                            <p>
-                                I am currently pursuing my Master's in Civil Engineering (2026–2032). Alongside an active engineering research team (2026–Present), I study applied robotics within civil infrastructure—focusing on the automation of human tasks through ergonomic human assistance, ease of interaction, and reliable embedded control systems.
-                            </p>
-                        </div>
+                        <h3>Background &amp; Research Focus</h3>
+                        <p>
+                            I am currently pursuing my Master's in Civil Engineering (2026–2032). Alongside an active engineering research team (2026–Present), I study applied robotics within civil infrastructure—focusing on the automation of human tasks through ergonomic human assistance, ease of interaction, and reliable embedded control systems.
+                        </p>
+                    </div>
 
+                    <!-- COL 2: RESEARCH METRICS & STATS -->
+                    <div class="about-card stats-panel-card">
+                        <h3>Research Metrics</h3>
                         <div class="stats-2x2-grid">
                             <div class="stat-block">
                                 <div class="stat-num">2026–32</div>
@@ -223,13 +225,13 @@
                         </div>
                     </div>
 
-                    <!-- RIGHT COL: PHILOSOPHY & MISSION CARDS -->
-                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                        <div class="about-card">
+                    <!-- COL 3: PHILOSOPHY & MISSION -->
+                    <div class="about-card mission-panel-card">
+                        <div class="about-mini-block">
                             <h3>Human-Centric Automation</h3>
                             <p>Designing assistive robotic frameworks that empower human operators rather than replacing them, prioritizing ergonomic ease of interaction, intuitive telemetry, and sub-millimeter precision.</p>
                         </div>
-                        <div class="about-card">
+                        <div class="about-mini-block" style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid var(--border-subtle);">
                             <h3>The Mission</h3>
                             <p>Bridging civil structural engineering with autonomous kinematics, computer vision, and embedded firmware to modernize infrastructure and automate arduous tasks.</p>
                         </div>
@@ -238,80 +240,17 @@
             </div>
         </section>
 
-        <!-- ========== CERTIFICATES SECTION ========== -->
-        <section class="skills-section" id="certs">
-            <div class="skills-container">
-                <div class="section-header-center">
-                    <span class="section-tag-sub">ACHIEVEMENTS</span>
-                    <h2 class="section-title-main">Certificates</h2>
-                    <p style="color: var(--text-silver); font-size: 0.95rem; margin-top: 0.5rem;">Professional achievements &amp; certifications</p>
-                </div>
-
-                <div class="cert-reference-grid">
-                    <!-- CERT 1 -->
-                    <div class="cert-card-item">
-                        <div>
-                            <div class="cert-top-row">
-                                <h3 class="cert-title">HTML/CSS Certification</h3>
-                                <span class="cert-year-badge">2024</span>
-                            </div>
-                            <div class="cert-issuer">Web Standards Council</div>
-                            <div class="cert-tags-wrapper">
-                                <span class="tag-pill">HTML5</span>
-                                <span class="tag-pill">CSS3</span>
-                                <span class="tag-pill">Responsive Design</span>
-                            </div>
-                        </div>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="cert-view-link">View Certificate &rarr;</a>
-                    </div>
-
-                    <!-- CERT 2 -->
-                    <div class="cert-card-item">
-                        <div>
-                            <div class="cert-top-row">
-                                <h3 class="cert-title">Full Stack Development</h3>
-                                <span class="cert-year-badge">2023</span>
-                            </div>
-                            <div class="cert-issuer">Software Engineering Institute</div>
-                            <div class="cert-tags-wrapper">
-                                <span class="tag-pill">JavaScript</span>
-                                <span class="tag-pill">REST APIs</span>
-                                <span class="tag-pill">Node.js</span>
-                            </div>
-                        </div>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="cert-view-link">View Certificate &rarr;</a>
-                    </div>
-
-                    <!-- CERT 3 -->
-                    <div class="cert-card-item">
-                        <div>
-                            <div class="cert-top-row">
-                                <h3 class="cert-title">CPR Certification</h3>
-                                <span class="cert-year-badge">2024</span>
-                            </div>
-                            <div class="cert-issuer">Healthcare Provider Network</div>
-                            <div class="cert-tags-wrapper">
-                                <span class="tag-pill">First Aid</span>
-                                <span class="tag-pill">CPR/AED</span>
-                                <span class="tag-pill">Emergency Prep</span>
-                            </div>
-                        </div>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="cert-view-link">View Certificate &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== EDUCATION SECTION ========== -->
-        <section class="about-section" id="education">
+        <!-- ========== EDUCATION & CIVIL ROBOTICS RESEARCH SECTION ========== -->
+        <section class="about-section" id="research">
             <div class="container">
                 <div class="section-header-center">
-                    <span class="section-tag-sub">ACADEMIC JOURNEY</span>
+                    <span class="section-tag-sub">CIVIL ROBOTICS &amp; ACADEMIC LAB</span>
                     <h2 class="section-title-main">Education &amp; Research</h2>
-                    <p style="color: var(--text-silver); font-size: 0.95rem; margin-top: 0.5rem;">Academic background &amp; robotics engineering research</p>
+                    <p style="color: var(--text-silver); font-size: 0.95rem; margin-top: 0.5rem;">Academic specialization, kinematics analysis, and human-assisted task automation</p>
                 </div>
 
                 <div class="education-container-box">
+                    <!-- ACADEMIC & RESEARCH APPOINTMENTS -->
                     <div class="edu-stack">
                         <div class="edu-card">
                             <div class="edu-header-row">
@@ -340,6 +279,104 @@
                             <div class="edu-desc">Analytical 3D inverse kinematics solver, STM32 microcontroller firmware, 5-DOF articulated arm prototyping, and ROS2 companion systems.</div>
                         </div>
                     </div>
+
+                    <!-- DEDICATED CIVIL ROBOTICS RESEARCH LAB SHOWCASE & 3D MODEL VIEWPORT -->
+                    <div class="research-showcase-box">
+                        <div class="research-top-header">
+                            <div class="research-header-left">
+                                <h3>5-DOF Articulated Kinematics &amp; Automation Lab</h3>
+                                <p>Human-assisted civil infrastructure task automation &amp; precision hardware integration</p>
+                            </div>
+                            <div class="research-status-pill">
+                                <span class="research-pulse-pip"></span>
+                                <span>Telemetry Active</span>
+                            </div>
+                        </div>
+
+                        <div class="research-viewport-wrapper">
+                            <!-- LEFT: 3D MODEL / ROBOTIC ARM VIEWPORT CONTAINER -->
+                            <div class="research-viewport-frame" id="research-3d-model-viewport">
+                                <!-- HUD Corner Crosshairs -->
+                                <div class="hud-corner-tl"></div>
+                                <div class="hud-corner-tr"></div>
+                                <div class="hud-corner-bl"></div>
+                                <div class="hud-corner-br"></div>
+
+                                <!-- HUD Header Bar -->
+                                <div class="viewport-hud-header">
+                                    <span class="viewport-hud-tag">
+                                        <span class="noto-sans-symbols-2-regular">⌖</span> LIVE VIEWPORT: 5-DOF ROBOTIC ARM
+                                    </span>
+                                    <span class="viewport-hud-coords">X: 420.5mm | Y: 180.2mm | Z: 750.0mm</span>
+                                </div>
+
+                                <!-- 3D MODEL / ROBOTIC ARM WAVE GIF VIEWPORT -->
+                                <div class="model-placeholder-container">
+                                    <img src="images/robotic_arm_wave.gif" alt="5-DOF Articulated Robotic Arm Wave Animation" class="model-active-visual" id="robotic-arm-display" onerror="this.onerror=null;this.src='images/robotic_arm_schematic.jpg'">
+                                    
+                                    <!-- Outlined Status HUD Badge -->
+                                    <div class="model-dropzone-overlay" title="5-DOF Robotic Arm Wave Animation">
+                                        <div class="dropzone-label">
+                                            <span class="dropzone-icon noto-sans-symbols-2-regular">⌖</span>
+                                            <span>Kinematics Simulation • Active Wave Motion</span>
+                                        </div>
+                                        <span class="dropzone-badge">5-DOF ACTIVE</span>
+                                    </div>
+                                </div>
+
+                                <!-- Viewport Bottom Telemetry Bar -->
+                                <div class="viewport-telemetry-bar">
+                                    <div class="telemetry-axis-tags">
+                                        <div class="axis-tag">J1: <span>360°</span></div>
+                                        <div class="axis-tag">J2: <span>145°</span></div>
+                                        <div class="axis-tag">J3: <span>210°</span></div>
+                                        <div class="axis-tag">J4: <span>180°</span></div>
+                                        <div class="axis-tag">J5: <span>360°</span></div>
+                                    </div>
+                                    <div class="axis-tag">TOLERANCE: <span>±0.01mm</span></div>
+                                </div>
+                            </div>
+
+                            <!-- RIGHT: RESEARCH FOCUS & TELEMETRY SPECS -->
+                            <div class="research-details-column">
+                                <div class="research-spec-card">
+                                    <div class="spec-card-head">
+                                        <h4>Geometric Kinematics Solver</h4>
+                                        <span class="spec-card-tag">5-DOF ALGORITHM</span>
+                                    </div>
+                                    <p>Closed-form analytical inverse kinematics calculating exact joint angles in sub-millisecond cycles for smooth trajectory tracking.</p>
+                                    <div class="spec-metric-row">
+                                        <span class="metric-pill">Reach: <strong>1.2 Meters</strong></span>
+                                        <span class="metric-pill">Payload: <strong>15.0 kg</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="research-spec-card">
+                                    <div class="spec-card-head">
+                                        <h4>Human-Assisted Interaction</h4>
+                                        <span class="spec-card-tag">HRI INTERFACE</span>
+                                    </div>
+                                    <p>Ergonomic human-in-the-loop teleoperation frameworks designed for civil engineering operators with intuitive haptic feedback.</p>
+                                    <div class="spec-metric-row">
+                                        <span class="metric-pill">Latency: <strong>&lt; 4.2ms</strong></span>
+                                        <span class="metric-pill">Control: <strong>Ergonomic HUD</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="research-spec-card">
+                                    <div class="spec-card-head">
+                                        <h4>Embedded Microcontroller Bus</h4>
+                                        <span class="spec-card-tag">STM32 / CAN-BUS</span>
+                                    </div>
+                                    <p>Real-time motor actuation and optical encoder telemetry communicating via high-speed differential CAN-bus architecture.</p>
+                                    <div class="spec-metric-row">
+                                        <span class="metric-pill">Bus Speed: <strong>1 Mbps</strong></span>
+                                        <span class="metric-pill">MCU: <strong>STM32F4 + ESP32</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -348,13 +385,18 @@
         <section class="skills-section" id="projects">
             <div class="skills-container">
                 <div class="section-header-center">
-                    <span class="section-tag-sub">PORTFOLIO</span>
+                    <span class="section-tag-sub">ENGINEERING PORTFOLIO</span>
                     <h2 class="section-title-main">Featured Projects</h2>
+                    <p style="color: var(--text-silver); font-size: 0.95rem; margin-top: 0.5rem;">Interactive robotics prototypes, civil automation systems, and software engineering</p>
                 </div>
 
                 <div class="skills-grid">
                     <!-- Project 1: Baymax -->
                     <div class="skill-card project-card expandable" onclick="openProjectModal('baymax')" tabindex="0" role="button" aria-label="Project Baymax details">
+                        <div class="project-card-image-wrap">
+                            <span class="project-status-tag">ACTIVE R&amp;D</span>
+                            <img src="images/project_baymax_preview.jpg" alt="Project Baymax Healthcare Companion" class="project-card-img">
+                        </div>
                         <div class="skill-icon">&lt;BM/&gt;</div>
                         <h3>Project: Baymax</h3>
                         <p>Autonomous personal healthcare assistant prototype integrated with real-time biometric tracking and computer vision.</p>
@@ -363,6 +405,10 @@
 
                     <!-- Project 2: Robotic Arm -->
                     <div class="skill-card project-card expandable" onclick="openProjectModal('robotic-arm')" tabindex="0" role="button" aria-label="Robotic Arm details">
+                        <div class="project-card-image-wrap">
+                            <span class="project-status-tag">HARDWARE SPEC</span>
+                            <img src="images/robotic_arm_schematic.jpg" alt="Articulated Robotic Arm Schematic" class="project-card-img">
+                        </div>
                         <div class="skill-icon">&lt;RA/&gt;</div>
                         <h3>Articulated Robotic Arm</h3>
                         <p>High-precision 5-DOF articulated robotic arm featuring inverse kinematics, STM32 microcontroller firmware, and G-code execution.</p>
@@ -371,6 +417,10 @@
 
                     <!-- Project 3: Gachiakuta -->
                     <a href="/gachiakuta/" class="skill-card project-card external-link-card">
+                        <div class="project-card-image-wrap">
+                            <span class="project-status-tag">WEB APP</span>
+                            <img src="images/project_gachiakuta_preview.jpg" alt="Gachiakuta Digital Manga Reader" class="project-card-img">
+                        </div>
                         <div class="skill-icon">&lt;GK/&gt;</div>
                         <h3>Gachiakuta</h3>
                         <p>Fast, client-side digital manga reading web app optimized for smooth page rendering, progressive loading, and touch gestures.</p>
@@ -409,6 +459,8 @@
                 </div>
             </div>
         </section>
+
+
 
         <!-- PROJECT DETAIL MODAL -->
         <div id="project-modal" class="project-modal-backdrop" onclick="closeProjectModal(event)">
