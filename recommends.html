@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recommendations — Nominoom</title>
+    <meta name="description"
+        content="Curated recommendations of manga, cinema, albums, and tools that inspired Nominoom.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+    <!-- Component & Core CSS -->
+    <link rel="stylesheet" href="components/navbar.css">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/recs-section.css">
+</head>
+
+<body>
+    <!-- Skip to main content -->
+    <a href="#main" class="btn-pill-white"
+        style="position: absolute; top: -100px; left: 1rem; z-index: 10000; transition: top 0.2s;"
+        onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">Skip to main content</a>
+
+    <!-- FLOATING PILL NAVBAR PLACEHOLDER -->
+    <div id="navbar-placeholder"></div>
+    <script src="components/navbar.js?v=2"></script>
+    <script>
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                if (typeof initNavbar === 'function') initNavbar();
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
+    <!-- Starfield canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- MAIN CONTENT -->
+    <main id="main" role="main" style="padding-top: 5.5rem;">
+        <section class="recs-section" id="recs" aria-label="Curated Recommendations">
+            <div class="recs-container">
+                <div class="section-header-center">
+                    <span class="recs-header-tag"><span class="forum-hash">#</span> DISCORD FORUM GALLERY • CURATED PICKS</span>
+                    <h1 class="section-title-main">Things I Recommend</h1>
+                    <p style="color: var(--text-silver); font-size: 0.95rem; margin-top: 0.5rem; max-width: 660px; margin-left: auto; margin-right: auto;">
+                        A curated vault of manga, cinema, albums, and tools that inspired my perspective. Click any card to expand its photo gallery and field notes.
+                    </p>
+                </div>
+
+                <!-- CONTROLS ROW: Filters + Add Button -->
+                <div class="recs-controls-wrapper">
+                    <!-- CATEGORY FILTER PILLS -->
+                    <div class="recs-filter-bar" role="tablist" aria-label="Filter Recommendations">
+                        <button type="button" class="recs-filter-btn active" data-filter="all">
+                            <span>All Picks</span>
+                            <span class="recs-filter-count">0</span>
+                        </button>
+                        <button type="button" class="recs-filter-btn" data-filter="anime">
+                            <span>Manga &amp; Anime</span>
+                            <span class="recs-filter-count">0</span>
+                        </button>
+                        <button type="button" class="recs-filter-btn" data-filter="film">
+                            <span>Cinema &amp; Film</span>
+                            <span class="recs-filter-count">0</span>
+                        </button>
+                        <button type="button" class="recs-filter-btn" data-filter="music">
+                            <span>Music &amp; Audio</span>
+                            <span class="recs-filter-count">0</span>
+                        </button>
+                        <button type="button" class="recs-filter-btn" data-filter="tech">
+                            <span>Engineering &amp; Tools</span>
+                            <span class="recs-filter-count">0</span>
+                        </button>
+                        <button type="button" class="recs-filter-btn" data-filter="books">
+                            <span>Books &amp; Literature</span>
+                            <span class="recs-filter-count">0</span>
+                        </button>
+                    </div>
+
+                    <!-- "+ ADD RECOMMENDATION" BUTTON -->
+                    <button type="button" class="recs-add-btn" id="open-add-rec-btn" onclick="openAddRecModal()">
+                        <span>+ Add Recommendation</span>
+                    </button>
+                </div>
+
+                <!-- CARDS GRID CONTAINER (Populated dynamically by recs.js; empty-state by default) -->
+                <div class="recs-grid" id="recs-grid">
+                    <!-- Populated dynamically by recs.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPANDED RECOMMENDATION POPUP MODAL (2-COLUMN CAROUSEL + METAS & QUICK CLICKS) -->
+        <div id="recs-modal-backdrop" class="recs-modal-backdrop" onclick="closeRecModal(event)" role="dialog" aria-modal="true" aria-labelledby="recs-modal-title">
+            <div class="recs-modal-dialog" onclick="event.stopPropagation()">
+                <!-- Close Button -->
+                <button type="button" class="recs-modal-close" onclick="closeRecModal()" aria-label="Close recommendation modal">&times;</button>
+
+                <!-- LEFT COLUMN: PHOTO GALLERY CAROUSEL WITH AUTO-SHUFFLE & TIKTOK/INSTAGRAM OVAL BUBBLES -->
+                <div class="recs-modal-gallery">
+                    <!-- Top HUD Bar: Autoplay status & counter -->
+                    <div class="gallery-top-bar">
+                        <button type="button" class="gallery-autoplay-badge" id="recs-autoplay-badge" onclick="toggleRecsAutoplay()" title="Click to toggle auto-shuffle">
+                            <span class="autoplay-pip"></span>
+                            <span id="recs-autoplay-label">Auto-Shuffling</span>
+                        </button>
+                        <span class="gallery-counter-badge" id="recs-counter-badge">1 / 1</span>
+                    </div>
+
+                    <!-- Main Viewport -->
+                    <div class="gallery-viewport" id="recs-gallery-viewport">
+                        <div class="gallery-slides-wrapper" id="recs-carousel-slides">
+                            <!-- Slides dynamically injected by recs.js -->
+                        </div>
+
+                        <!-- Arrow Navigation Controls -->
+                        <button type="button" class="gallery-nav-arrow prev" onclick="prevRecSlide()" aria-label="Previous image" title="Previous Image (←)">&#x2039;</button>
+                        <button type="button" class="gallery-nav-arrow next" onclick="nextRecSlide()" aria-label="Next image" title="Next Image (→)">&#x203A;</button>
+
+                        <!-- Hairline Auto-Shuffle Progress Bar -->
+                        <div class="gallery-progress-bar">
+                            <div class="gallery-progress-fill" id="recs-progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- TIKTOK / INSTAGRAM POST BUBBLE / OVAL INDICATORS -->
+                    <div class="gallery-bubble-nav" id="recs-carousel-bubbles" aria-label="Image indicators">
+                        <!-- Oval bubble buttons dynamically injected by recs.js -->
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: METAS, TITLE, DESCRIPTION & GO-TO BUTTONS -->
+                <div class="recs-modal-details">
+                    <div class="modal-detail-tag-row">
+                        <span class="modal-category-badge" id="recs-modal-category">Category</span>
+                        <span class="forum-badge-pin" id="recs-modal-badge">Badge</span>
+                    </div>
+
+                    <h2 class="modal-detail-title" id="recs-modal-title">Recommendation Title</h2>
+
+                    <!-- Tags -->
+                    <div class="forum-tags-row" id="recs-modal-tags"></div>
+
+                    <!-- Quick Click Information 2x2 Matrix -->
+                    <div class="modal-quick-info-grid">
+                        <div class="quick-info-block">
+                            <span class="quick-info-label">CREATOR / AUTHOR</span>
+                            <span class="quick-info-val" id="modal-info-creator">-</span>
+                        </div>
+                        <div class="quick-info-block">
+                            <span class="quick-info-label">FORMAT / MEDIUM</span>
+                            <span class="quick-info-val" id="modal-info-format">-</span>
+                        </div>
+                        <div class="quick-info-block">
+                            <span class="quick-info-label">GENRE / DOMAIN</span>
+                            <span class="quick-info-val" id="modal-info-genre">-</span>
+                        </div>
+                        <div class="quick-info-block">
+                            <span class="quick-info-label">STATUS / RUNTIME</span>
+                            <span class="quick-info-val" id="modal-info-status">-</span>
+                        </div>
+                    </div>
+
+                    <!-- "Why I Recommend This" Quote Block -->
+                    <div class="modal-recommendation-quote">
+                        <div class="rec-quote-heading">Why Nominoom Recommends This:</div>
+                        <p class="rec-quote-text" id="recs-modal-quote">Quote</p>
+                    </div>
+
+                    <!-- In-depth Description -->
+                    <div class="modal-full-desc" id="recs-modal-desc"></div>
+
+                    <!-- Go-To Quick Action Buttons -->
+                    <div class="modal-goto-row" id="recs-modal-buttons"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="site-footer" style="margin-top: 5rem;">
+            <div class="footer-content">
+                <p>&copy; 2026 Nominoom. All rights reserved.</p>
+                <div class="footer-secondary-links">
+                    <a href="index.html">Home</a>
+                    <span class="footer-separator">•</span>
+                    <a href="about.html">About</a>
+                    <span class="footer-separator">•</span>
+                    <a href="research.html">Research</a>
+                    <span class="footer-separator">•</span>
+                    <a href="projects.html">Projects</a>
+                    <span class="footer-separator">•</span>
+                    <a href="skills.html">Skills</a>
+                    <span class="footer-separator">•</span>
+                    <a href="recommends.html">Recommends</a>
+                    <span class="footer-separator">•</span>
+                    <a href="radio.html">Radio</a>
+                    <span class="footer-separator">•</span>
+                    <a href="support.html">Support</a>
+                    <span class="footer-separator">•</span>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="javascrpt/main.js"></script>
+    <script src="javascrpt/quadtree.js"></script>
+    <script src="javascrpt/script.js"></script>
+    <script src="javascrpt/recs.js"></script>
+</body>
+
+</html>

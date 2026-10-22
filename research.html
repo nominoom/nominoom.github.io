@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Research &amp; Lab — Nominoom</title>
+    <meta name="description"
+        content="Civil Robotics Research, 5-DOF Articulated Kinematics, Telemetry, and Human-Assisted Task Automation by Nominoom.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+    <!-- Component & Core CSS -->
+    <link rel="stylesheet" href="components/navbar.css">
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+<body>
+    <!-- Skip to main content -->
+    <a href="#main" class="btn-pill-white"
+        style="position: absolute; top: -100px; left: 1rem; z-index: 10000; transition: top 0.2s;"
+        onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">Skip to main content</a>
+
+    <!-- FLOATING PILL NAVBAR PLACEHOLDER -->
+    <div id="navbar-placeholder"></div>
+    <script src="components/navbar.js?v=2"></script>
+    <script>
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                if (typeof initNavbar === 'function') initNavbar();
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
+    <!-- Starfield canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- MAIN CONTENT -->
+    <main id="main" role="main" style="padding-top: 5.5rem;">
+        <!-- ========== EDUCATION & CIVIL ROBOTICS RESEARCH SECTION ========== -->
+        <section class="about-section" id="research" style="min-height: 75vh;">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-tag-sub">CIVIL ROBOTICS &amp; ACADEMIC LAB</span>
+                    <h1 class="section-title-main">Education &amp; Research</h1>
+                    <p style="color: var(--text-silver); font-size: 0.95rem; margin-top: 0.5rem; max-width: 640px; margin-left: auto; margin-right: auto;">
+                        Academic appointments, kinematics analysis, 5-DOF articulated teleoperation, and human-assisted task automation.
+                    </p>
+                </div>
+
+                <div class="education-container-box">
+                    <!-- ACADEMIC & RESEARCH APPOINTMENTS -->
+                    <div class="edu-stack">
+                        <div class="edu-card">
+                            <div class="edu-header-row">
+                                <h4>M.S. in Civil Engineering &amp; Applied Robotics</h4>
+                                <span class="edu-year">2026 - 2032</span>
+                            </div>
+                            <div class="edu-inst">Graduate Studies &amp; Research Team</div>
+                            <div class="edu-desc">Specializing in robotic task automation for civil infrastructure, human-robot interaction (HRI), inverse kinematics, and smart structural systems.</div>
+                        </div>
+
+                        <div class="edu-card">
+                            <div class="edu-header-row">
+                                <h4>Human-Assisted Robotics Research Lab</h4>
+                                <span class="edu-year">2026 - Present</span>
+                            </div>
+                            <div class="edu-inst">Civil Engineering Automation Division</div>
+                            <div class="edu-desc">Collaborative team research studying the automation of complex human tasks, focusing specifically on ergonomic human assistance, ease of interaction, and intuitive control frameworks.</div>
+                        </div>
+
+                        <div class="edu-card">
+                            <div class="edu-header-row">
+                                <h4>Hardware &amp; Embedded Systems Engineering</h4>
+                                <span class="edu-year">2026 - Present</span>
+                            </div>
+                            <div class="edu-inst">Self-Directed Systems Lab</div>
+                            <div class="edu-desc">Analytical 3D inverse kinematics solver, STM32 microcontroller firmware, 5-DOF articulated arm prototyping, and ROS2 companion systems.</div>
+                        </div>
+                    </div>
+
+                    <!-- DEDICATED CIVIL ROBOTICS RESEARCH LAB SHOWCASE & 3D MODEL VIEWPORT -->
+                    <div class="research-showcase-box">
+                        <div class="research-top-header">
+                            <div class="research-header-left">
+                                <h3>5-DOF Articulated Kinematics &amp; Automation Lab</h3>
+                                <p>Human-assisted civil infrastructure task automation &amp; precision hardware integration</p>
+                            </div>
+                            <div class="research-status-pill">
+                                <span class="research-pulse-pip"></span>
+                                <span>Telemetry Active</span>
+                            </div>
+                        </div>
+
+                        <div class="research-viewport-wrapper">
+                            <!-- LEFT: 3D MODEL / ROBOTIC ARM VIEWPORT CONTAINER -->
+                            <div class="research-viewport-frame" id="research-3d-model-viewport">
+                                <!-- HUD Corner Crosshairs -->
+                                <div class="hud-corner-tl"></div>
+                                <div class="hud-corner-tr"></div>
+                                <div class="hud-corner-bl"></div>
+                                <div class="hud-corner-br"></div>
+
+                                <!-- HUD Header Bar -->
+                                <div class="viewport-hud-header">
+                                    <span class="viewport-hud-tag">
+                                        <span class="noto-sans-symbols-2-regular">⌖</span> LIVE VIEWPORT: 5-DOF ROBOTIC ARM
+                                    </span>
+                                    <span class="viewport-hud-coords">X: 420.5mm | Y: 180.2mm | Z: 750.0mm</span>
+                                </div>
+
+                                <!-- 3D MODEL / ROBOTIC ARM WAVE GIF VIEWPORT -->
+                                <div class="model-placeholder-container">
+                                    <img src="images/robotic_arm_wave.gif" alt="5-DOF Articulated Robotic Arm Wave Animation" class="model-active-visual" id="robotic-arm-display" onerror="this.onerror=null;this.src='images/robotic_arm_schematic.jpg'">
+                                    
+                                    <!-- Outlined Status HUD Badge -->
+                                    <div class="model-dropzone-overlay" title="5-DOF Robotic Arm Wave Animation">
+                                        <div class="dropzone-label">
+                                            <span class="dropzone-icon noto-sans-symbols-2-regular">⌖</span>
+                                            <span>Kinematics Simulation • Active Wave Motion</span>
+                                        </div>
+                                        <span class="dropzone-badge">5-DOF ACTIVE</span>
+                                    </div>
+                                </div>
+
+                                <!-- Viewport Bottom Telemetry Bar -->
+                                <div class="viewport-telemetry-bar">
+                                    <div class="telemetry-axis-tags">
+                                        <div class="axis-tag">J1: <span>360°</span></div>
+                                        <div class="axis-tag">J2: <span>145°</span></div>
+                                        <div class="axis-tag">J3: <span>210°</span></div>
+                                        <div class="axis-tag">J4: <span>180°</span></div>
+                                        <div class="axis-tag">J5: <span>360°</span></div>
+                                    </div>
+                                    <div class="axis-tag">TOLERANCE: <span>±0.01mm</span></div>
+                                </div>
+                            </div>
+
+                            <!-- RIGHT: RESEARCH FOCUS & TELEMETRY SPECS -->
+                            <div class="research-details-column">
+                                <div class="research-spec-card">
+                                    <div class="spec-card-head">
+                                        <h4>Geometric Kinematics Solver</h4>
+                                        <span class="spec-card-tag">5-DOF ALGORITHM</span>
+                                    </div>
+                                    <p>Closed-form analytical inverse kinematics calculating exact joint angles in sub-millisecond cycles for smooth trajectory tracking.</p>
+                                    <div class="spec-metric-row">
+                                        <span class="metric-pill">Reach: <strong>1.2 Meters</strong></span>
+                                        <span class="metric-pill">Payload: <strong>15.0 kg</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="research-spec-card">
+                                    <div class="spec-card-head">
+                                        <h4>Human-Assisted Interaction</h4>
+                                        <span class="spec-card-tag">HRI INTERFACE</span>
+                                    </div>
+                                    <p>Ergonomic human-in-the-loop teleoperation frameworks designed for civil engineering operators with intuitive haptic feedback.</p>
+                                    <div class="spec-metric-row">
+                                        <span class="metric-pill">Latency: <strong>&lt; 4.2ms</strong></span>
+                                        <span class="metric-pill">Control: <strong>Ergonomic HUD</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="research-spec-card">
+                                    <div class="spec-card-head">
+                                        <h4>Embedded Microcontroller Bus</h4>
+                                        <span class="spec-card-tag">STM32 / CAN-BUS</span>
+                                    </div>
+                                    <p>Real-time motor actuation and optical encoder telemetry communicating via high-speed differential CAN-bus architecture.</p>
+                                    <div class="spec-metric-row">
+                                        <span class="metric-pill">Bus Speed: <strong>1 Mbps</strong></span>
+                                        <span class="metric-pill">MCU: <strong>STM32F4 + ESP32</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NAVIGATION BUTTONS -->
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; flex-wrap: wrap;">
+                    <a href="projects.html" class="btn-pill-white">View Related Projects &rarr;</a>
+                    <a href="skills.html" class="btn-pill-outline">Technical Skills &rarr;</a>
+                    <a href="contact.html" class="btn-pill-outline">Collaborate With Me &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="site-footer" style="margin-top: 5rem;">
+            <div class="footer-content">
+                <p>&copy; 2026 Nominoom. All rights reserved.</p>
+                <div class="footer-secondary-links">
+                    <a href="index.html">Home</a>
+                    <span class="footer-separator">•</span>
+                    <a href="about.html">About</a>
+                    <span class="footer-separator">•</span>
+                    <a href="research.html">Research</a>
+                    <span class="footer-separator">•</span>
+                    <a href="projects.html">Projects</a>
+                    <span class="footer-separator">•</span>
+                    <a href="skills.html">Skills</a>
+                    <span class="footer-separator">•</span>
+                    <a href="recommends.html">Recommends</a>
+                    <span class="footer-separator">•</span>
+                    <a href="radio.html">Radio</a>
+                    <span class="footer-separator">•</span>
+                    <a href="support.html">Support</a>
+                    <span class="footer-separator">•</span>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="javascrpt/main.js"></script>
+    <script src="javascrpt/quadtree.js"></script>
+    <script src="javascrpt/script.js"></script>
+</body>
+
+</html>

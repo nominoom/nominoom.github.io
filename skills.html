@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skills &amp; Expertise — Nominoom</title>
+    <meta name="description"
+        content="Core technical domains, robotics kinematics, embedded firmware, CAD parametric modeling, and web architectures explored by Nominoom.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+    <!-- Component & Core CSS -->
+    <link rel="stylesheet" href="components/navbar.css">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/skills-section.css">
+</head>
+
+<body>
+    <!-- Skip to main content -->
+    <a href="#main" class="btn-pill-white"
+        style="position: absolute; top: -100px; left: 1rem; z-index: 10000; transition: top 0.2s;"
+        onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">Skip to main content</a>
+
+    <!-- FLOATING PILL NAVBAR PLACEHOLDER -->
+    <div id="navbar-placeholder"></div>
+    <script src="components/navbar.js?v=2"></script>
+    <script>
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                if (typeof initNavbar === 'function') initNavbar();
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
+    <!-- Starfield canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- MAIN CONTENT -->
+    <main id="main" role="main" style="padding-top: 5.5rem;">
+        <!-- ========== SKILLS SECTION ========== -->
+        <section class="skills-section" id="skills" style="min-height: 75vh;">
+            <div class="skills-container">
+                <div class="section-header-center">
+                    <span class="section-tag-sub">EXPERTISE &amp; SYSTEMS</span>
+                    <h1 class="section-title-main">Currently Exploring</h1>
+                    <p style="color: var(--text-silver); font-size: 0.95rem; margin-top: 0.5rem; max-width: 640px; margin-left: auto; margin-right: auto;">
+                        Applied hardware prototyping, parametric mechanical modeling, microcontrollers, and modern reactive frontends.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">&lt;CAD/&gt;</div>
+                        <h3>CAD &amp; Civil Automation</h3>
+                        <p>Exploring 3D parametric modeling, mechanical design, structural kinematics, and robotic automation frameworks for civil infrastructure.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">&lt;SYS/&gt;</div>
+                        <h3>Embedded &amp; Firmware</h3>
+                        <p>Developing hard real-time firmware for STM32 and ESP32 microcontrollers, CAN-bus differential telemetry, serial sensor protocols, and precision motor control.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">&lt;WEB/&gt;</div>
+                        <h3>Web &amp; UI Engineering</h3>
+                        <p>Crafting sleek, high-performance web applications with modern responsive architectures, state management, client-side caching, and tactile animations.</p>
+                    </div>
+                </div>
+
+                <!-- NAVIGATION BUTTONS -->
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3.5rem; flex-wrap: wrap;">
+                    <a href="projects.html" class="btn-pill-white">Explore Projects &rarr;</a>
+                    <a href="research.html" class="btn-pill-outline">View Research Lab &rarr;</a>
+                    <a href="recommends.html" class="btn-pill-outline">Curated Picks &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="site-footer" style="margin-top: 5rem;">
+            <div class="footer-content">
+                <p>&copy; 2026 Nominoom. All rights reserved.</p>
+                <div class="footer-secondary-links">
+                    <a href="index.html">Home</a>
+                    <span class="footer-separator">•</span>
+                    <a href="about.html">About</a>
+                    <span class="footer-separator">•</span>
+                    <a href="research.html">Research</a>
+                    <span class="footer-separator">•</span>
+                    <a href="projects.html">Projects</a>
+                    <span class="footer-separator">•</span>
+                    <a href="skills.html">Skills</a>
+                    <span class="footer-separator">•</span>
+                    <a href="recommends.html">Recommends</a>
+                    <span class="footer-separator">•</span>
+                    <a href="radio.html">Radio</a>
+                    <span class="footer-separator">•</span>
+                    <a href="support.html">Support</a>
+                    <span class="footer-separator">•</span>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="javascrpt/main.js"></script>
+    <script src="javascrpt/quadtree.js"></script>
+    <script src="javascrpt/script.js"></script>
+</body>
+
+</html>

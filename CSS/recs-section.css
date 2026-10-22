@@ -8,6 +8,7 @@
     background: transparent;
     position: relative;
     z-index: 10;
+    min-height: 75vh;
 }
 
 .recs-container {
@@ -39,14 +40,23 @@
     font-weight: 800;
 }
 
-/* DISCORD FORUM CATEGORY / FILTER BAR */
+/* ACTION BAR (Filter Pills + "+ Add Recommendation" Button) */
+.recs-controls-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .recs-filter-bar {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
     gap: 0.65rem;
-    margin-bottom: 2.5rem;
 }
 
 .recs-filter-btn {
@@ -92,6 +102,93 @@
 .recs-filter-btn.active .recs-filter-count {
     background: rgba(0, 0, 0, 0.12);
     color: #000000;
+}
+
+.recs-add-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-family: var(--font-body, 'Source Code Pro', monospace);
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition-smooth, all 0.25s ease);
+}
+
+.recs-add-btn:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* ==================================================================
+   DISCORD FORUM EMPTY STATE
+   ================================================================== */
+
+.recs-empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4.5rem 2rem;
+    background: rgba(14, 15, 18, 0.6);
+    border: 1px dashed rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 720px;
+    margin: 1.5rem auto;
+}
+
+.empty-icon-wrap {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-silver, #a1a1aa);
+    margin-bottom: 1.25rem;
+}
+
+.empty-title {
+    font-family: var(--font-display, 'Source Code Pro', monospace);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.65rem;
+}
+
+.empty-desc {
+    color: var(--text-silver, #a1a1aa);
+    font-size: 0.92rem;
+    max-width: 520px;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.empty-desc code {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 0.85rem;
+}
+
+.empty-action-row {
+    display: flex;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* ==================================================================
@@ -397,7 +494,7 @@
     overflow: hidden;
 }
 
-/* TOP STATUS BAR (Auto-Shuffle Status & Counter) */
+/* TOP STATUS BAR */
 .gallery-top-bar {
     position: absolute;
     top: 0.85rem;
@@ -535,7 +632,7 @@
 .gallery-nav-arrow.prev { left: 0.85rem; }
 .gallery-nav-arrow.next { right: 0.85rem; }
 
-/* AUTO-SHUFFLE PROGRESS BAR (Glowing hairline timer) */
+/* AUTO-SHUFFLE PROGRESS BAR */
 .gallery-progress-bar {
     position: absolute;
     bottom: 0;
@@ -584,7 +681,6 @@
     transform: scale(1.2);
 }
 
-/* ACTIVE STATE: Expands into elongated oval/pill */
 .carousel-bubble-oval.active {
     width: 26px;
     background: #ffffff;
@@ -604,7 +700,6 @@
     background: #0b0d10;
 }
 
-/* CUSTOM SCROLLBAR FOR MODAL */
 .recs-modal-details::-webkit-scrollbar {
     width: 6px;
 }
@@ -615,16 +710,13 @@
     background: rgba(255, 255, 255, 0.15);
     border-radius: 3px;
 }
-.recs-modal-details::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.35);
-}
 
 .modal-detail-tag-row {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem;
-    padding-right: 2.5rem; /* Space for close button */
+    padding-right: 2.5rem;
 }
 
 .modal-category-badge {
@@ -649,7 +741,6 @@
     letter-spacing: -0.01em;
 }
 
-/* QUICK CLICK INFORMATION GRID (2x2 Matrix) */
 .modal-quick-info-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -682,7 +773,6 @@
     font-family: var(--font-body, 'Source Code Pro', monospace);
 }
 
-/* "WHY NOMINOOM RECOMMENDS THIS" QUOTE CALLOUT */
 .modal-recommendation-quote {
     background: rgba(255, 255, 255, 0.04);
     border-left: 3px solid #ffffff;
@@ -708,7 +798,6 @@
     line-height: 1.55;
 }
 
-/* FULL IN-DEPTH DESCRIPTION */
 .modal-full-desc {
     color: var(--text-silver, #a1a1aa);
     font-size: 0.92rem;
@@ -718,7 +807,6 @@
     gap: 0.75rem;
 }
 
-/* "GO-TO" QUICK ACTION BUTTONS ROW */
 .modal-goto-row {
     display: flex;
     align-items: center;
@@ -797,10 +885,99 @@
 }
 
 /* ==================================================================
+   ADD RECOMMENDATION CREATOR MODAL FORM
+   ================================================================== */
+
+.add-rec-dialog {
+    display: block !important;
+    max-width: 740px !important;
+    padding: 2.25rem 2.25rem 2rem;
+    background: #0b0d10;
+    overflow-y: auto;
+}
+
+.add-rec-header {
+    margin-bottom: 1.75rem;
+}
+
+.add-rec-header h2 {
+    font-family: var(--font-display, 'Source Code Pro', monospace);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0.5rem 0 0.35rem;
+}
+
+.add-rec-header p {
+    color: var(--text-silver, #a1a1aa);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.form-group {
+    margin-bottom: 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.form-group label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--text-silver, #a1a1aa);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: var(--font-display, 'Source Code Pro', monospace);
+}
+
+.form-row-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.recs-input {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 4px;
+    padding: 0.65rem 0.85rem;
+    color: #ffffff;
+    font-family: var(--font-body, 'Source Code Pro', monospace);
+    font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+}
+
+.recs-input:focus {
+    border-color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.recs-input option {
+    background: #111215;
+    color: #ffffff;
+}
+
+.form-actions-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+/* ==================================================================
    RESPONSIVE BREAKPOINTS
    ================================================================== */
 
 @media (max-width: 960px) {
+    .recs-controls-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
     .recs-grid {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
@@ -823,6 +1000,10 @@
 
     .recs-modal-details {
         padding: 1.75rem 1.5rem;
+    }
+
+    .form-row-2col {
+        grid-template-columns: 1fr;
     }
 }
 

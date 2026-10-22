@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Featured Projects — Nominoom</title>
+    <meta name="description"
+        content="Interactive robotics prototypes, civil automation systems, and software engineering projects by Nominoom.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+    <!-- Component & Core CSS -->
+    <link rel="stylesheet" href="components/navbar.css">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/skills-section.css">
+</head>
+
+<body>
+    <!-- Skip to main content -->
+    <a href="#main" class="btn-pill-white"
+        style="position: absolute; top: -100px; left: 1rem; z-index: 10000; transition: top 0.2s;"
+        onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">Skip to main content</a>
+
+    <!-- FLOATING PILL NAVBAR PLACEHOLDER -->
+    <div id="navbar-placeholder"></div>
+    <script src="components/navbar.js?v=2"></script>
+    <script>
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                if (typeof initNavbar === 'function') initNavbar();
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
+    <!-- Starfield canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- MAIN CONTENT -->
+    <main id="main" role="main" style="padding-top: 5.5rem;">
+        <!-- ========== PROJECTS SECTION ========== -->
+        <section class="skills-section" id="projects" style="min-height: 75vh;">
+            <div class="skills-container">
+                <div class="section-header-center">
+                    <span class="section-tag-sub">ENGINEERING PORTFOLIO</span>
+                    <h1 class="section-title-main">Featured Projects</h1>
+                    <p style="color: var(--text-silver); font-size: 0.95rem; margin-top: 0.5rem; max-width: 640px; margin-left: auto; margin-right: auto;">
+                        Interactive robotics prototypes, civil automation systems, and software engineering. Click any card to inspect technical specifications.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Project 1: Baymax -->
+                    <div class="skill-card project-card expandable" onclick="openProjectModal('baymax')" tabindex="0" role="button" aria-label="Project Baymax details">
+                        <div class="project-card-image-wrap">
+                            <span class="project-status-tag">ACTIVE R&amp;D</span>
+                            <img src="images/project_baymax_preview.jpg" alt="Project Baymax Healthcare Companion" class="project-card-img">
+                        </div>
+                        <div class="skill-icon">&lt;BM/&gt;</div>
+                        <h3>Project: Baymax</h3>
+                        <p>Autonomous personal healthcare assistant prototype integrated with real-time biometric tracking and computer vision.</p>
+                        <div class="card-action">View Specifications &rarr;</div>
+                    </div>
+
+                    <!-- Project 2: Robotic Arm -->
+                    <div class="skill-card project-card expandable" onclick="openProjectModal('robotic-arm')" tabindex="0" role="button" aria-label="Robotic Arm details">
+                        <div class="project-card-image-wrap">
+                            <span class="project-status-tag">HARDWARE SPEC</span>
+                            <img src="images/robotic_arm_schematic.jpg" alt="Articulated Robotic Arm Schematic" class="project-card-img">
+                        </div>
+                        <div class="skill-icon">&lt;RA/&gt;</div>
+                        <h3>Articulated Robotic Arm</h3>
+                        <p>High-precision 5-DOF articulated robotic arm featuring inverse kinematics, STM32 microcontroller firmware, and G-code execution.</p>
+                        <div class="card-action">View Specifications &rarr;</div>
+                    </div>
+
+                    <!-- Project 3: Gachiakuta -->
+                    <a href="/gachiakuta/" class="skill-card project-card external-link-card">
+                        <div class="project-card-image-wrap">
+                            <span class="project-status-tag">WEB APP</span>
+                            <img src="images/project_gachiakuta_preview.jpg" alt="Gachiakuta Digital Manga Reader" class="project-card-img">
+                        </div>
+                        <div class="skill-icon">&lt;GK/&gt;</div>
+                        <h3>Gachiakuta Reader</h3>
+                        <p>Fast, client-side digital manga reading web app optimized for smooth page rendering, progressive loading, and touch gestures.</p>
+                        <div class="card-action">Open Application &rarr;</div>
+                    </a>
+                </div>
+
+                <!-- NAVIGATION BUTTONS -->
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3.5rem; flex-wrap: wrap;">
+                    <a href="research.html" class="btn-pill-white">Explore Kinematics Lab &rarr;</a>
+                    <a href="skills.html" class="btn-pill-outline">View Core Skills &rarr;</a>
+                    <a href="recommends.html" class="btn-pill-outline">Things I Recommend &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECT DETAIL MODAL -->
+        <div id="project-modal" class="project-modal-backdrop" onclick="closeProjectModal(event)">
+            <div class="project-modal-content" onclick="event.stopPropagation()">
+                <div class="modal-header">
+                    <div class="modal-title-group">
+                        <span class="modal-badge" id="modal-tag">Category</span>
+                        <h2 id="modal-title">Project Title</h2>
+                    </div>
+                    <button class="modal-close-btn" onclick="closeProjectModal()">&times;</button>
+                </div>
+                <div class="modal-body-scroll">
+                    <p class="modal-lead-desc" id="modal-description"></p>
+                    <div class="modal-specs-block">
+                        <h4 class="specs-heading">Technical Specifications</h4>
+                        <ul class="modal-bullets" id="modal-specs"></ul>
+                    </div>
+                    <div class="modal-specs-block">
+                        <h4 class="specs-heading">Core Systems &amp; Features</h4>
+                        <ul class="modal-bullets" id="modal-features"></ul>
+                    </div>
+                    <div class="modal-meta-row">
+                        <div class="modal-meta-item">
+                            <span class="meta-label">STATUS</span>
+                            <span class="meta-val" id="modal-status">Active</span>
+                        </div>
+                        <div class="modal-meta-item">
+                            <span class="meta-label">TECH STACK</span>
+                            <span class="meta-val" id="modal-arch">Architecture</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="site-footer" style="margin-top: 5rem;">
+            <div class="footer-content">
+                <p>&copy; 2026 Nominoom. All rights reserved.</p>
+                <div class="footer-secondary-links">
+                    <a href="index.html">Home</a>
+                    <span class="footer-separator">•</span>
+                    <a href="about.html">About</a>
+                    <span class="footer-separator">•</span>
+                    <a href="research.html">Research</a>
+                    <span class="footer-separator">•</span>
+                    <a href="projects.html">Projects</a>
+                    <span class="footer-separator">•</span>
+                    <a href="skills.html">Skills</a>
+                    <span class="footer-separator">•</span>
+                    <a href="recommends.html">Recommends</a>
+                    <span class="footer-separator">•</span>
+                    <a href="radio.html">Radio</a>
+                    <span class="footer-separator">•</span>
+                    <a href="support.html">Support</a>
+                    <span class="footer-separator">•</span>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="javascrpt/main.js"></script>
+    <script src="javascrpt/quadtree.js"></script>
+    <script src="javascrpt/script.js"></script>
+</body>
+
+</html>

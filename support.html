@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Support My Work — Nominoom</title>
+    <meta name="description"
+        content="Support Nominoom's independent robotics research, civil engineering prototypes, and software experiments.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+    <!-- Component & Core CSS -->
+    <link rel="stylesheet" href="components/navbar.css">
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+<body>
+    <!-- Skip to main content -->
+    <a href="#main" class="btn-pill-white"
+        style="position: absolute; top: -100px; left: 1rem; z-index: 10000; transition: top 0.2s;"
+        onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">Skip to main content</a>
+
+    <!-- FLOATING PILL NAVBAR PLACEHOLDER -->
+    <div id="navbar-placeholder"></div>
+    <script src="components/navbar.js?v=2"></script>
+    <script>
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                if (typeof initNavbar === 'function') initNavbar();
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
+    <!-- Starfield canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- MAIN CONTENT -->
+    <main id="main" role="main" style="padding-top: 5.5rem;">
+        <!-- ========== SUPPORT / TIP JAR SECTION ========== -->
+        <section class="support-section" id="support" style="min-height: 75vh;">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-tag-sub">COMMUNITY &amp; LAB</span>
+                    <h1 class="section-title-main">Support My Work</h1>
+                    <p style="color: var(--text-silver); font-size: 0.95rem; margin-top: 0.5rem; max-width: 620px; margin-left: auto; margin-right: auto;">
+                        If you'd like to support my independent robotics prototypes, civil engineering lab equipment, and open-source software experiments:
+                    </p>
+                </div>
+
+                <div class="support-grid-3col">
+                    <!-- Tip Card 1: PayPal -->
+                    <a href="https://paypal.me/nominomi0207" target="_blank" rel="noopener noreferrer" class="tip-card-item">
+                        <div class="tip-card-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.82.872 4.966-.677 3.35-2.73 5.34-6.115 5.91-.703.118-1.547.165-2.48.165H9.684l-1.572 7.854a.641.641 0 0 1-.633.532l-.403.1z"/></svg>
+                        </div>
+                        <h3>PayPal</h3>
+                        <p class="tip-handle">@nominomi0207</p>
+                        <span class="tip-action-btn">Send Support &rarr;</span>
+                    </a>
+
+                    <!-- Tip Card 2: Buy Me a Coffee -->
+                    <a href="https://buymeacoffee.com/nominoom" target="_blank" rel="noopener noreferrer" class="tip-card-item">
+                        <div class="tip-card-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M20.216 6.415l-.132-.666c-.119-.598-.388-1.163-.779-1.633-.391-.47-.887-.828-1.439-1.04-.551-.21-1.144-.282-1.72-.206-.575.075-1.123.297-1.591.643L13.7 4.14C12.44 3.4 10.98 3 9.5 3 5.36 3 2 6.36 2 10.5c0 3.38 2.25 6.24 5.35 7.15L6.6 20.3c-.15.46.19.9.67.9h9.46c.48 0 .82-.44.67-.9l-.75-2.65C19.75 16.74 22 13.88 22 10.5c0-1.45-.39-2.83-1.07-4.01l-.714-.075zM17.5 12h-11c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9h11c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5z"/></svg>
+                        </div>
+                        <h3>Buy Me a Coffee</h3>
+                        <p class="tip-handle">buymeacoffee.com/nominoom</p>
+                        <span class="tip-action-btn">Support Lab &rarr;</span>
+                    </a>
+
+                    <!-- Tip Card 3: Cash App -->
+                    <a href="https://cash.app/$K1ngDummy" target="_blank" rel="noopener noreferrer" class="tip-card-item">
+                        <div class="tip-card-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm1.75 16.5h-1.5v1.5h-1.5v-1.5H9.5V15h4.25c.414 0 .75-.336.75-.75s-.336-.75-.75-.75H10.5C9.12 13.5 8 12.38 8 11s1.12-2.5 2.5-2.5V7h1.5V5.5h1.5V7h1.25V8.5H10.5c-.414 0-.75.336-.75.75s-.336.75.75.75h3.25c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5z"/></svg>
+                        </div>
+                        <h3>Cash App</h3>
+                        <p class="tip-handle">$K1ngDummy</p>
+                        <span class="tip-action-btn">Send Support &rarr;</span>
+                    </a>
+                </div>
+
+                <!-- NAVIGATION BUTTONS -->
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3.5rem; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn-pill-white">Contact &amp; Connect &rarr;</a>
+                    <a href="projects.html" class="btn-pill-outline">View Supported Projects &rarr;</a>
+                    <a href="index.html" class="btn-pill-outline">Back to Home &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="site-footer" style="margin-top: 5rem;">
+            <div class="footer-content">
+                <p>&copy; 2026 Nominoom. All rights reserved.</p>
+                <div class="footer-secondary-links">
+                    <a href="index.html">Home</a>
+                    <span class="footer-separator">•</span>
+                    <a href="about.html">About</a>
+                    <span class="footer-separator">•</span>
+                    <a href="research.html">Research</a>
+                    <span class="footer-separator">•</span>
+                    <a href="projects.html">Projects</a>
+                    <span class="footer-separator">•</span>
+                    <a href="skills.html">Skills</a>
+                    <span class="footer-separator">•</span>
+                    <a href="recommends.html">Recommends</a>
+                    <span class="footer-separator">•</span>
+                    <a href="radio.html">Radio</a>
+                    <span class="footer-separator">•</span>
+                    <a href="support.html">Support</a>
+                    <span class="footer-separator">•</span>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="javascrpt/main.js"></script>
+    <script src="javascrpt/quadtree.js"></script>
+    <script src="javascrpt/script.js"></script>
+</body>
+
+</html>

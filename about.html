@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Me — Nominoom</title>
+    <meta name="description"
+        content="About Nominoom — M.S. Civil Engineering &amp; Robotics Researcher, studying human-assisted task automation and robotic kinematics.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+    <!-- Component & Core CSS -->
+    <link rel="stylesheet" href="components/navbar.css">
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+<body>
+    <!-- Skip to main content -->
+    <a href="#main" class="btn-pill-white"
+        style="position: absolute; top: -100px; left: 1rem; z-index: 10000; transition: top 0.2s;"
+        onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">Skip to main content</a>
+
+    <!-- FLOATING PILL NAVBAR PLACEHOLDER -->
+    <div id="navbar-placeholder"></div>
+    <script src="components/navbar.js?v=2"></script>
+    <script>
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                if (typeof initNavbar === 'function') initNavbar();
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
+    <!-- Starfield canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- MAIN CONTENT -->
+    <main id="main" role="main" style="padding-top: 5.5rem;">
+        <!-- ========== ABOUT ME SECTION (EXPANDED DEDICATED PAGE) ========== -->
+        <section class="about-section" id="about" style="min-height: 75vh;">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-tag-sub">GET TO KNOW ME</span>
+                    <h1 class="section-title-main">About Me</h1>
+                    <p style="color: var(--text-silver); font-size: 0.95rem; margin-top: 0.5rem; max-width: 640px; margin-left: auto; margin-right: auto;">
+                        M.S. in Civil Engineering &amp; Applied Robotics researcher specializing in human-assisted automation, ergonomics, and embedded systems.
+                    </p>
+                </div>
+
+                <div class="about-3col-grid">
+                    <!-- COL 1: BIO & BACKGROUND -->
+                    <div class="about-card">
+                        <h3>Background &amp; Research Focus</h3>
+                        <p>
+                            I am currently pursuing my Master's in Civil Engineering (2026–2032). Alongside an active engineering research team (2026–Present), I study applied robotics within civil infrastructure—focusing on the automation of human tasks through ergonomic human assistance, ease of interaction, and reliable embedded control systems.
+                        </p>
+                        <p style="margin-top: 1rem; color: var(--text-silver);">
+                            Our research bridges classical civil structural mechanics with analytical kinematic algorithms and modern computer vision.
+                        </p>
+                    </div>
+
+                    <!-- COL 2: RESEARCH METRICS & STATS -->
+                    <div class="about-card stats-panel-card">
+                        <h3>Research Metrics</h3>
+                        <div class="stats-2x2-grid">
+                            <div class="stat-block">
+                                <div class="stat-num">2026–32</div>
+                                <div class="stat-label">M.S. Civil Engineering</div>
+                            </div>
+                            <div class="stat-block">
+                                <div class="stat-num">5-DOF</div>
+                                <div class="stat-label">Kinematics Solved</div>
+                            </div>
+                            <div class="stat-block">
+                                <div class="stat-num">2026–Pres.</div>
+                                <div class="stat-label">Civil Robotics Research</div>
+                            </div>
+                            <div class="stat-block">
+                                <div class="stat-num">100%</div>
+                                <div class="stat-label">Open Collaboration</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COL 3: PHILOSOPHY & MISSION -->
+                    <div class="about-card mission-panel-card">
+                        <div class="about-mini-block">
+                            <h3>Human-Centric Automation</h3>
+                            <p>Designing assistive robotic frameworks that empower human operators rather than replacing them, prioritizing ergonomic ease of interaction, intuitive telemetry, and sub-millimeter precision.</p>
+                        </div>
+                        <div class="about-mini-block" style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid var(--border-subtle);">
+                            <h3>The Mission</h3>
+                            <p>Bridging civil structural engineering with autonomous kinematics, computer vision, and embedded firmware to modernize infrastructure and automate arduous tasks.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NAVIGATION QUICK LINKS -->
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; flex-wrap: wrap;">
+                    <a href="research.html" class="btn-pill-white">Explore Research Lab &rarr;</a>
+                    <a href="projects.html" class="btn-pill-outline">View Featured Projects &rarr;</a>
+                    <a href="contact.html" class="btn-pill-outline">Get In Touch &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="site-footer" style="margin-top: 5rem;">
+            <div class="footer-content">
+                <p>&copy; 2026 Nominoom. All rights reserved.</p>
+                <div class="footer-secondary-links">
+                    <a href="index.html">Home</a>
+                    <span class="footer-separator">•</span>
+                    <a href="about.html">About</a>
+                    <span class="footer-separator">•</span>
+                    <a href="research.html">Research</a>
+                    <span class="footer-separator">•</span>
+                    <a href="projects.html">Projects</a>
+                    <span class="footer-separator">•</span>
+                    <a href="skills.html">Skills</a>
+                    <span class="footer-separator">•</span>
+                    <a href="recommends.html">Recommends</a>
+                    <span class="footer-separator">•</span>
+                    <a href="radio.html">Radio</a>
+                    <span class="footer-separator">•</span>
+                    <a href="support.html">Support</a>
+                    <span class="footer-separator">•</span>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="javascrpt/main.js"></script>
+    <script src="javascrpt/quadtree.js"></script>
+    <script src="javascrpt/script.js"></script>
+</body>
+
+</html>

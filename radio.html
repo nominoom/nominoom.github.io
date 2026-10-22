@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Nomi Moo Show — WMTU 91.9 FM</title>
+    <meta name="description"
+        content="The Nomi Moo Show live broadcast on Michigan Tech's WMTU 91.9 FM with Nominoom. Alternative Rock, Math Rock, Post-Punk, and Indie favorites.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+    <!-- Component & Core CSS -->
+    <link rel="stylesheet" href="components/navbar.css">
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+<body>
+    <!-- Skip to main content -->
+    <a href="#main" class="btn-pill-white"
+        style="position: absolute; top: -100px; left: 1rem; z-index: 10000; transition: top 0.2s;"
+        onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">Skip to main content</a>
+
+    <!-- FLOATING PILL NAVBAR PLACEHOLDER -->
+    <div id="navbar-placeholder"></div>
+    <script src="components/navbar.js?v=2"></script>
+    <script>
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                if (typeof initNavbar === 'function') initNavbar();
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
+
+    <!-- Starfield canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- MAIN CONTENT -->
+    <main id="main" role="main" style="padding-top: 5.5rem;">
+        <!-- ========== WMTU RADIO / THE NOMI MOO SHOW SECTION ========== -->
+        <section class="radio-section" id="radio" style="min-height: 75vh;">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-tag-sub">ON AIR • WMTU 91.9 FM</span>
+                    <h1 class="section-title-main">The Nomi Moo Show</h1>
+                    <p style="color: var(--text-silver); font-size: 0.95rem; margin-top: 0.5rem; max-width: 640px; margin-left: auto; margin-right: auto;">
+                        Catch me live in the broadcast booth on Michigan Tech's student-run radio station, playing Alternative Rock, Math Rock, Post-Punk, and listener-requested tracks.
+                    </p>
+                </div>
+
+                <div class="radio-showcase-card">
+                    <div class="radio-grid-content">
+                        <!-- LEFT COLUMN: WMTU LOGO & BROADCAST TIME -->
+                        <div class="radio-branding-box">
+                            <div class="radio-logo-frame">
+                                <img src="images/wmtu_logo.png" alt="WMTU 91.9 FM Logo" class="wmtu-logo-img">
+                            </div>
+                            <div class="radio-live-status">
+                                <span class="radio-pulse-dot"></span>
+                                <span class="radio-status-text">Tuesdays • 2:00 PM – 4:00 PM EST</span>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT COLUMN: SHOW DETAILS & ACTION BUTTONS -->
+                        <div class="radio-info-column">
+                            <div class="radio-show-tag">WMTU.FM • HOUGHTON, MI</div>
+                            <h2 class="radio-show-title" style="font-size: 1.6rem; margin-bottom: 0.25rem;">The Nomi Moo Show</h2>
+                            <p class="radio-show-host">Hosted by <strong>Nominoom</strong></p>
+
+                            <p class="radio-show-desc">
+                                Broadcasting every Tuesday afternoon live from Michigan Technological University on <strong>91.9 FM</strong>, streaming high-fidelity audio worldwide at <strong>wmtu.fm</strong>, and streaming live studio video on Twitch at <strong>twitch.tv/wmtu_live</strong>. Delivering high-energy Alternative Rock, Post-Punk, Math Rock, Indie favorites, and taking live music requests at <strong>request.wmtu.fm</strong>.
+                            </p>
+
+                            <div class="radio-features-grid">
+                                <div class="radio-feature-block">
+                                    <span class="feature-label">AIR TIME</span>
+                                    <span class="feature-value">Tuesdays 2–4 PM EST</span>
+                                </div>
+                                <div class="radio-feature-block">
+                                    <span class="feature-label">SOUND</span>
+                                    <span class="feature-value">Alt Rock &amp; More</span>
+                                </div>
+                                <div class="radio-feature-block">
+                                    <span class="feature-label">REQUESTS</span>
+                                    <span class="feature-value">request.wmtu.fm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="radio-cta-row">
+                        <a href="https://wmtu.fm" target="_blank" rel="noopener noreferrer" class="btn-pill-white">
+                            Listen Live on WMTU.FM &rarr;
+                        </a>
+                        <a href="https://request.wmtu.fm" target="_blank" rel="noopener noreferrer" class="btn-pill-outline">
+                            Request a Song &rarr;
+                        </a>
+                        <a href="https://twitch.tv/wmtu_live" target="_blank" rel="noopener noreferrer" class="btn-pill-outline">
+                            Watch on Twitch &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- NAVIGATION BUTTONS -->
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3.5rem; flex-wrap: wrap;">
+                    <a href="recommends.html" class="btn-pill-white">Curated Recommendations &rarr;</a>
+                    <a href="support.html" class="btn-pill-outline">Support The Show &rarr;</a>
+                    <a href="contact.html" class="btn-pill-outline">Contact Nominoom &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="site-footer" style="margin-top: 5rem;">
+            <div class="footer-content">
+                <p>&copy; 2026 Nominoom. All rights reserved.</p>
+                <div class="footer-secondary-links">
+                    <a href="index.html">Home</a>
+                    <span class="footer-separator">•</span>
+                    <a href="about.html">About</a>
+                    <span class="footer-separator">•</span>
+                    <a href="research.html">Research</a>
+                    <span class="footer-separator">•</span>
+                    <a href="projects.html">Projects</a>
+                    <span class="footer-separator">•</span>
+                    <a href="skills.html">Skills</a>
+                    <span class="footer-separator">•</span>
+                    <a href="recommends.html">Recommends</a>
+                    <span class="footer-separator">•</span>
+                    <a href="radio.html">Radio</a>
+                    <span class="footer-separator">•</span>
+                    <a href="support.html">Support</a>
+                    <span class="footer-separator">•</span>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="javascrpt/main.js"></script>
+    <script src="javascrpt/quadtree.js"></script>
+    <script src="javascrpt/script.js"></script>
+</body>
+
+</html>

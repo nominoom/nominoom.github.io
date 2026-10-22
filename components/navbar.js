@@ -25,9 +25,11 @@ function updateNavbarHrefs() {
         rootPath = src.replace(/components\/navbar\.js.*$/, '');
     }
 
-    const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/');
-    const pageName = window.location.pathname.split('/').pop().toLowerCase();
-    const isHomePage = (rootPath === '' || rootPath === './') && (pageName === '' || pageName === 'index.html');
+    const currentPath = window.location.pathname.toLowerCase();
+    let currentPage = currentPath.split('/').pop().toLowerCase();
+    if (!currentPage || currentPage === '') {
+        currentPage = 'index.html';
+    }
 
     const navLinks = document.querySelectorAll('.navbar a');
     navLinks.forEach(link => {
@@ -38,34 +40,23 @@ function updateNavbarHrefs() {
             link.setAttribute('data-href', rawHref);
         }
 
-        if (rawHref.startsWith('#')) {
-            if (isHomePage) {
-                link.setAttribute('href', rawHref);
-            } else {
-                link.setAttribute('href', rootPath + 'index.html' + rawHref);
-            }
-        } else if (rawHref.startsWith('/') || !rawHref.includes(':')) {
+        if (!rawHref.startsWith('http') && !rawHref.startsWith('mailto:') && !rawHref.startsWith('tel:') && !rawHref.startsWith('#')) {
             const cleanRaw = rawHref.replace(/^\//, '');
-            let target = cleanRaw;
-            if (target.endsWith('/')) {
-                target += 'index.html';
-            }
-            link.setAttribute('href', rootPath + target);
+            link.setAttribute('href', rootPath + cleanRaw);
         }
-    });
 
-    // Highlight current active nav item
-    const currentPath = window.location.pathname.toLowerCase();
-    navLinks.forEach(link => {
-        const href = (link.getAttribute('href') || '').toLowerCase();
+        // Highlight current active nav item
+        const targetPage = rawHref.replace(/^(\.\.\/|\.\/|\/)/, '').split('#')[0].toLowerCase();
         link.classList.remove('active');
         const container = link.closest('.nav-container');
         if (container) container.classList.remove('active');
 
-        if (currentPath.includes('/portfolio') && href.includes('portfolio')) {
-            link.classList.add('active');
-            if (container) container.classList.add('active');
-        } else if (currentPath.includes('/gachiakuta') && href.includes('gachiakuta')) {
+        if (targetPage === currentPage || 
+            (currentPage === 'index.html' && (targetPage === 'index.html' || targetPage === '')) ||
+            (currentPath.includes('/portfolio') && targetPage.includes('projects')) ||
+            (currentPath.includes('/gachiakuta') && targetPage.includes('projects')) ||
+            (currentPath.includes('/project_baymax') && targetPage.includes('projects')) ||
+            (currentPath.includes('/article') && targetPage.includes('recommends'))) {
             link.classList.add('active');
             if (container) container.classList.add('active');
         }
