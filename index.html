@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="components/navbar.css">
     <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="CSS/skills-section.css">
+    <link rel="stylesheet" href="CSS/recs-section.css">
 </head>
 
 <body>
@@ -38,6 +39,7 @@
                 <a href="#research" class="nav-item">RESEARCH</a>
                 <a href="#projects" class="nav-item">PROJECTS</a>
                 <a href="#skills" class="nav-item">SKILLS</a>
+                <a href="#recs" class="nav-item">RECOMMENDS</a>
                 <a href="#radio" class="nav-item">RADIO</a>
                 <a href="#support" class="nav-item">SUPPORT</a>
                 <a href="#contact" class="nav-item">CONTACT</a>
@@ -61,6 +63,7 @@
             <a href="#research" class="mobile-nav-item" onclick="closeMobileMenu()">RESEARCH</a>
             <a href="#projects" class="mobile-nav-item" onclick="closeMobileMenu()">PROJECTS</a>
             <a href="#skills" class="mobile-nav-item" onclick="closeMobileMenu()">SKILLS</a>
+            <a href="#recs" class="mobile-nav-item" onclick="closeMobileMenu()">RECOMMENDS</a>
             <a href="#radio" class="mobile-nav-item" onclick="closeMobileMenu()">RADIO</a>
             <a href="#support" class="mobile-nav-item" onclick="closeMobileMenu()">SUPPORT</a>
             <a href="#contact" class="mobile-nav-item" onclick="closeMobileMenu()">CONTACT</a>
@@ -82,7 +85,7 @@
                         <p class="hero-role-tagline">Studying robotics in civil engineering with a focus on human-assisted task automation &amp; ease of interaction.</p>
 
                         <p class="hero-desc">
-                            Currently pursuing my Master's in Civil Engineering (2026–2032). Collaborating with an active research team (2026–Present) to pioneer robotics within civil engineering—focusing on the automation of human tasks with seamless human assistance, intuitive interaction, and robust hardware integration.
+                            Currently pursuing my PhD in Civil Engineering (2026–2034). Collaborating with an active research team (2026–Present) to further push robotics within civil engineering—focusing on the automation of human tasks and the collaborative effort and review on human fault testing. As well as the inegration of VR systems.
                         </p>
 
                         <div class="hero-cta-row">
@@ -496,6 +499,300 @@
             </div>
         </div>
 
+        <!-- ========== RECOMMENDATIONS SECTION (DISCORD FORUM GALLERY STYLE) ========== -->
+        <section class="recs-section" id="recs" aria-label="Curated Recommendations">
+            <div class="recs-container">
+                <div class="section-header-center">
+                    <span class="recs-header-tag"><span class="forum-hash">#</span> DISCORD FORUM GALLERY • CURATED PICKS</span>
+                    <h2 class="section-title-main">Things I Recommend</h2>
+                    <p style="color: var(--text-silver); font-size: 0.95rem; margin-top: 0.5rem; max-width: 660px; margin-left: auto; margin-right: auto;">
+                        A curated vault of manga, cinema essays, astrophysics scores, and hardware toolchains that heavily influenced my perspective. Click any card to expand its photo gallery and field notes.
+                    </p>
+                </div>
+
+                <!-- CATEGORY FILTER PILLS -->
+                <div class="recs-filter-bar" role="tablist" aria-label="Filter Recommendations">
+                    <button type="button" class="recs-filter-btn active" data-filter="all">
+                        <span>All Picks</span>
+                        <span class="recs-filter-count">6</span>
+                    </button>
+                    <button type="button" class="recs-filter-btn" data-filter="anime">
+                        <span>Manga &amp; Anime</span>
+                        <span class="recs-filter-count">2</span>
+                    </button>
+                    <button type="button" class="recs-filter-btn" data-filter="film">
+                        <span>Cinema &amp; Essays</span>
+                        <span class="recs-filter-count">2</span>
+                    </button>
+                    <button type="button" class="recs-filter-btn" data-filter="music">
+                        <span>Music &amp; Radio</span>
+                        <span class="recs-filter-count">1</span>
+                    </button>
+                    <button type="button" class="recs-filter-btn" data-filter="engineering">
+                        <span>Engineering &amp; Tools</span>
+                        <span class="recs-filter-count">1</span>
+                    </button>
+                </div>
+
+                <!-- DISCORD FORUM GALLERY CARDS GRID -->
+                <div class="recs-grid">
+                    <!-- CARD 1: Gachiakuta -->
+                    <article class="forum-rec-card" data-category="anime" onclick="openRecModal('gachiakuta')" tabindex="0" role="button" aria-label="View Gachiakuta recommendation details">
+                        <div class="forum-card-media">
+                            <img src="images/recs/gachiakuta_art.jpg" alt="Gachiakuta Urban Abyss Art" class="forum-card-img" loading="lazy">
+                            <div class="forum-media-overlay"></div>
+                            <div class="forum-badge-row">
+                                <span class="forum-badge-pin">★ TOP PICK</span>
+                                <span class="forum-media-count">📷 3 Media</span>
+                            </div>
+                        </div>
+                        <div class="forum-card-content">
+                            <div class="forum-tags-row">
+                                <span class="forum-pill-tag">#Manga</span>
+                                <span class="forum-pill-tag">#GraffitiArt</span>
+                                <span class="forum-pill-tag">#DarkFantasy</span>
+                            </div>
+                            <h3 class="forum-card-title">Gachiakuta — Urban Graffiti &amp; Relic Magic</h3>
+                            <p class="forum-card-desc">Kei Urana's breathtaking dark fantasy shonen following Rudo in the Abyss, powered by dynamic ink splatters, kinetic graffiti worldbuilding, and relic soul combat.</p>
+                        </div>
+                        <div class="forum-card-footer">
+                            <div class="forum-footer-author">
+                                <img src="images/guita.jpg" alt="Nomi" class="forum-author-pip">
+                                <span class="forum-author-name">Nomi's Pick</span>
+                            </div>
+                            <span class="forum-expand-prompt">View Gallery &rarr;</span>
+                        </div>
+                    </article>
+
+                    <!-- CARD 2: The Villain Essay -->
+                    <article class="forum-rec-card" data-category="film" onclick="openRecModal('villain-essay')" tabindex="0" role="button" aria-label="View The Villain Essay recommendation details">
+                        <div class="forum-card-media">
+                            <img src="images/fallen-angel.jpg" alt="The Fallen Angel Alexandre Cabanel" class="forum-card-img" loading="lazy">
+                            <div class="forum-media-overlay"></div>
+                            <div class="forum-badge-row">
+                                <span class="forum-badge-pin">📌 PINNED ESSAY</span>
+                                <span class="forum-media-count">📷 4 Media</span>
+                            </div>
+                        </div>
+                        <div class="forum-card-content">
+                            <div class="forum-tags-row">
+                                <span class="forum-pill-tag">#FilmAnalysis</span>
+                                <span class="forum-pill-tag">#Philosophy</span>
+                                <span class="forum-pill-tag">#DarthVader</span>
+                            </div>
+                            <h3 class="forum-card-title">The Villain: Architecture of Opposition</h3>
+                            <p class="forum-card-desc">An analytical exploration of tragic antagonists, moral divergence, and how figures like Darth Vader reflect classical masterworks such as Alexandre Cabanel's The Fallen Angel.</p>
+                        </div>
+                        <div class="forum-card-footer">
+                            <div class="forum-footer-author">
+                                <img src="images/guita.jpg" alt="Nomi" class="forum-author-pip">
+                                <span class="forum-author-name">Nomi's Essay</span>
+                            </div>
+                            <span class="forum-expand-prompt">View Gallery &rarr;</span>
+                        </div>
+                    </article>
+
+                    <!-- CARD 3: Interstellar -->
+                    <article class="forum-rec-card" data-category="film" onclick="openRecModal('interstellar')" tabindex="0" role="button" aria-label="View Interstellar recommendation details">
+                        <div class="forum-card-media">
+                            <img src="images/recs/interstellar_blackhole.jpg" alt="Gargantua Black Hole Simulation" class="forum-card-img" loading="lazy">
+                            <div class="forum-media-overlay"></div>
+                            <div class="forum-badge-row">
+                                <span class="forum-badge-pin">★ MASTERWORK</span>
+                                <span class="forum-media-count">📷 3 Media</span>
+                            </div>
+                        </div>
+                        <div class="forum-card-content">
+                            <div class="forum-tags-row">
+                                <span class="forum-pill-tag">#SciFi</span>
+                                <span class="forum-pill-tag">#HansZimmer</span>
+                                <span class="forum-pill-tag">#Relativity</span>
+                            </div>
+                            <h3 class="forum-card-title">Interstellar — Relativistic Time &amp; Organ Score</h3>
+                            <p class="forum-card-desc">Christopher Nolan and Kip Thorne's hard science-fiction triumph, elevated by Hans Zimmer's monumental 1926 pipe organ score recorded at London's Temple Church.</p>
+                        </div>
+                        <div class="forum-card-footer">
+                            <div class="forum-footer-author">
+                                <img src="images/guita.jpg" alt="Nomi" class="forum-author-pip">
+                                <span class="forum-author-name">Nomi's Pick</span>
+                            </div>
+                            <span class="forum-expand-prompt">View Gallery &rarr;</span>
+                        </div>
+                    </article>
+
+                    <!-- CARD 4: WMTU Radio -->
+                    <article class="forum-rec-card" data-category="music" onclick="openRecModal('nomi-moo-show')" tabindex="0" role="button" aria-label="View The Nomi Moo Show recommendation details">
+                        <div class="forum-card-media">
+                            <img src="images/recs/radio_studio_console.jpg" alt="Vintage Broadcast Console" class="forum-card-img" loading="lazy">
+                            <div class="forum-media-overlay"></div>
+                            <div class="forum-badge-row">
+                                <span class="forum-badge-pin">📻 ON AIR WEEKLY</span>
+                                <span class="forum-media-count">📷 3 Media</span>
+                            </div>
+                        </div>
+                        <div class="forum-card-content">
+                            <div class="forum-tags-row">
+                                <span class="forum-pill-tag">#AltRock</span>
+                                <span class="forum-pill-tag">#MathRock</span>
+                                <span class="forum-pill-tag">#LiveRadio</span>
+                            </div>
+                            <h3 class="forum-card-title">The Nomi Moo Show — Alt Rock &amp; Intricate Rhythms</h3>
+                            <p class="forum-card-desc">My live weekly broadcast residency on Michigan Tech's WMTU 91.9 FM, curating Math Rock polyrhythms, Post-Punk riffs, Midwest Emo, and listener requests.</p>
+                        </div>
+                        <div class="forum-card-footer">
+                            <div class="forum-footer-author">
+                                <img src="images/guita.jpg" alt="Nomi" class="forum-author-pip">
+                                <span class="forum-author-name">WMTU Host</span>
+                            </div>
+                            <span class="forum-expand-prompt">View Gallery &rarr;</span>
+                        </div>
+                    </article>
+
+                    <!-- CARD 5: Frieren -->
+                    <article class="forum-rec-card" data-category="anime" onclick="openRecModal('frieren')" tabindex="0" role="button" aria-label="View Frieren recommendation details">
+                        <div class="forum-card-media">
+                            <img src="images/recs/frieren_spell.jpg" alt="Frieren Under Starlight" class="forum-card-img" loading="lazy">
+                            <div class="forum-media-overlay"></div>
+                            <div class="forum-badge-row">
+                                <span class="forum-badge-pin">★ MASTERWORK</span>
+                                <span class="forum-media-count">📷 3 Media</span>
+                            </div>
+                        </div>
+                        <div class="forum-card-content">
+                            <div class="forum-tags-row">
+                                <span class="forum-pill-tag">#Anime</span>
+                                <span class="forum-pill-tag">#Philosophical</span>
+                                <span class="forum-pill-tag">#Fantasy</span>
+                            </div>
+                            <h3 class="forum-card-title">Frieren: Beyond Journey's End (Sousou no Frieren)</h3>
+                            <p class="forum-card-desc">An elven mage's quiet pilgrimage exploring mortality, human perception of time, and the weight of ordinary memories formed across a thousand-year lifespan.</p>
+                        </div>
+                        <div class="forum-card-footer">
+                            <div class="forum-footer-author">
+                                <img src="images/guita.jpg" alt="Nomi" class="forum-author-pip">
+                                <span class="forum-author-name">Nomi's Pick</span>
+                            </div>
+                            <span class="forum-expand-prompt">View Gallery &rarr;</span>
+                        </div>
+                    </article>
+
+                    <!-- CARD 6: Open Kinematics -->
+                    <article class="forum-rec-card" data-category="engineering" onclick="openRecModal('robotics-kinematics')" tabindex="0" role="button" aria-label="View Robotics Kinematics recommendation details">
+                        <div class="forum-card-media">
+                            <img src="images/robotic_arm_schematic.jpg" alt="Robotic Arm Kinematics" class="forum-card-img" loading="lazy">
+                            <div class="forum-media-overlay"></div>
+                            <div class="forum-badge-row">
+                                <span class="forum-badge-pin">⚙ LAB PICKS</span>
+                                <span class="forum-media-count">📷 3 Media</span>
+                            </div>
+                        </div>
+                        <div class="forum-card-content">
+                            <div class="forum-tags-row">
+                                <span class="forum-pill-tag">#Robotics</span>
+                                <span class="forum-pill-tag">#Kinematics</span>
+                                <span class="forum-pill-tag">#STM32</span>
+                            </div>
+                            <h3 class="forum-card-title">Open Kinematics &amp; Applied Civil Robotics</h3>
+                            <p class="forum-card-desc">The fundamental robotics architecture, inverse kinematics mathematics, and embedded toolchains powering our 5-DOF articulated arm and automation research.</p>
+                        </div>
+                        <div class="forum-card-footer">
+                            <div class="forum-footer-author">
+                                <img src="images/guita.jpg" alt="Nomi" class="forum-author-pip">
+                                <span class="forum-author-name">Lab Research</span>
+                            </div>
+                            <span class="forum-expand-prompt">View Gallery &rarr;</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPANDED RECOMMENDATION POPUP MODAL (2-COLUMN CAROUSEL + METAS & QUICK CLICKS) -->
+        <div id="recs-modal-backdrop" class="recs-modal-backdrop" onclick="closeRecModal(event)" role="dialog" aria-modal="true" aria-labelledby="recs-modal-title">
+            <div class="recs-modal-dialog" onclick="event.stopPropagation()">
+                <!-- Close Button -->
+                <button type="button" class="recs-modal-close" onclick="closeRecModal()" aria-label="Close recommendation modal">&times;</button>
+
+                <!-- LEFT COLUMN: PHOTO GALLERY CAROUSEL WITH AUTO-SHUFFLE & TIKTOK/INSTAGRAM OVAL BUBBLES -->
+                <div class="recs-modal-gallery">
+                    <!-- Top HUD Bar: Autoplay status & counter -->
+                    <div class="gallery-top-bar">
+                        <button type="button" class="gallery-autoplay-badge" id="recs-autoplay-badge" onclick="toggleRecsAutoplay()" title="Click to toggle auto-shuffle">
+                            <span class="autoplay-pip"></span>
+                            <span id="recs-autoplay-label">Auto-Shuffling</span>
+                        </button>
+                        <span class="gallery-counter-badge" id="recs-counter-badge">1 / 3</span>
+                    </div>
+
+                    <!-- Main Viewport -->
+                    <div class="gallery-viewport" id="recs-gallery-viewport">
+                        <div class="gallery-slides-wrapper" id="recs-carousel-slides">
+                            <!-- Slides dynamically injected by recs.js -->
+                        </div>
+
+                        <!-- Arrow Navigation Controls -->
+                        <button type="button" class="gallery-nav-arrow prev" onclick="prevRecSlide()" aria-label="Previous image" title="Previous Image (←)">&#x2039;</button>
+                        <button type="button" class="gallery-nav-arrow next" onclick="nextRecSlide()" aria-label="Next image" title="Next Image (→)">&#x203A;</button>
+
+                        <!-- Hairline Auto-Shuffle Progress Bar -->
+                        <div class="gallery-progress-bar">
+                            <div class="gallery-progress-fill" id="recs-progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- TIKTOK / INSTAGRAM POST BUBBLE / OVAL INDICATORS -->
+                    <div class="gallery-bubble-nav" id="recs-carousel-bubbles" aria-label="Image indicators">
+                        <!-- Oval bubble buttons dynamically injected by recs.js -->
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: METAS, TITLE, DESCRIPTION & GO-TO BUTTONS -->
+                <div class="recs-modal-details">
+                    <div class="modal-detail-tag-row">
+                        <span class="modal-category-badge" id="recs-modal-category">Category</span>
+                        <span class="forum-badge-pin" id="recs-modal-badge">Badge</span>
+                    </div>
+
+                    <h2 class="modal-detail-title" id="recs-modal-title">Recommendation Title</h2>
+
+                    <!-- Tags -->
+                    <div class="forum-tags-row" id="recs-modal-tags"></div>
+
+                    <!-- Quick Click Information 2x2 Matrix -->
+                    <div class="modal-quick-info-grid">
+                        <div class="quick-info-block">
+                            <span class="quick-info-label">CREATOR / AUTHOR</span>
+                            <span class="quick-info-val" id="modal-info-creator">-</span>
+                        </div>
+                        <div class="quick-info-block">
+                            <span class="quick-info-label">FORMAT / MEDIUM</span>
+                            <span class="quick-info-val" id="modal-info-format">-</span>
+                        </div>
+                        <div class="quick-info-block">
+                            <span class="quick-info-label">GENRE / DOMAIN</span>
+                            <span class="quick-info-val" id="modal-info-genre">-</span>
+                        </div>
+                        <div class="quick-info-block">
+                            <span class="quick-info-label">STATUS / RUNTIME</span>
+                            <span class="quick-info-val" id="modal-info-status">-</span>
+                        </div>
+                    </div>
+
+                    <!-- "Why I Recommend This" Quote Block -->
+                    <div class="modal-recommendation-quote">
+                        <div class="rec-quote-heading">Why Nominoom Recommends This:</div>
+                        <p class="rec-quote-text" id="recs-modal-quote">Quote</p>
+                    </div>
+
+                    <!-- In-depth Description -->
+                    <div class="modal-full-desc" id="recs-modal-desc"></div>
+
+                    <!-- Go-To Quick Action Buttons -->
+                    <div class="modal-goto-row" id="recs-modal-buttons"></div>
+                </div>
+            </div>
+        </div>
+
         <!-- ========== WMTU RADIO / THE NOMI MOO SHOW SECTION ========== -->
         <section class="radio-section" id="radio">
             <div class="container">
@@ -723,6 +1020,8 @@
                     <a href="https://request.wmtu.fm" target="_blank" rel="noopener noreferrer">Song Requests</a>
                     <span class="footer-separator">•</span>
                     <a href="/gachiakuta/">Gachiakuta</a>
+                    <span class="footer-separator">•</span>
+                    <a href="#recs">Picks &amp; Recommends</a>
                 </div>
             </div>
         </footer>
@@ -732,6 +1031,7 @@
     <script src="javascrpt/main.js"></script>
     <script src="javascrpt/quadtree.js"></script>
     <script src="javascrpt/script.js"></script>
+    <script src="javascrpt/recs.js"></script>
 </body>
 
 </html>
