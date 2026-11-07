@@ -1,0 +1,23 @@
+{
+  "name": "nominoom-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website for Nominoom - Civil Engineering & Robotics Researcher",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nominoom/nominoom.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nominoom/nominoom.github.io/issues"
+  },
+  "homepage": "https://github.com/nominoom/nominoom.github.io#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
